@@ -12,7 +12,7 @@ namespace BoVoyage.WEB.Validators
 			if (value != null)
 			{
 				if (value is int x)
-					return x > 0;
+					return x >= 0;
 				else if (value is decimal y)
 					return y > 0.0m;
 				else
