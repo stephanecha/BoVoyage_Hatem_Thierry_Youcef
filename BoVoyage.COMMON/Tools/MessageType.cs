@@ -11,5 +11,7 @@
 		public const string MustBeintOrDecimal = "Le type doit être un int ou decimal.";
 
 		public const string MustBeOverZero = "Le champ {0} doit être supérieur à 0.";
+
+		public const string RegexLetterAndDashErrorMessage = "Le champ {0} doit être supérieur à 0.";
 	}
 }
