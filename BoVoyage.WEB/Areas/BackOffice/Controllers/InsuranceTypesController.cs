@@ -1,4 +1,7 @@
 ﻿using BoVoyage.BUSINESS.Services;
+using BoVoyage.DAL.Data;
+using BoVoyage.DAL.Entites;
+using BoVoyage.WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +16,14 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 
         public InsuranceTypesController()
         {
-
+            this.serviceInsuranceType = new ServiceInsuranceType(new DbDataInsuranceType());
         }
         // GET: BackOffice/InsuranceTypes
         public ActionResult Index()
         {
-            return View();
+            var assurance = serviceInsuranceType.GetAllInsuranceTypes();
+
+            return View("ListeAssurancesTypes",assurance);
         }
 
         // GET: BackOffice/InsuranceTypes/Details/5
@@ -35,13 +40,21 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 
         // POST: BackOffice/InsuranceTypes/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(InsuranceTypeViewModel insuranceTypeViewModel)
         {
             try
             {
+                if (ModelState.IsValid)
+                {
+                    var insurancetype = new InsuranceType() { Type = insuranceTypeViewModel.Type };
+                    this.serviceInsuranceType.AddInsuranceType(insurancetype);
+                    return RedirectToAction("Index");
+
+                }
+                else
+                    return View(insuranceTypeViewModel);
                 // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
             }
             catch
             {
@@ -74,7 +87,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         // GET: BackOffice/InsuranceTypes/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(this.serviceInsuranceType.GetInsuranceType(id));
         }
 
         // POST: BackOffice/InsuranceTypes/Delete/5
