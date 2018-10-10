@@ -26,5 +26,11 @@ namespace BoVoyage.WEB.Controllers
 
 			return View();
 		}
-	}
+        public ActionResult TestLayout()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+    }
 }
