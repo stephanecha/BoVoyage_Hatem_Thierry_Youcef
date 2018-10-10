@@ -1,31 +1,95 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model BoVoyage.WEB.Models.HomeIndexThreeSetsTravelsViewModel
+
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+@section GoodOffers
+{
+	@if (Model.LessExpensiveTravels.Count() > 0)
+	{
+		<div class="w3-container w3-margin-top">
+			<h3>Les 5 Voyages les moins chers du moment</h3>
+			<h6>Un tarif <strong>imbattable</strong>.</h6>
+		</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+		<div class="w3-row-padding w3-text-white w3-large">
+
+			<div class="w3-half w3-margin-bottom">
+				<div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.First().ID">
+					<img src="~/Content/Images/cinqueterre.jpg" alt="Cinque Terre" style="width:100%">
+					<span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.First().Destination.City</span>
+					<span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.First().PricePerPerson)</span>
+				</div>
+			</div>
+
+			<div class="w3-half">
+
+				<div class="w3-row-padding" style="margin:0 -16px">
+
+					<div class="w3-half w3-margin-bottom">
+						<div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(1).ID">
+							<img src="~/Content/Images/newyork2.jpg" alt="New York" style="width:100%">
+							<span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(1).Destination.City</span>
+							<span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(1).PricePerPerson)</span>
+						</div>
+					</div>
+
+					<div class="w3-half w3-margin-bottom">
+						<div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(2).ID">
+							<img src="~/Content/Images/sanfran.jpg" alt="New York" style="width:100%">
+							<span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(2).Destination.City</span>
+							<span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(2).PricePerPerson)</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="w3-row-padding" style="margin:0 -16px">
+
+					<div class="w3-half w3-margin-bottom">
+
+						<div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(3).ID">
+							<img src="~/Content/Images/pisa.jpg" alt="New York" style="width:100%">
+							<span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(3).Destination.City</span>
+							<span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(3).PricePerPerson)</span>
+						</div>
+					</div>
+
+					<div class="w3-half w3-margin-bottom">
+
+						<div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(4).ID">
+							<img src="~/Content/Images/paris.jpg" alt="New York" style="width:100%">
+							<span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(4).Destination.City</span>
+							<span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(4).PricePerPerson)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+}
+
+@section SoonOffers
+{
+	@if (Model.SoonDepartureTravels.Count() > 0)
+	{
+		<div class="w3-container">
+			<h3>Départ imminent</h3>
+			<p>Envie de prendre l'air?</p>
+		</div>
+		<div class="w3-row-padding">
+			@foreach (var item in @Model.SoonDepartureTravels)
+			{
+				<div class="w3-half w3-margin-bottom" id="travel-@item.ID">
+					<img src="~/Content/Images/ocean2.jpg" alt="@item.Destination.Country" style="width:100%">
+					<div class="w3-container w3-white">
+						<h3>@item.Destination.City, @item.Destination.Country</h3>
+						<p class="w3-opacity">Aller-Retour à @string.Format("{0:C}", @item.PricePerPerson)</p>
+						<p>@item.Destination.Description</p>
+						<button class="w3-button w3-margin-bottom w3-black">Achat</button>
+					</div>
+				</div>
+			}
+		</div>
+	}
+}

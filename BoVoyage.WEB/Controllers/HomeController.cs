@@ -1,16 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using BoVoyage.BUSINESS.Services;
+using BoVoyage.DAL.Data;
+using BoVoyage.WEB.Models;
 using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Controllers
 {
 	public class HomeController : Controller
 	{
+		private readonly ServiceTravel serviceTravel;
+
+		public HomeController()
+		{
+			this.serviceTravel = new ServiceTravel(new DbDataTravel());
+		}
+
 		public ActionResult Index()
 		{
-			return View();
+			ViewData["Title"] = "Accueil";
+
+			HomeIndexThreeSetsTravelsViewModel model = new HomeIndexThreeSetsTravelsViewModel()
+			{
+				LessExpensiveTravels = this.serviceTravel.GetLessExpensiveTravels(5),
+				SoonDepartureTravels = this.serviceTravel.GetSoonDepartureTravels(5)
+			};
+
+			return View(model);
 		}
 
 		public ActionResult About()
@@ -26,18 +40,19 @@ namespace BoVoyage.WEB.Controllers
 
 			return View();
 		}
-        public ActionResult TestLayout()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+		public ActionResult TestLayout()
+		{
+			ViewBag.Message = "Your contact page.";
 
-        public ActionResult TestLayoutBackOffice()
-        {
-            ViewBag.Message = "Your contact page.";
+			return View();
+		}
 
-            return View();
-        }
-    }
+		public ActionResult TestLayoutBackOffice()
+		{
+			ViewBag.Message = "Your contact page.";
+
+			return View();
+		}
+	}
 }

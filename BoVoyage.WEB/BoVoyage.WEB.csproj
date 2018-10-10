@@ -157,6 +157,7 @@
     <Compile Include="Models\Base\BaseModelViewModel.cs" />
     <Compile Include="Models\BookingFileViewModel.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\HomeIndexThreeSetsTravelsViewModel.cs" />
     <Compile Include="Models\InsuranceTypeViewModel.cs" />
     <Compile Include="Models\InsuranceViewModel.cs" />
     <Compile Include="Models\DestinationViewModel.cs" />
@@ -176,7 +177,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\maldives-1993704_1920.jpg" />
+    <Content Include="Content\Images\cinqueterre.jpg" />
+    <Content Include="Content\Images\maldives.jpg" />
+    <Content Include="Content\Images\mountains2.jpg" />
+    <Content Include="Content\Images\newyork2.jpg" />
+    <Content Include="Content\Images\ocean2.jpg" />
+    <Content Include="Content\Images\paris.jpg" />
+    <Content Include="Content\Images\pisa.jpg" />
+    <Content Include="Content\Images\sanfran.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -214,9 +222,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\BackOffice\Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -33,6 +33,7 @@ namespace BoVoyage.WEB.Models
 
 		[Required(ErrorMessage = MessageType.RequiredField)]
 		[Display(Name = "Prix par personne")]
+		[DisplayFormat(DataFormatString = "{0:C0}")]
 		[IntDecimalOverZero(ErrorMessage = MessageType.MustBeOverZero)]
 		[DataType(DataType.Currency)]
 		public decimal PricePerPerson { get; set; }
