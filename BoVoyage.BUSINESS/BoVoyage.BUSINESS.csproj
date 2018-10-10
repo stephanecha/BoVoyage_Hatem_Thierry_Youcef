@@ -42,12 +42,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Base\BaseServiceAuthentification.cs" />
+    <Compile Include="Services\ServiceBookingFile.cs" />
+    <Compile Include="Services\ServiceCustomer.cs" />
+    <Compile Include="Services\ServiceDestination.cs" />
+    <Compile Include="Services\ServiceInsurance.cs" />
+    <Compile Include="Services\ServiceInsuranceType.cs" />
+    <Compile Include="Services\ServiceSalesManager.cs" />
+    <Compile Include="Services\ServiceTravel.cs" />
+    <Compile Include="Services\ServiceTravelAgency.cs" />
+    <Compile Include="Services\ServiceTraveler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoVoyage.DAL\BoVoyage.DAL.csproj">
       <Project>{73e42b5a-3292-4c8f-ab3c-8c8b5fc55a7f}</Project>
       <Name>BoVoyage.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
