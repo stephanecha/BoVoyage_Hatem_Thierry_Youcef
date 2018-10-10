@@ -155,6 +155,7 @@
     </Compile>
     <Compile Include="Models\Base\BasePersonViewModel.cs" />
     <Compile Include="Models\Base\BaseModelViewModel.cs" />
+    <Compile Include="Models\BookingFileViewModel.cs" />
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\InsuranceTypeViewModel.cs" />
     <Compile Include="Models\InsuranceViewModel.cs" />

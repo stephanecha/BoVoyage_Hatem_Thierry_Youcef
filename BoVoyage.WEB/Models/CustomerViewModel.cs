@@ -1,5 +1,6 @@
 ﻿using BoVoyage.COMMON.Tools;
 using BoVoyage.DAL.Entites;
+using BoVoyage.WEB.Models.Base;
 using BoVoyage.WEB.Validators;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BoVoyage.WEB.Models
 {
-	public sealed class CustomerViewModel
+	public sealed class CustomerViewModel : BasePersonViewModel
 	{
 		[Display(Name = "Date d'inscription")]
 		[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
