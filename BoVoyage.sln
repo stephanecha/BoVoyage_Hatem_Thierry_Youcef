@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoVoyage.BUSINESS.Tests", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{04D52995-44E7-42FA-8A20-6F33D6DE6055}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoVoyage.COMMON", "BoVoyage.COMMON\BoVoyage.COMMON.csproj", "{EAA47857-F3B5-4329-8225-150E0EB0BB25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{EBFFB3CD-CB53-4826-A82E-D9BA4064BEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBFFB3CD-CB53-4826-A82E-D9BA4064BEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBFFB3CD-CB53-4826-A82E-D9BA4064BEF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAA47857-F3B5-4329-8225-150E0EB0BB25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAA47857-F3B5-4329-8225-150E0EB0BB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAA47857-F3B5-4329-8225-150E0EB0BB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAA47857-F3B5-4329-8225-150E0EB0BB25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
