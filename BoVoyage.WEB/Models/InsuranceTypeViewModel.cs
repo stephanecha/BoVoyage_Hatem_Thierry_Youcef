@@ -9,8 +9,8 @@ namespace BoVoyage.WEB.Models
 	public sealed class InsuranceTypeViewModel : BaseModelViewModel
 	{
 		[Required(ErrorMessage = MessageType.RequiredField)]
-		[StringLength(40, ErrorMessage = MessageType.StringLengthField)]
 		[Display(Name = "Type d'assurance")]
+		[StringLength(40, ErrorMessage = MessageType.StringLengthField)]
 		//TODO: Unique Type
 		public string Type { get; set; }
 
