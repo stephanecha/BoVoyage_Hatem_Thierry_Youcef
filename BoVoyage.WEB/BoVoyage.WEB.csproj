@@ -156,7 +156,9 @@
     <Compile Include="Models\Base\BaseModelViewModel.cs" />
     <Compile Include="Models\InsuranceTypeViewModel.cs" />
     <Compile Include="Models\InsuranceViewModel.cs" />
+    <Compile Include="Models\DestinationViewModel.cs" />
     <Compile Include="Models\TravelAgencyViewModel.cs" />
+    <Compile Include="Models\TravelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
