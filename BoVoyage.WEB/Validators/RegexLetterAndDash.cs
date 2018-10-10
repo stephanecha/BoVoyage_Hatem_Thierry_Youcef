@@ -1,4 +1,5 @@
 ﻿using BoVoyage.COMMON.Extensions;
+using BoVoyage.COMMON.Tools;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
@@ -25,7 +26,7 @@ namespace BoVoyage.WEB.Validators
 				}
 				else
 				{
-					throw new ArgumentException("Le type doit être une string");
+					throw new ArgumentException(MessageType.MustBeString);
 				}
 			}
 			return false;

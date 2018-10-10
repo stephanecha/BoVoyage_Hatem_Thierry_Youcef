@@ -1,4 +1,5 @@
-﻿using BoVoyage.WEB.Validators.Enum;
+﻿using BoVoyage.COMMON.Tools;
+using BoVoyage.WEB.Validators.Enum;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -26,7 +27,7 @@ namespace BoVoyage.WEB.Validators
 				}
 				else
 				{
-					throw new ArgumentException("Le type doit être un DateTime.");
+					throw new ArgumentException(MessageType.MustBeDateTime);
 				}
 			}
 			return false;
