@@ -163,6 +163,7 @@
     <Compile Include="Models\TravelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\DateBeforeAfterToday.cs" />
+    <Compile Include="Validators\DateComparaison.cs" />
     <Compile Include="Validators\Enum\CompareDateCase.cs" />
     <Compile Include="Validators\IntDecimalOverZero.cs" />
     <Compile Include="Validators\RegexLetterAndDash.cs" />
