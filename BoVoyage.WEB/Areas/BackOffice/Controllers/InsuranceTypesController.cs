@@ -87,7 +87,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         // GET: BackOffice/InsuranceTypes/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(this.serviceInsuranceType.GetInsuranceType(id));
         }
 
         // POST: BackOffice/InsuranceTypes/Delete/5
