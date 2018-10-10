@@ -9,5 +9,7 @@
 		public const string MustBeString = "Le type doit être une string.";
 		public const string MustBeDateTime = "Le type doit être un DateTime.";
 		public const string MustBeintOrDecimal = "Le type doit être un int ou decimal.";
+
+		public const string MustBeOverZero = "Le champ {0} doit être supérieur à 0.";
 	}
 }
