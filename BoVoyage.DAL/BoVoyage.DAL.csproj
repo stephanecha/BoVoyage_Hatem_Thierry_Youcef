@@ -89,6 +89,10 @@
     <Compile Include="Migrations\201810101027372_Init.Designer.cs">
       <DependentUpon>201810101027372_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810101638283_AllDescriptionsRequired.cs" />
+    <Compile Include="Migrations\201810101638283_AllDescriptionsRequired.Designer.cs">
+      <DependentUpon>201810101638283_AllDescriptionsRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\UniqueTravelAgencyName.cs" />
@@ -100,6 +104,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810101027372_Init.resx">
       <DependentUpon>201810101027372_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810101638283_AllDescriptionsRequired.resx">
+      <DependentUpon>201810101638283_AllDescriptionsRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -43,7 +43,15 @@ namespace BoVoyage.DAL.Migrations
 					City = "Shanghai",
 					Description = "Visite dans le monde moderne"
 				},
-				new Destination() { ID = 3, Continent = "Afrique", Country = "Togo", Area = "South", City = "Lome" },
+				new Destination()
+				{
+					ID = 3,
+					Continent = "Afrique",
+					Country = "Togo",
+					Area = "South",
+					City = "Lome",
+					Description = "Chez Marcel"
+				},
 				new Destination()
 				{
 					ID = 4,
