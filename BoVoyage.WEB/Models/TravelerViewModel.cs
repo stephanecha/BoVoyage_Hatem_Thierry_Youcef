@@ -1,4 +1,5 @@
-﻿using BoVoyage.DAL.Entites.Enum;
+﻿using BoVoyage.COMMON.Tools;
+using BoVoyage.DAL.Entites.Enum;
 using BoVoyage.WEB.Models.Base;
 using BoVoyage.WEB.Validators;
 using BoVoyage.WEB.Validators.Enum;
@@ -10,14 +11,15 @@ namespace BoVoyage.WEB.Models
 	public class TravelerViewModel : BasePersonViewModel
 	{
 		[Display(Name = "Numéro de participant")]
-		//TODO: how to do UniqueNb
-		public int SequentialNb { get; set; }
+		//TODO: how to do SequentialNb
+		public string SequentialNb { get; set; }
 
-		[Required(ErrorMessage = "Le champ {0} est obligatoire.")]
+		[Required(ErrorMessage = MessageType.RequiredField)]
 		[Display(Name = "Date de naissance")]
+		[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
 		[DataType(DataType.Date)]
 		[DateBeforeAfterToday(CompareDateCase.BEFORE, ErrorMessage = "Le champ {0} doit être avant aujourd'hui.")]
-		[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+		//TODO: Unique Civility, LastName, FirstName, Address and BirthDate
 		public DateTime BirthDate { get; set; }
 
 		public int Age
@@ -36,5 +38,8 @@ namespace BoVoyage.WEB.Models
 					return DiscountTypeEnum.NoDiscount;
 			}
 		}
+
+		[Display(Name = "Dossier de Réservation")]
+		public int BookingFileID { get; set; }
 	}
 }

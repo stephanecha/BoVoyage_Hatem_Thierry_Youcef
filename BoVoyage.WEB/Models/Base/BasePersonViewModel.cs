@@ -10,7 +10,6 @@ namespace BoVoyage.WEB.Models.Base
 		[Display(Name = "Civilité")]
 		[StringLength(20, ErrorMessage = MessageType.StringLengthField)]
 		[RegexLetterAndDash(ErrorMessage = MessageType.RegexLetterAndDashErrorMessage)]
-		//TODO: Unique Civility, LastName, FirstName and Address
 		public string Civility { get; set; }
 
 		[Required(ErrorMessage = MessageType.RequiredField)]
