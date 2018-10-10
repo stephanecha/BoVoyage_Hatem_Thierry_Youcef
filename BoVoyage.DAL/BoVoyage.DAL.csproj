@@ -48,11 +48,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entites\Authentification.cs" />
+    <Compile Include="Entites\Base\BaseModel.cs" />
+    <Compile Include="Entites\Base\BasePerson.cs" />
+    <Compile Include="Entites\BookingFile.cs" />
+    <Compile Include="Entites\Customer.cs" />
+    <Compile Include="Entites\Destination.cs" />
+    <Compile Include="Entites\Enum\BookingFileCancellationReason.cs" />
+    <Compile Include="Entites\Enum\BookingFileState.cs" />
+    <Compile Include="Entites\Enum\DiscountTypeEnum.cs" />
+    <Compile Include="Entites\Insurance.cs" />
+    <Compile Include="Entites\InsuranceType.cs" />
+    <Compile Include="Entites\SalesManager.cs" />
+    <Compile Include="Entites\Travel.cs" />
+    <Compile Include="Entites\TravelAgency.cs" />
+    <Compile Include="Entites\Traveler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Context\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
