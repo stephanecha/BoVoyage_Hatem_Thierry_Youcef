@@ -27,6 +27,11 @@ namespace BoVoyage.DAL.Data
 			return this.context.Travels.ToList();
 		}
 
+		public IEnumerable<Travel> GetAllTravelsWithDestinationsIncluded()
+		{
+			return this.context.Travels.Include("Destination").ToList();
+		}
+
 		public Travel GetTravel(int id)
 		{
 			return this.context.Travels.Single(x => x.ID == id);
