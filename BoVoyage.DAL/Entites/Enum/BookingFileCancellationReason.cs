@@ -2,7 +2,8 @@
 {
 	public enum BookingFileCancellationReason : byte
 	{
-		Customer = 1,
+		InsufficientFund = 1,
+		Customer,
 		InsufficientPlaces
 	}
 }
