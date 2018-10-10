@@ -12,6 +12,7 @@ namespace BoVoyage.DAL.Entites
 		[Column(TypeName = "Money")]
 		public decimal Price { get; set; }
 
+        //Description champ requis ??
 		public string Description { get; set; }
 
 		[Index("IX_PriceType", 2, IsUnique = true)]
