@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\DataContext.cs" />
     <Compile Include="Entites\Authentification.cs" />
     <Compile Include="Entites\Base\BaseModel.cs" />
     <Compile Include="Entites\Base\BasePerson.cs" />
@@ -63,6 +64,11 @@
     <Compile Include="Entites\Travel.cs" />
     <Compile Include="Entites\TravelAgency.cs" />
     <Compile Include="Entites\Traveler.cs" />
+    <Compile Include="Migrations\201810101027372_Init.cs" />
+    <Compile Include="Migrations\201810101027372_Init.Designer.cs">
+      <DependentUpon>201810101027372_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,7 +76,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Context\" />
+    <EmbeddedResource Include="Migrations\201810101027372_Init.resx">
+      <DependentUpon>201810101027372_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
