@@ -8,19 +8,24 @@ namespace BoVoyage.DAL.Entites
 	public sealed class Destination : BaseModel
 	{
 		[Required]
-		[Index("IX_ContinentCountryArea", 1, IsUnique = true)]
+		[Index("IX_ContinentCountryAreaCity", 1, IsUnique = true)]
 		[StringLength(40)]
 		public string Continent { get; set; }
 
 		[Required]
-		[Index("IX_ContinentCountryArea", 2, IsUnique = true)]
+		[Index("IX_ContinentCountryAreaCity", 2, IsUnique = true)]
 		[StringLength(40)]
 		public string Country { get; set; }
 
 		[Required]
-		[Index("IX_ContinentCountryArea", 3, IsUnique = true)]
+		[Index("IX_ContinentCountryAreaCity", 3, IsUnique = true)]
 		[StringLength(40)]
 		public string Area { get; set; }
+
+		[Required]
+		[Index("IX_ContinentCountryAreaCity", 4, IsUnique = true)]
+		[StringLength(40)]
+		public string City { get; set; }
 
 		public string Description { get; set; }
 
