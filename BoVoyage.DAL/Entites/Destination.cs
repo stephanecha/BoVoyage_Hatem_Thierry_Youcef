@@ -27,6 +27,8 @@ namespace BoVoyage.DAL.Entites
 		[StringLength(40)]
 		public string City { get; set; }
 
+		[Required]
+		[StringLength(500)]
 		public string Description { get; set; }
 
 		public ICollection<Travel> Travels { get; set; }

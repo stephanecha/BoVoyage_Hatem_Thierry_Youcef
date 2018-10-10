@@ -91,6 +91,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\UniqueTravelAgencyName.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -100,6 +101,12 @@
     <EmbeddedResource Include="Migrations\201810101027372_Init.resx">
       <DependentUpon>201810101027372_Init.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BoVoyage.COMMON\BoVoyage.COMMON.csproj">
+      <Project>{EAA47857-F3B5-4329-8225-150E0EB0BB25}</Project>
+      <Name>BoVoyage.COMMON</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

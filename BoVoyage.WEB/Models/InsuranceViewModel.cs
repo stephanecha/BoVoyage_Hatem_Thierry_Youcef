@@ -1,33 +1,28 @@
-﻿using BoVoyage.DAL.Entites;
+﻿using BoVoyage.COMMON.Tools;
 using BoVoyage.WEB.Models.Base;
-using System;
-using System.Collections.Generic;
+using BoVoyage.WEB.Validators;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Models
 {
-    public class InsuranceViewModel : BaseModelViewModel
-    {
-        [Required(ErrorMessage = "Le {0} est requis")]
-        [Display(Name ="Prix par personne")]
-        public decimal Price { get; set; }
+	public class InsuranceViewModel : BaseModelViewModel
+	{
+		[Required(ErrorMessage = MessageType.RequiredField)]
+		[Display(Name = "Prix par personne")]
+		[IntDecimalOverZero]
+		//TODO: Unique Price and InsuranceTypeID
+		public decimal Price { get; set; }
 
-        [Display(Name = "Description")]
-        [Required(ErrorMessage = "La {0} est requise")]
-        public string Description { get; set; }
+		[Required(ErrorMessage = MessageType.RequiredField)]
+		[Display(Name = "Description de l'assurance")]
+		[StringLength(250, ErrorMessage = MessageType.StringLengthField)]
+		[DataType(DataType.MultilineText)]
+		[AllowHtml]
+		public string Description { get; set; }
 
-        [Display(Name = "Type d'assurance")]
-        [Required(ErrorMessage = "Le {0} est requis")]
-        public int InsuranceTypeID { get; set; }
-
-
-
-        // A supprimer ??
-        public InsuranceType InsuranceType { get; set; }//FK
-
-        //public ICollection<BookingFile> BookingFiles { get; set; }
-    }
+		[Required(ErrorMessage = MessageType.RequiredField)]
+		[Display(Name = "Type d'assurance")]
+		public int InsuranceTypeID { get; set; }
+	}
 }
