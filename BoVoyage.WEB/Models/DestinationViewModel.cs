@@ -25,6 +25,6 @@ namespace BoVoyage.WEB.Models
 
         [Display(Name = "Destinations")]
         public ICollection<Travel> Travels { get; set; }
-
+// voir model depuis depot gitHub Archery dans les model
     }
 }
