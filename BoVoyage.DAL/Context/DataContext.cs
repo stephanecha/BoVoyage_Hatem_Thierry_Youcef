@@ -11,6 +11,12 @@ namespace BoVoyage.DAL.Context
 			this.Database.Log = s => Debug.Write(s);
 		}
 
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			Database.SetInitializer<DataContext>(null);
+			base.OnModelCreating(modelBuilder);
+		}
+
 		public DbSet<TravelAgency> TravelAgencies { get; set; }
 
 		public DbSet<Destination> Destinations { get; set; }
