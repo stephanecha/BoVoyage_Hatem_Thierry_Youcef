@@ -12,5 +12,10 @@ namespace BoVoyage.DAL.Entites
 		public DateTime CreatedOn { get; set; }
 
 		public ICollection<BookingFile> BookingFiles { get; set; }
+
+		public int AuthentificationID { get; set; }
+
+		[ForeignKey("AuthentificationID")]
+		public Authentification Authentification { get; set; }
 	}
 }
