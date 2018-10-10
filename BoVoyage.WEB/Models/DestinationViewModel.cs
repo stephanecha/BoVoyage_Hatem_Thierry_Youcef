@@ -37,7 +37,7 @@ namespace BoVoyage.WEB.Models
 		[AllowHtml]
 		public string Description { get; set; }
 
-		[Display(Name = "Voyages")]
+		[Display(Name = "Voyage(s)")]
 		public ICollection<Travel> Travels { get; set; }
 
 		// voir model depuis depot gitHub Archery dans les model

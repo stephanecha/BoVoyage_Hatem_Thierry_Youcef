@@ -15,7 +15,7 @@ namespace BoVoyage.WEB.Models
 		[UniqueTravelAgencyName(ErrorMessage = MessageType.OneFieldUnique)]
 		public string Name { get; set; }
 
-		[Display(Name = "Voyages")]
+		[Display(Name = "Voyage(s)")]
 		public ICollection<Travel> Travels { get; set; }
 	}
 }

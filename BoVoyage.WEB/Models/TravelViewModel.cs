@@ -45,6 +45,7 @@ namespace BoVoyage.WEB.Models
 		[Display(Name = "Destination")]
 		public int DestinationID { get; set; }
 
+		[Display(Name = "Dossier(s) de Réservation")]
 		public ICollection<BookingFile> BookingFiles { get; set; }
 	}
 }
