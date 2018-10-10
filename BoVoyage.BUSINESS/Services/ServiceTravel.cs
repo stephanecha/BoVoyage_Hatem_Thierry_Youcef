@@ -1,6 +1,7 @@
 ﻿using BoVoyage.DAL.Data.Interface;
 using BoVoyage.DAL.Entites;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BoVoyage.BUSINESS.Services
 {
@@ -38,6 +39,27 @@ namespace BoVoyage.BUSINESS.Services
 		public void DeleteTravel(int id)
 		{
 			this.dataTravel.DeleteTravel(id);
+		}
+
+		public IEnumerable<Travel> GetLessExpensiveTravels(int nb)
+		{
+			return this.dataTravel.GetAllTravelsWithDestinationsIncluded()
+									.Where(x => x.AvailablePlaces > 0)
+									.OrderByDescending(x => x.PricePerPerson)
+									.Take(nb);
+		}
+
+		public IEnumerable<Travel> GetSoonDepartureTravels(int nb)
+		{
+			return this.dataTravel.GetAllTravelsWithDestinationsIncluded()
+									.Where(x => x.AvailablePlaces > 0)
+									.OrderBy(x => x.DepartureDate)
+									.Take(nb);
+		}
+
+		public IEnumerable<Travel> GetTopCountriesTravels(int nb)
+		{
+			return this.dataTravel.GetAllTravelsWithDestinationsIncluded();
 		}
 	}
 }
