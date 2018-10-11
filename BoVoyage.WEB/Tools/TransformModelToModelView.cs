@@ -28,7 +28,8 @@ namespace BoVoyage.WEB.Tools
 				new InsuranceTypeViewModel()
 				{
 					ID = x.ID,
-					Type = x.Type
+					Type = x.Type,
+					Insurances = x.Insurances
 				}).ToList());
 
 			return allAssuranceTypesViewModel;
@@ -43,6 +44,17 @@ namespace BoVoyage.WEB.Tools
 			};
 
 			return insurancetype;
+		}
+
+		public static InsuranceTypeViewModel InsuranceTypeToModelView(InsuranceType assurancesType)
+		{
+			InsuranceTypeViewModel assuranceTypeViewModel = new InsuranceTypeViewModel()
+			{
+				ID = assurancesType.ID,
+				Type = assurancesType.Type
+			};
+
+			return assuranceTypeViewModel;
 		}
 	}
 }
