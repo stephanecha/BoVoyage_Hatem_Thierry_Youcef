@@ -17,7 +17,7 @@ namespace BoVoyage.DAL.Data
 
 		public void DeleteSalesManager(int id)
 		{
-			SalesManager salesManager = this.context.SalesManagers.Single(x => x.ID == id);
+			SalesManager salesManager = this.context.SalesManagers.SingleOrDefault(x => x.ID == id);
 			this.context.SalesManagers.Remove(salesManager);
 			this.context.SaveChanges();
 		}
@@ -29,7 +29,7 @@ namespace BoVoyage.DAL.Data
 
 		public SalesManager GetSalesManager(int id)
 		{
-			return this.context.SalesManagers.Single(x => x.ID == id);
+			return this.context.SalesManagers.SingleOrDefault(x => x.ID == id);
 		}
 
 		public void UpdateSalesManager(SalesManager salesManager)

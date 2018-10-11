@@ -16,14 +16,14 @@ namespace BoVoyage.DAL.Data
 
 		public void DeleteAuthentification(int id)
 		{
-			Authentification authentification = this.context.Authentifications.Single(x => x.ID == id);
+			Authentification authentification = this.context.Authentifications.SingleOrDefault(x => x.ID == id);
 			this.context.Authentifications.Remove(authentification);
 			this.context.SaveChanges();
 		}
 
 		public Authentification GetAuthentification(int id)
 		{
-			return this.context.Authentifications.Single(x => x.ID == id);
+			return this.context.Authentifications.SingleOrDefault(x => x.ID == id);
 		}
 
 		public void UpdateAuthentification(Authentification authentification)

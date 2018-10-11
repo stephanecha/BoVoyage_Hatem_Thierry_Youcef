@@ -17,7 +17,7 @@ namespace BoVoyage.DAL.Data
 
 		public void DeleteDestination(int id)
 		{
-			Destination destination = this.context.Destinations.Single(x => x.ID == id);
+			Destination destination = this.context.Destinations.SingleOrDefault(x => x.ID == id);
 			this.context.Destinations.Remove(destination);
 			this.context.SaveChanges();
 		}
@@ -29,7 +29,7 @@ namespace BoVoyage.DAL.Data
 
 		public Destination GetDestination(int id)
 		{
-			return this.context.Destinations.Single(x => x.ID == id);
+			return this.context.Destinations.SingleOrDefault(x => x.ID == id);
 		}
 
 		public void UpdateDestination(Destination destination)
