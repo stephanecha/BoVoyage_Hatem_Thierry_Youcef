@@ -151,6 +151,7 @@
     <Compile Include="Areas\BackOffice\Controllers\CustomersController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\InsuranceController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\InsuranceTypesController.cs" />
     <Compile Include="Areas\BackOffice\Models\DashboardIndexViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -207,6 +208,8 @@
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Destinations\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Destinations\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Insurance\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Insurance\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -218,14 +221,19 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\About.cshtml" />

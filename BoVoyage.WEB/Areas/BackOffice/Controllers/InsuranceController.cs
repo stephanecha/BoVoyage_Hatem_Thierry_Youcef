@@ -10,49 +10,70 @@ using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 {
-    public class InsuranceTypesController : Controller
+    public class InsuranceController : Controller
     {
+        private readonly ServiceInsurance serviceInsurance;
         private readonly ServiceInsuranceType serviceInsuranceType;
 
-        public InsuranceTypesController()
+        public InsuranceController()
         {
+            this.serviceInsurance = new ServiceInsurance(new DbDataInsurance());
             this.serviceInsuranceType = new ServiceInsuranceType(new DbDataInsuranceType());
+
         }
-        // GET: BackOffice/InsuranceTypes
+        // GET: BackOffice/Insurance
         public ActionResult Index()
         {
-            var assuranceTypes = serviceInsuranceType.GetAllInsuranceTypes();
-            
-            return View(assuranceTypes);
+
+            var assurance = serviceInsurance.GetAllInsurances();
+
+            List<InsuranceViewModel> assuranceViewModel = new List<InsuranceViewModel>(assurance.Select(x =>
+                new InsuranceViewModel(){
+                ID = x.ID,
+                Description=x.Description,
+                Price=x.Price,
+                InsuranceTypeID=x.InsuranceTypeID
+
+                }).ToList());
+
+            return View(assuranceViewModel);
         }
 
-        // GET: BackOffice/InsuranceTypes/Details/5
+        // GET: BackOffice/Insurance/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: BackOffice/InsuranceTypes/Create
+        // GET: BackOffice/Insurance/Create
         public ActionResult Create()
         {
+           
+            SelectList InsuranceTypesValues = new SelectList(serviceInsuranceType.GetAllInsuranceTypes(), "ID", "Type");
+            ViewBag.types = InsuranceTypesValues;
+            
             return View();
         }
 
-        // POST: BackOffice/InsuranceTypes/Create
+        // POST: BackOffice/Insurance/Create
         [HttpPost]
-        public ActionResult Create(InsuranceTypeViewModel insuranceTypeViewModel)
+        public ActionResult Create(InsuranceViewModel insuranceViewModel, int typeID)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var insurancetype = new InsuranceType() { Type = insuranceTypeViewModel.Type };
-                    this.serviceInsuranceType.AddInsuranceType(insurancetype);
+                    var insurance = new Insurance() {
+                        Price = insuranceViewModel.Price,
+                        Description = insuranceViewModel.Description,
+                        InsuranceTypeID = typeID
+                    };
+                    this.serviceInsurance.AddInsurance(insurance);
                     return RedirectToAction("Index");
 
                 }
                 else
-                    return View(insuranceTypeViewModel);
+                    return View(insuranceViewModel);
                 // TODO: Add insert logic here
 
             }
@@ -62,13 +83,13 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
             }
         }
 
-        // GET: BackOffice/InsuranceTypes/Edit/5
+        // GET: BackOffice/Insurance/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: BackOffice/InsuranceTypes/Edit/5
+        // POST: BackOffice/Insurance/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -84,13 +105,13 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
             }
         }
 
-        // GET: BackOffice/InsuranceTypes/Delete/5
+        // GET: BackOffice/Insurance/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(this.serviceInsuranceType.GetInsuranceType(id));
+            return View();
         }
 
-        // POST: BackOffice/InsuranceTypes/Delete/5
+        // POST: BackOffice/Insurance/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
