@@ -31,7 +31,7 @@ namespace BoVoyage.WEB.Models
 		public string City { get; set; }
 
 		[Required(ErrorMessage = MessageType.RequiredField)]
-		[Display(Name = "Description de la destination")]
+		[Display(Name = "Description")]
 		[StringLength(500, ErrorMessage = MessageType.StringLengthField)]
 		[DataType(DataType.MultilineText)]
 		[AllowHtml]
