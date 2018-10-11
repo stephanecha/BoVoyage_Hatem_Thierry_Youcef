@@ -1,0 +1,31 @@
+﻿@model BoVoyage.WEB.Models.TravelAgencyViewModel
+
+@{
+	ViewBag.Title = "Suppression d'agence de voyage";
+}
+
+<h2>Suppression d'agence de voyage</h2>
+
+<h3>Etes-vous sur de vouloir supprimer cette agence de voyage ?</h3>
+<div>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+	</dl>
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-actions no-color">
+			<input type="submit" value="Supprimer" class="btn btn-default" /> |
+			@Html.ActionLink("Retour à la liste", "Index")
+		</div>
+	}
+</div>

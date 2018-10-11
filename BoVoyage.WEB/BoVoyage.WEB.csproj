@@ -222,6 +222,8 @@
     <Content Include="Areas\BackOffice\Views\TravelAgencys\Create.cshtml" />
     <Content Include="Areas\BackOffice\Views\Travels\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Travels\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\TravelAgencys\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\TravelAgencys\Delete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
