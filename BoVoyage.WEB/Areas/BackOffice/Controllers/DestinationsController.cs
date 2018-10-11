@@ -1,12 +1,14 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
 using BoVoyage.DAL.Entites;
+using BoVoyage.WEB.Areas.BackOffice.Controllers.Base;
 using BoVoyage.WEB.Models;
+using BoVoyage.WEB.Tools;
 using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 {
-	public class DestinationsController : Controller
+	public class DestinationsController : BaseController
 	{
 		private readonly ServiceDestination serviceDestination;
 
@@ -18,15 +20,10 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 		// GET: BackOffice/Destinations
 		public ActionResult Index()
 		{
-			var destinationIndex = serviceDestination.GetAllDestinations();
-			return View(destinationIndex);
-		}
+			var destinationIndex = serviceDestination.GetAllDestinationsWithTravelsIncluded();
+			var destinationsViewModel = TransformModelDestination.DestinationToModelView(destinationIndex);
 
-		// GET: BackOffice/Destinations/Details/5
-		public ActionResult Details(int id)
-		{
-			var destinationDetails = serviceDestination.GetDestination(id);
-			return View(destinationDetails);
+			return View(destinationsViewModel);
 		}
 
 		// GET: BackOffice/Destinations/Create
@@ -37,29 +34,26 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 
 		// POST: BackOffice/Destinations/Create
 		[HttpPost]
-		public ActionResult Create(DestinationViewModel destinationViewModel)
+		public ActionResult Create([Bind(Exclude = "ID")] DestinationViewModel destinationViewModel)
 		{
 			try
 			{
 				if (ModelState.IsValid)
 				{
-					var destinationCreatePost = new Destination()
-					{
-						Continent = destinationViewModel.Continent,
-						Country = destinationViewModel.Country,
-						Area = destinationViewModel.Area,
-						City = destinationViewModel.City,
-						Description = destinationViewModel.Description
-					};
-					this.serviceDestination.AddDestination(destinationCreatePost);
+					Destination destination = TransformModelDestination.DestinationModelViewToModel(destinationViewModel);
+					this.serviceDestination.AddDestination(destination);
+					Display("Le nouveau type d'assurance a bien été enregistré !");
 					return RedirectToAction("Index");
 				}
 				else
+				{
 					return View(destinationViewModel);
+				}
 				// TODO: Add insert logic here
 			}
 			catch
 			{
+				Display("Erreur !", MessageType.ERROR);
 				return View();
 			}
 		}
@@ -67,25 +61,41 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 		// GET: BackOffice/Destinations/Edit/5
 		public ActionResult Edit(int id)
 		{
-			return View();
+			Destination destination = this.serviceDestination.GetDestination(id);
+			if (destination == null)
+				return HttpNotFound();
+			DestinationViewModel destinationViewModel = TransformModelDestination.DestinationToModelView(destination);
+
+			return View(destinationViewModel);
 		}
 
 		// POST: BackOffice/Destinations/Edit/5
 		[HttpPost]
-		public ActionResult Edit(int id, FormCollection collection)
+		public ActionResult Edit(int id, DestinationViewModel destinationViewModel)
 		{
 			try
 			{
+				if (destinationViewModel == null)
+					return HttpNotFound();
+				if (id != destinationViewModel.ID)
+					return HttpNotFound();
+
 				if (ModelState.IsValid)
 				{
+					Destination destination = TransformModelDestination.DestinationModelViewToModel(destinationViewModel);
+					this.serviceDestination.UpdateDestination(destination);
+					Display("La destination a bien été modifié !");
 					return RedirectToAction("Index");
 				}
 				else
-					return View();
+				{
+					return View(destinationViewModel);
+				}
 				// TODO: Add insert logic here
 			}
 			catch
 			{
+				Display("Erreur !", MessageType.ERROR);
 				return View();
 			}
 		}
@@ -93,24 +103,34 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 		// GET: BackOffice/Destinations/Delete/5
 		public ActionResult Delete(int id)
 		{
-			return View();
+			Destination destination = this.serviceDestination.GetDestination(id);
+			if (destination == null)
+				return HttpNotFound();
+
+			DestinationViewModel destinationViewModel = TransformModelDestination.DestinationToModelView(destination);
+
+			return View(destinationViewModel);
 		}
 
 		// POST: BackOffice/Destinations/Delete/5
 		[HttpPost]
-		public ActionResult Delete(int id, FormCollection collection)
+		public ActionResult Delete(int id, DestinationViewModel destinationViewModel)
 		{
 			try
-			{// TODO correction a faire
-			 //if ()
-				{
-				}
-				// TODO: Add delete logic here
+			{
+				if (destinationViewModel == null)
+					return HttpNotFound();
+				if (id != destinationViewModel.ID)
+					return HttpNotFound();
 
+				// TODO: Add delete logic here
+				this.serviceDestination.DeleteDestination(id);
+				Display("La destination a bien été supprimé !");
 				return RedirectToAction("Index");
 			}
 			catch
 			{
+				Display("Erreur !", MessageType.ERROR);
 				return View();
 			}
 		}

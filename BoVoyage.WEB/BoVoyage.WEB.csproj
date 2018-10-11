@@ -214,8 +214,6 @@
     <Content Include="Areas\BackOffice\Views\_ViewStart.cshtml" />
     <Content Include="Areas\BackOffice\Views\InsuranceTypes\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Destinations\Index.cshtml" />
-    <Content Include="Areas\BackOffice\Views\Destinations\Create.cshtml" />
     <Content Include="Areas\BackOffice\Views\Insurance\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Insurance\Create.cshtml" />
     <Content Include="Areas\BackOffice\Views\InsuranceTypes\Create.cshtml" />
@@ -230,6 +228,10 @@
     <Content Include="Areas\BackOffice\Views\TravelAgencys\Delete.cshtml" />
     <Content Include="Areas\BackOffice\Views\Insurance\Edit.cshtml" />
     <Content Include="Areas\BackOffice\Views\Insurance\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Destinations\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Destinations\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Destinations\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Destinations\Delete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />

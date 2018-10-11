@@ -1,59 +1,66 @@
-﻿@model IEnumerable<BoVoyage.DAL.Entites.Destination>
+﻿@model IEnumerable<BoVoyage.WEB.Models.DestinationViewModel>
 
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Liste des destinations";
 }
 
 <h2>Liste des destinations</h2>
-@*TODO mise en form*@
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+	@Html.ActionLink("Créer une nouvelle destination", "Create")
 </p>
-<table class="w3-table-all">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Continent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Area)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Continent)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Country)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Area)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.City)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Description)
+		</th>
+		<th></th>
+	</tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Continent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Area)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
-    }
-
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Continent)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Country)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Area)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.City)
+			</td>
+			<td>
+				@Html.Raw(item.Description)
+			</td>
+			@if (item.Travels.Count() > 0)
+			{
+				<td>
+					@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info disabled" }) |
+					@Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-info disabled" })
+				</td>
+			}
+			else
+			{
+				<td>
+					@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info" }) |
+					@Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-info" })
+				</td>
+			}
+		</tr>
+	}
 </table>

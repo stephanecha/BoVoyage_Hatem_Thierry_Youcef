@@ -1,0 +1,63 @@
+﻿@model BoVoyage.WEB.Models.DestinationViewModel
+
+@{
+	ViewBag.Title = "Suppression d'une destination";
+}
+
+<h2>Suppression d'une destination</h2>
+
+<h3>Etes-vous sur de vouloir supprimer cette destination ?</h3>
+<div>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Continent)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Continent)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Country)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Country)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Area)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Area)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.City)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.City)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Description)
+		</dt>
+
+		<dd>
+			@Html.Raw(Model.Description)
+		</dd>
+	</dl>
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-actions no-color">
+			<input type="submit" value="Supprimer" class="btn btn-default" /> |
+			@Html.ActionLink("Retour à la liste", "Index")
+		</div>
+	}
+</div>
