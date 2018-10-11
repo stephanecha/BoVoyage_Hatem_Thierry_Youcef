@@ -20,7 +20,12 @@ namespace BoVoyage.BUSINESS.Services
 			return this.dataTravel.GetAllTravels();
 		}
 
-		public Travel GetTravel(int id)
+        public IEnumerable<Travel> GetAllTravelsWithDestination()
+        {
+            return this.dataTravel.GetAllTravelsWithDestinationsIncluded();
+        }
+
+        public Travel GetTravel(int id)
 		{
 			return this.dataTravel.GetTravel(id);
 		}
@@ -71,5 +76,6 @@ namespace BoVoyage.BUSINESS.Services
                                     .OrderBy(x => x.DepartureDate);
                                     
         }
+        
     }
 }

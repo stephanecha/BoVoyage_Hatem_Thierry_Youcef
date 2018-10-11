@@ -42,11 +42,10 @@ namespace BoVoyage.WEB.Models
 		[Display(Name = "Agence de voyage")]
 		public int TravelAgencyID { get; set; }
 
-		[Required(ErrorMessage = MessageType.RequiredField)]
-		[Display(Name = "Destination")]
-		public int DestinationID { get; set; }
+        [Display(Name = "Destination")]
+        public Destination Destination { get; set; }
 
-		[Display(Name = "Dossier(s) de Réservation")]
-		public ICollection<BookingFile> BookingFiles { get; set; }
-	}
+        [Display(Name = "Dossier(s) de Réservation")]
+        public ICollection<BookingFile> BookingFiles { get; set; }
+    }
 }

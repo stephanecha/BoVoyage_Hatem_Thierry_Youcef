@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BoVoyage.WEB.Models.TravelAgencyViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste des agences de voyages</h2>
+
+<p>
+    @Html.ActionLink("Nouvelle Agence", "Create")
+</p>
+<table class="w3-table-all">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+          
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
