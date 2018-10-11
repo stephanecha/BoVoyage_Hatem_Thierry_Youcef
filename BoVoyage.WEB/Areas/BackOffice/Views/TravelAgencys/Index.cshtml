@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Liste des agences de voyages</h2>
 
 <p>
     @Html.ActionLink("Nouvelle Agence", "Create")
@@ -23,8 +23,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+          
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>

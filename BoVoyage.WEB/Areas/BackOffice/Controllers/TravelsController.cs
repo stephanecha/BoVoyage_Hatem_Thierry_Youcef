@@ -1,12 +1,13 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
+using BoVoyage.WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BoVoyage.WEB.Models
+namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 {
     public class TravelsController : Controller
     {
@@ -16,28 +17,26 @@ namespace BoVoyage.WEB.Models
         {
             this.serviceTravel = new ServiceTravel(new DbDataTravel());
         }
-
-        // GET: Travels
+        // GET: BackOffice/Travels
         public ActionResult Index()
         {
-            var travels = serviceTravel.GetAllTravels();
-            return View(travels);
+            var model = new TravelIndexSearchViewModel();
+            return View(model);
         }
 
-        // GET: Travels/Details/5
+        // GET: BackOffice/Travels/Details/5
         public ActionResult Details(int id)
         {
-            var travelsDetails = serviceTravel.GetTravel(id);
-            return View(travelsDetails);
+            return View();
         }
 
-        // GET: Travels/Create
+        // GET: BackOffice/Travels/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Travels/Create
+        // POST: BackOffice/Travels/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -53,13 +52,13 @@ namespace BoVoyage.WEB.Models
             }
         }
 
-        // GET: Travels/Edit/5
+        // GET: BackOffice/Travels/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Travels/Edit/5
+        // POST: BackOffice/Travels/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -75,13 +74,13 @@ namespace BoVoyage.WEB.Models
             }
         }
 
-        // GET: Travels/Delete/5
+        // GET: BackOffice/Travels/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Travels/Delete/5
+        // POST: BackOffice/Travels/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
