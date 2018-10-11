@@ -19,23 +19,23 @@
 <body class="w3-light-grey">
 
 	<!-- Navigation Bar -->
-    <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
-        <a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>Bo Voyages</b></a>
-        <a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Voyages</b></a>
-       
-        <div class="w3-dropdown-hover w3-text-red">
-            <button class="w3-button">Gestion Dossiers</button>
-            <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                <a href="@Url.Action("index", "Destinations")" class="w3-bar-item w3-button w3-text-red w3-hover-red">1</a>
-                <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">2</a>
-                <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">3</a>
-            </div>
-        </div>
+	<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+		<a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>Bo Voyages</b></a>
+		<a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Voyages</b></a>
+	   
+		<div class="w3-dropdown-hover w3-text-red">
+			<button class="w3-button">Gestion Dossiers</button>
+			<div class="w3-dropdown-content w3-bar-block w3-card-4">
+				<a href="@Url.Action("index", "Destinations")" class="w3-bar-item w3-button w3-text-red w3-hover-red">1</a>
+				<a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">2</a>
+				<a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">3</a>
+			</div>
+		</div>
 
-        <a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>About</b></a>
-        <a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Contact</b></a>
-        <a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Login</a>
-    </div>
+		<a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>About</b></a>
+		<a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Contact</b></a>
+		<a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Login</a>
+	</div>
 
 	<!-- Header -->
 	<header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
@@ -120,8 +120,8 @@
 	</div>
 
 	<!-- Footer -->
-	<footer class="w3-container w3-center w3-opacity w3-margin-bottom">
-		<h5>Find Us On</h5>
+	<footer class="w3-container w3-center w3-opacity w3-margin-bottom w3-black">
+		<h5>Retrouvez-nous sur</h5>
 		<div class="w3-xlarge w3-padding-16">
 			<i class="fa fa-facebook-official w3-hover-opacity"></i>
 			<i class="fa fa-instagram w3-hover-opacity"></i>
@@ -129,8 +129,18 @@
 			<i class="fa fa-pinterest-p w3-hover-opacity"></i>
 			<i class="fa fa-twitter w3-hover-opacity"></i>
 			<i class="fa fa-linkedin w3-hover-opacity"></i>
+			
+
 		</div>
-		<p>&copy; @DateTime.Now.Year</p>
+			<a href="#" class="w3-bar-item w3-button w3-text-red">FAQ</a>
+			<a href="#" class="w3-bar-item w3-button w3-text-red">Condition Générales de Vente</a>
+			<a href="#" class="w3-bar-item w3-button w3-text-red">Contact</a>
+			<a href="#" class="w3-bar-item w3-button w3-text-red">Mentions Légales</a>
+		<div>
+
+		</div>
+		<p>&copy; BoVoyage @DateTime.Now.Year</p>
+		
 	</footer>
 
 	@Scripts.Render("~/bundles/jquery")
