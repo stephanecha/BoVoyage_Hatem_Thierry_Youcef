@@ -148,6 +148,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\CustomersController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\InsuranceTypesController.cs" />
@@ -205,6 +206,7 @@
     <Content Include="Areas\BackOffice\Views\InsuranceTypes\Delete.cshtml" />
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Destinations\Index.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Destinations\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -234,7 +236,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\BackOffice\Models\" />
+    <Folder Include="Areas\BackOffice\Views\Customers\" />
+    <Folder Include="Areas\BackOffice\Views\Customer\" />
     <Folder Include="Views\Travels\" />
   </ItemGroup>
   <ItemGroup>
