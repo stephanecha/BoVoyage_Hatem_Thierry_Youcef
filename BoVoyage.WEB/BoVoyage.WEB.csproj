@@ -152,6 +152,7 @@
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\InsuranceTypesController.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\TravelAgencysController.cs" />
     <Compile Include="Areas\BackOffice\Models\DashboardIndexViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -237,7 +238,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\BackOffice\Views\Customers\" />
-    <Folder Include="Areas\BackOffice\Views\Customer\" />
     <Folder Include="Views\Travels\" />
   </ItemGroup>
   <ItemGroup>
