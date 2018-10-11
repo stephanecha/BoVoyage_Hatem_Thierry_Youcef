@@ -201,7 +201,7 @@
     </Content>
     <Content Include="Areas\BackOffice\Views\web.config" />
     <Content Include="Areas\BackOffice\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\BackOffice\Views\InsuranceTypes\ListeAssurancesTypes.cshtml" />
+    <Content Include="Areas\BackOffice\Views\InsuranceTypes\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\InsuranceTypes\Create.cshtml" />
     <Content Include="Areas\BackOffice\Views\InsuranceTypes\Delete.cshtml" />
     <Content Include="Areas\BackOffice\Views\Dashboard\Index.cshtml" />
