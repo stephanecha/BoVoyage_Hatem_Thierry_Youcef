@@ -1,33 +1,32 @@
-﻿@model IEnumerable<BoVoyage.DAL.Entites.InsuranceType>
+﻿@model IEnumerable<BoVoyage.WEB.Models.InsuranceTypeViewModel>
 
 @{
-    ViewBag.Title = "ListeAssurancesTypes";
+	ViewBag.Title = "Liste des types d'assurance";
 }
 
-<h2>ListeAssurancesTypes</h2>
+<h2>Liste des types d'assurance</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+	@Html.ActionLink("Créer un nouveau type d'assurance", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th></th>
-    </tr>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Type)
+		</th>
+		<th></th>
+	</tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Type)
+			</td>
+			<td>
+				@Html.ActionLink("Modifier", "Edit", new { id = item.ID }) |
+				@Html.ActionLink("Supprimer", "Delete", new { id = item.ID })
+			</td>
+		</tr>
+	}
 </table>
