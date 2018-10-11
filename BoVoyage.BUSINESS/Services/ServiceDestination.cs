@@ -18,6 +18,11 @@ namespace BoVoyage.BUSINESS.Services
 			return this.dataDestination.GetAllDestinations();
 		}
 
+		public IEnumerable<Destination> GetAllDestinationsWithTravelsIncluded()
+		{
+			return this.dataDestination.GetAllDestinationsWithTravelsIncluded();
+		}
+
 		public Destination GetDestination(int id)
 		{
 			return this.dataDestination.GetDestination(id);
