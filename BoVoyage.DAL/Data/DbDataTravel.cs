@@ -27,9 +27,9 @@ namespace BoVoyage.DAL.Data
 			return this.context.Travels.ToList();
 		}
 
-		public IEnumerable<Travel> GetAllTravelsWithDestinationsIncluded()
+		public IEnumerable<Travel> GetAllTravelsWithDestinationsIncluded()//include des agences
 		{
-			return this.context.Travels.Include("Destination").ToList();
+			return this.context.Travels.Include("Destination").Include("TravelAgency").ToList();
 		}
 
 		public Travel GetTravel(int id)

@@ -1,5 +1,6 @@
 ﻿using BoVoyage.DAL.Data.Interface;
 using BoVoyage.DAL.Entites;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -61,5 +62,14 @@ namespace BoVoyage.BUSINESS.Services
 		{
 			return this.dataTravel.GetAllTravelsWithDestinationsIncluded();
 		}
-	}
+
+        public IEnumerable<Travel> GetTravelsInLessThan15Days()
+        {
+            var today = DateTime.Now;
+            return this.dataTravel.GetAllTravelsWithDestinationsIncluded()
+                                    //.Where(x => x.DepartureDate < today.AddDays(15))
+                                    .OrderBy(x => x.DepartureDate);
+                                    
+        }
+    }
 }
