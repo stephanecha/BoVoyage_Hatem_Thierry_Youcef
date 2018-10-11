@@ -1,5 +1,7 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
+using BoVoyage.DAL.Entites;
+using BoVoyage.WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,17 +41,29 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 
         // POST: BackOffice/Customers/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CustomerViewModel customer)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    var customerCreatePost = new CustomerViewModel();
+                    {
+                        BirthDate = customerViewModel.BirthDate,
+                        BookingFiles = customerViewModel.BookingFiles
+                    }
+                // TODO revoir le customer car ne marche pour le moment
+                    this.serviceCustomer.AddCustomer(customer);
+                    return RedirectToAction("Index");
+                }
 
-                return RedirectToAction("Index");
+                else
+                    return View(ModelState);
+                // TODO: Add insert logic here
             }
             catch
             {
-                return View(collection);
+                return View();
             }
         }
 
