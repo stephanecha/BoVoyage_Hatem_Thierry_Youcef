@@ -1,4 +1,5 @@
 ﻿using BoVoyage.COMMON.Tools;
+using BoVoyage.DAL.Entites;
 using BoVoyage.WEB.Models.Base;
 using BoVoyage.WEB.Validators;
 using System.ComponentModel.DataAnnotations;
@@ -24,5 +25,9 @@ namespace BoVoyage.WEB.Models
 		[Required(ErrorMessage = MessageType.RequiredField)]
 		[Display(Name = "Type d'assurance")]
 		public int InsuranceTypeID { get; set; }
-	}
+
+        [Display(Name = "Type d'assurance")]
+        public InsuranceType InsuranceType { get; set; }
+
+    }
 }

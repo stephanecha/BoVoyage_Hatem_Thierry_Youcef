@@ -21,7 +21,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         }
         // GET: BackOffice/Dashboard
         public ActionResult Index()
-        {
+        {// TODO a reecrire
 
             //var model = new DashboardIndexViewModel();
             //model.TravelsInLessthan15Days = serviceTravel.GetAllTravels().Where(x => x.DepartureDate < DateTime.Today.AddDays(15));

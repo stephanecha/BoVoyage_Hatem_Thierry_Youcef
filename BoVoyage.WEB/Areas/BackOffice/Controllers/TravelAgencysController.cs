@@ -1,7 +1,6 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
 using BoVoyage.DAL.Entites;
-using BoVoyage.WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,70 +9,72 @@ using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 {
-    public class CustomersController : Controller
+    public class TravelAgencysController : Controller
     {
-        private readonly ServiceCustomer serviceCustomer;
 
-        public CustomersController()
+        private readonly ServiceTravelAgency serviceTravelAgency;
+
+        public TravelAgencysController()
         {
-            this.serviceCustomer = new ServiceCustomer(new DbDataAuthentification(), new DbDataCustomer());
+            this.serviceTravelAgency = new ServiceTravelAgency(new DbDataTravelAgency());
         }
 
-        // GET: BackOffice/Customers
+        // GET: BackOffice/TravelAgencys
         public ActionResult Index()
         {
-            var customerIndex = serviceCustomer.GetAllCustomers();
-            return View(customerIndex);
+            var travelAgencyIndex = serviceTravelAgency.GetAllTravelAgencies();
+            return View(travelAgencyIndex);
         }
 
-        // GET: BackOffice/Customers/Details/5
+        // GET: BackOffice/TravelAgencys/Details/5
         public ActionResult Details(int id)
         {
-            var customerDetails = serviceCustomer.GetCustomer(id);
-            return View(customerDetails);
+            var travelAgencyDetails = serviceTravelAgency.GetTravelAgency(id);
+            return View();
         }
 
-        // GET: BackOffice/Customers/Create
+        // GET: BackOffice/TravelAgencys/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: BackOffice/Customers/Create
+        // POST: BackOffice/TravelAgencys/Create
         [HttpPost]
-        public ActionResult Create(CustomerViewModel customer)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var customerCreatePost = new CustomerViewModel();
-                    {
-                        BirthDate = customerViewModel.BirthDate,
-                        BookingFiles = customerViewModel.BookingFiles
-                    }
-                // TODO revoir le customer car ne marche pour le moment
-                    this.serviceCustomer.AddCustomer(customer);
+                    var travelAgencyCreatePost = new TravelAgency()
+                    {//TODO a reprendre
+                        Name = travelAgencyViewModel.Name,
+                        Travels = travelAgencyViewModel.Travel
+                    };
+
+                    this.serviceTravelAgency.AddTravelAgency(travelAgencyCreatePost);
                     return RedirectToAction("Index");
                 }
-
                 else
-                    return View(ModelState);
+                    return View(travelAgencyViewModel);
                 // TODO: Add insert logic here
+
             }
             catch
+
             {
                 return View();
             }
         }
 
-        // GET: BackOffice/Customers/Edit/5
+        // GET: BackOffice/TravelAgencys/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: BackOffice/Customers/Edit/5
+        // POST: BackOffice/TravelAgencys/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -89,13 +90,13 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
             }
         }
 
-        // GET: BackOffice/Customers/Delete/5
+        // GET: BackOffice/TravelAgencys/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: BackOffice/Customers/Delete/5
+        // POST: BackOffice/TravelAgencys/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
