@@ -22,7 +22,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         public ActionResult Index()
         {
             var assurance = serviceInsuranceType.GetAllInsuranceTypes();
-
+            
             return View("ListeAssurancesTypes",assurance);
         }
 
