@@ -166,6 +166,7 @@
     <Compile Include="Models\DestinationViewModel.cs" />
     <Compile Include="Models\TravelAgencyViewModel.cs" />
     <Compile Include="Models\TravelerViewModel.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\TravelsController.cs" />
     <Compile Include="Models\TravelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\AgeOver.cs" />
@@ -233,6 +234,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\BackOffice\Models\" />
+    <Folder Include="Views\Travels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

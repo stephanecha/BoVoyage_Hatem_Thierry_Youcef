@@ -1,43 +1,43 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
-using BoVoyage.WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BoVoyage.WEB.Areas.BackOffice.Controllers
+namespace BoVoyage.WEB.Models
 {
-    public class DestinationsController : Controller
+    public class TravelsController : Controller
     {
-        private readonly ServiceDestination serviceDestination;
-        public DestinationsController()
+        private readonly ServiceTravel serviceTravel;
+
+        public TravelsController()
         {
-            this.serviceDestination = new ServiceDestination(new DbDataDestination());
+            this.serviceTravel = new ServiceTravel(new DbDataTravel());
         }
-        // GET: BackOffice/Destinations
+
+        // GET: Travels
         public ActionResult Index()
         {
-            var destination = serviceDestination.GetAllDestinations();
-            return View(destination);
+            var travels = serviceTravel.GetAllTravels();
+            return View(travels);
         }
 
-        // GET: BackOffice/Destinations/Details/5
+        // GET: Travels/Details/5
         public ActionResult Details(int id)
         {
-            //int destination = serviceDestination.?
-            return View(id);
+            var travelsDetails = serviceTravel.GetTravel(id);
+            return View(travelsDetails);
         }
 
-        // GET: BackOffice/Destinations/Create
+        // GET: Travels/Create
         public ActionResult Create()
         {
-            //var destination = serviceDestination.AddDestination();
             return View();
         }
 
-        // POST: BackOffice/Destinations/Create
+        // POST: Travels/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -53,13 +53,13 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
             }
         }
 
-        // GET: BackOffice/Destinations/Edit/5
+        // GET: Travels/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: BackOffice/Destinations/Edit/5
+        // POST: Travels/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -75,13 +75,13 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
             }
         }
 
-        // GET: BackOffice/Destinations/Delete/5
+        // GET: Travels/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: BackOffice/Destinations/Delete/5
+        // POST: Travels/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
