@@ -1,14 +1,15 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
 using BoVoyage.DAL.Entites;
+using BoVoyage.WEB.Areas.BackOffice.Controllers.Base;
 using BoVoyage.WEB.Models;
+using BoVoyage.WEB.Tools;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 {
-	public class InsuranceTypesController : Controller
+	public class InsuranceTypesController : BaseController
 	{
 		private readonly ServiceInsuranceType serviceInsuranceType;
 
@@ -21,21 +22,9 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 		public ActionResult Index()
 		{
 			IEnumerable<InsuranceType> allAssuranceTypes = serviceInsuranceType.GetAllInsuranceTypes();
-
-			List<InsuranceTypeViewModel> allAssuranceTypesViewModel = new List<InsuranceTypeViewModel>(
-				allAssuranceTypes.Select(x =>
-				new InsuranceTypeViewModel()
-				{
-					Type = x.Type
-				}).ToList());
+			List<InsuranceTypeViewModel> allAssuranceTypesViewModel = TransformModelToModelView.InsuranceTypeToModelView(allAssuranceTypes);
 
 			return View(allAssuranceTypesViewModel);
-		}
-
-		// GET: BackOffice/InsuranceTypes/Details/5
-		public ActionResult Details(int id)
-		{
-			return View();
 		}
 
 		// GET: BackOffice/InsuranceTypes/Create
@@ -52,12 +41,15 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 			{
 				if (ModelState.IsValid)
 				{
-					var insurancetype = new InsuranceType() { Type = insuranceTypeViewModel.Type };
+					InsuranceType insurancetype = TransformModelToModelView.InsuranceTypeModelViewToModel(insuranceTypeViewModel);
 					this.serviceInsuranceType.AddInsuranceType(insurancetype);
+					Display("Le nouveau type d'assurance a bien été enregistré !");
 					return RedirectToAction("Index");
 				}
 				else
+				{
 					return View(insuranceTypeViewModel);
+				}
 				// TODO: Add insert logic here
 			}
 			catch
