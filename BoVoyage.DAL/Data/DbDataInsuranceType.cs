@@ -17,7 +17,7 @@ namespace BoVoyage.DAL.Data
 
 		public void DeleteInsuranceType(int id)
 		{
-			InsuranceType insuranceType = this.context.InsuranceTypes.Single(x => x.ID == id);
+			InsuranceType insuranceType = this.context.InsuranceTypes.SingleOrDefault(x => x.ID == id);
 			this.context.InsuranceTypes.Remove(insuranceType);
 			this.context.SaveChanges();
 		}
@@ -34,7 +34,7 @@ namespace BoVoyage.DAL.Data
 
 		public InsuranceType GetInsuranceType(int id)
 		{
-			return this.context.InsuranceTypes.Single(x => x.ID == id);
+			return this.context.InsuranceTypes.SingleOrDefault(x => x.ID == id);
 		}
 
 		public void UpdateInsuranceType(InsuranceType insuranceType)
