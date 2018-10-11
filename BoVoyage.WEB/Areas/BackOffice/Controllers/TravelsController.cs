@@ -27,7 +27,7 @@ namespace BoVoyage.WEB.Models
         // GET: Travels/Details/5
         public ActionResult Details(int id)
         {
-            int travelsDetails = serviceTravel.GetTravel();
+            var travelsDetails = serviceTravel.GetTravel(id);
             return View(travelsDetails);
         }
 
