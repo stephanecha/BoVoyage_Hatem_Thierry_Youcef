@@ -1,4 +1,6 @@
 ﻿@model BoVoyage.WEB.Models.TravelIndexSearchViewModel
+@*@using BoVoyage.DAL.Entites;
+@model IEnumerable<BoVoyage.WEB.Models.TravelIndexSearchViewModel>*@
 
 @{
     ViewBag.Title = "Index";
@@ -94,20 +96,55 @@
     </div>
 }
 
-@foreach (var item in Model.TravelViewModel)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DestinationID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-        </td>
-    </tr>
-}
 
+
+<table class="w3-table-all">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PricePerPerson)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model.TravelViewModel)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePerPerson)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>*@
+        </tr>
+    }
+</table>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

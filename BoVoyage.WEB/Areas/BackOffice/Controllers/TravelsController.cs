@@ -1,6 +1,7 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
 using BoVoyage.WEB.Models;
+using BoVoyage.WEB.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,14 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         {
             this.serviceTravel = new ServiceTravel(new DbDataTravel());
         }
+
         // GET: BackOffice/Travels
         public ActionResult Index()
         {
-            var model = new TravelIndexSearchViewModel();
-            return View(model);
+            var travel = serviceTravel.GetAllTravelsWithDestination();
+
+            var travelViewModel = TransformModelToModelView.TravelToSearchModelView(travel);
+            return View(travelViewModel);
         }
 
         // GET: BackOffice/Travels/Details/5
