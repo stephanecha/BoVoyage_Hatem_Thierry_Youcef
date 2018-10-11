@@ -27,6 +27,11 @@ namespace BoVoyage.DAL.Data
 			return this.context.InsuranceTypes.ToList();
 		}
 
+		public IEnumerable<InsuranceType> GetAllInsuranceTypesWithInsurancesIncluded()
+		{
+			return this.context.InsuranceTypes.Include("Insurances").ToList();
+		}
+
 		public InsuranceType GetInsuranceType(int id)
 		{
 			return this.context.InsuranceTypes.Single(x => x.ID == id);

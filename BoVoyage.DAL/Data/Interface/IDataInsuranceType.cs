@@ -7,6 +7,8 @@ namespace BoVoyage.DAL.Data.Interface
 	{
 		IEnumerable<InsuranceType> GetAllInsuranceTypes();
 
+		IEnumerable<InsuranceType> GetAllInsuranceTypesWithInsurancesIncluded();
+
 		InsuranceType GetInsuranceType(int id);
 
 		void AddInsuranceType(InsuranceType insuranceType);
