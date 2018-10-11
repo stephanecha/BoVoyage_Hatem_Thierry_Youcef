@@ -26,14 +26,15 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         // GET: BackOffice/Destinations/Details/5
         public ActionResult Details(int id)
         {
-            //int detail = serviceDestination.Ge
-            return View();
+            //int destination = serviceDestination.?
+            return View(id);
         }
 
         // GET: BackOffice/Destinations/Create
         public ActionResult Create()
         {
-            return View();
+            //var destination = serviceDestination.AddDestination();
+            return View(destination);
         }
 
         // POST: BackOffice/Destinations/Create
