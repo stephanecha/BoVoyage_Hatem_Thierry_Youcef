@@ -18,14 +18,24 @@ namespace BoVoyage.BUSINESS.Services
 			return this.dataInsurance.GetAllInsurances();
 		}
 
-        public IEnumerable<Insurance> GetAllInsurancesWithTypesIncluded()
-        {
-            return this.dataInsurance.GetAllInsurancesWithTypesIncluded();
-        }
+		public IEnumerable<Insurance> GetAllInsurancesWithTypesIncluded()
+		{
+			return this.dataInsurance.GetAllInsurancesWithTypesIncluded();
+		}
 
-        public Insurance GetInsurance(int id)
+		public IEnumerable<Insurance> GetAllInsurancesWithTypesAndBookingFilesIncluded()
+		{
+			return this.dataInsurance.GetAllInsurancesWithTypesAndBookingFilesIncluded();
+		}
+
+		public Insurance GetInsurance(int id)
 		{
 			return this.dataInsurance.GetInsurance(id);
+		}
+
+		public Insurance GetInsuranceWithTypesIncluded(int id)
+		{
+			return this.dataInsurance.GetInsuranceWithTypesIncluded(id);
 		}
 
 		public void AddInsurance(Insurance insurance)
