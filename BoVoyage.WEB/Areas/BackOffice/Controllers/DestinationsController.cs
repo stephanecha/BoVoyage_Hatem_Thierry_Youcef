@@ -71,7 +71,6 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         // GET: BackOffice/Destinations/Edit/5
         public ActionResult Edit(int id)
         {
-            //var destinationEdit = serviceDestination.UpdateDestination(id);
             return View();
         }
 
@@ -81,10 +80,24 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         {
             try
             {
-                //var destinationEditCollection = serviceDestination.UpdateDestination(id,collection);
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    var destinationEditPost = new Destination()
+                    {// TODO correction a faire
+                        Continent = destinationEditPost.Continent,
+                        Country = destinationEditPost.Country,
+                        Area = destinationEditPost.Area,
+                        City = destinationEditPost.City,
+                        Description = destinationEditPost.Description
+                    };
+                    this.serviceDestination.AddDestination(destinationEditPost);
+                    return RedirectToAction("Index");
 
-                return RedirectToAction("Index");
+                }
+                else
+                    return View(destinationViewModel);
+                // TODO: Add insert logic here
+
             }
             catch
             {
@@ -103,7 +116,11 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
-            {
+            {// TODO correction a faire
+                //if ()
+                {
+
+                }
                 // TODO: Add delete logic here
 
                 return RedirectToAction("Index");
