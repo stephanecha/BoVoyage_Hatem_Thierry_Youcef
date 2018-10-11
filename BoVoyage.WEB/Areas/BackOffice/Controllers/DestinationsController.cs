@@ -34,7 +34,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         public ActionResult Create()
         {
             //var destination = serviceDestination.AddDestination();
-            return View(destination);
+            return View();
         }
 
         // POST: BackOffice/Destinations/Create
