@@ -98,7 +98,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 				{
 					Insurance insurance = TransformModelInsurance.InsuranceModelViewToModel(insuranceViewModel);
 					this.serviceInsurance.UpdateInsurance(insurance);
-					Display("Le type d'assurance a bien été modifié !");
+					Display("L'assurance a bien été modifié !");
 					return RedirectToAction("Index");
 				}
 				else
