@@ -17,7 +17,7 @@ namespace BoVoyage.DAL.Data
 
 		public void DeleteTravelAgency(int id)
 		{
-			TravelAgency travelAgency = this.context.TravelAgencies.Single(x => x.ID == id);
+			TravelAgency travelAgency = this.context.TravelAgencies.SingleOrDefault(x => x.ID == id);
 			this.context.TravelAgencies.Remove(travelAgency);
 			this.context.SaveChanges();
 		}
@@ -27,9 +27,14 @@ namespace BoVoyage.DAL.Data
 			return this.context.TravelAgencies.ToList();
 		}
 
+		public IEnumerable<TravelAgency> GetAllTravelAgenciesIncludeTravels()
+		{
+			return this.context.TravelAgencies.Include("Travels").ToList();
+		}
+
 		public TravelAgency GetTravelAgency(int id)
 		{
-			return this.context.TravelAgencies.Single(x => x.ID == id);
+			return this.context.TravelAgencies.SingleOrDefault(x => x.ID == id);
 		}
 
 		public void UpdateTravelAgency(TravelAgency travelAgency)
