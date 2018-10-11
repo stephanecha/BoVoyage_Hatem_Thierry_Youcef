@@ -84,18 +84,18 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
                 {
                     var destinationEditPost = new Destination()
                     {// TODO correction a faire
-                        Continent = destinationEditPost.Continent,
-                        Country = destinationEditPost.Country,
-                        Area = destinationEditPost.Area,
-                        City = destinationEditPost.City,
-                        Description = destinationEditPost.Description
+                        //Continent = destinationEditPost.Continent,
+                        //Country = destinationEditPost.Country,
+                        //Area = destinationEditPost.Area,
+                        //City = destinationEditPost.City,
+                        //Description = destinationEditPost.Description
                     };
                     this.serviceDestination.AddDestination(destinationEditPost);
                     return RedirectToAction("Index");
 
                 }
                 else
-                    return View(destinationViewModel);
+                    return View();
                 // TODO: Add insert logic here
 
             }

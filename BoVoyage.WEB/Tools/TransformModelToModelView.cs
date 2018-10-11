@@ -22,5 +22,18 @@ namespace BoVoyage.WEB.Tools
                 }).ToList());
             return assuranceViewModel;
         }
+
+        public static List<TravelAgencyViewModel> TravelAgencyToModelView(IEnumerable<TravelAgency> listAgences)
+        {
+            List<TravelAgencyViewModel> agencesViewModel = new List<TravelAgencyViewModel>(listAgences.Select(x =>
+                new TravelAgencyViewModel()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    Travels = x.Travels
+                   
+                }).ToList());
+            return agencesViewModel;
+        }
     }
 }

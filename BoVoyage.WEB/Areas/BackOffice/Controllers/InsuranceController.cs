@@ -27,6 +27,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         {
 
             var assurance = serviceInsurance.GetAllInsurancesWithTypesIncluded();
+
             var assuranceViewModel = TransformModelToModelView.InsuranceToModelView(assurance);
 
             return View(assuranceViewModel);

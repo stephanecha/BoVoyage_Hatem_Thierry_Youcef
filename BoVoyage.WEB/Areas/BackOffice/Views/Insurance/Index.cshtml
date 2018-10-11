@@ -4,12 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Liste des Assurances</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="w3-table-all">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Price)
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.InsuranceTypeID)
+            @Html.DisplayNameFor(model => model.InsuranceType)
         </th>
         <th></th>
     </tr>
@@ -32,7 +32,7 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.InsuranceTypeID)
+            @Html.DisplayFor(modelItem => item.InsuranceType)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

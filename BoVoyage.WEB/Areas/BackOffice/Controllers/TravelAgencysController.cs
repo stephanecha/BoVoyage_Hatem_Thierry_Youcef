@@ -1,6 +1,8 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
 using BoVoyage.DAL.Entites;
+using BoVoyage.WEB.Models;
+using BoVoyage.WEB.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +25,8 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         public ActionResult Index()
         {
             var travelAgencyIndex = serviceTravelAgency.GetAllTravelAgencies();
-            return View(travelAgencyIndex);
+            var travelAgencyViewModel = TransformModelToModelView.TravelAgencyToModelView(travelAgencyIndex);
+            return View(travelAgencyViewModel);
         }
 
         // GET: BackOffice/TravelAgencys/Details/5
@@ -41,23 +44,23 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 
         // POST: BackOffice/TravelAgencys/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(TravelAgencyViewModel travelAgencyViewModel)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var travelAgencyCreatePost = new TravelAgency()
+                    var travelAgency = new TravelAgency()
                     {//TODO a reprendre
-                        Name = travelAgencyViewModel.Name,
-                        Travels = travelAgencyViewModel.Travel
+                        Name = travelAgencyViewModel.Name
+                        
                     };
 
-                    this.serviceTravelAgency.AddTravelAgency(travelAgencyCreatePost);
+                    this.serviceTravelAgency.AddTravelAgency(travelAgency);
                     return RedirectToAction("Index");
                 }
                 else
-                    return View(travelAgencyViewModel);
+                    return View();
                 // TODO: Add insert logic here
 
             }

@@ -49,11 +49,11 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
                 {
                     var customerCreatePost = new CustomerViewModel();
                     {
-                        BirthDate = customerViewModel.BirthDate,
-                        BookingFiles = customerViewModel.BookingFiles
+                        //BirthDate = customerViewModel.BirthDate,
+                        //BookingFiles = customerViewModel.BookingFiles
                     }
                 // TODO revoir le customer car ne marche pour le moment
-                    this.serviceCustomer.AddCustomer(customer);
+                    //this.serviceCustomer.AddCustomer(customer);
                     return RedirectToAction("Index");
                 }
 
