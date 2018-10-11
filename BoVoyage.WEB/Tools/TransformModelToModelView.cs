@@ -69,6 +69,27 @@ namespace BoVoyage.WEB.Tools
 			return agencesViewModel;
 		}
 
+		public static TravelAgencyViewModel TravelAgencyToModelView(TravelAgency travelAgency)
+		{
+			TravelAgencyViewModel travelAgencyViewModel = new TravelAgencyViewModel()
+			{
+				ID = travelAgency.ID,
+				Name = travelAgency.Name,
+				Travels = travelAgency.Travels
+			};
+			return travelAgencyViewModel;
+		}
+
+		public static TravelAgency TravelAgencyModelViewToModel(TravelAgencyViewModel travelAgencyViewModel)
+		{
+			TravelAgency travelAgency = new TravelAgency()
+			{
+				ID = travelAgencyViewModel.ID,
+				Name = travelAgencyViewModel.Name
+			};
+			return travelAgency;
+		}
+
 		public static List<TravelViewModel> TravelToModelView(IEnumerable<Travel> listTravel)
 		{
 			List<TravelViewModel> agencesViewModel = new List<TravelViewModel>(listTravel.Select(x =>
