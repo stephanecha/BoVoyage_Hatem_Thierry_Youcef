@@ -11,15 +11,14 @@ using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 {
-    public class TravelAgencysController : Controller
-    {
+	public class TravelAgencysController : Controller
+	{
+		private readonly ServiceTravelAgency serviceTravelAgency;
 
-        private readonly ServiceTravelAgency serviceTravelAgency;
-
-        public TravelAgencysController()
-        {
-            this.serviceTravelAgency = new ServiceTravelAgency(new DbDataTravelAgency());
-        }
+		public TravelAgencysController()
+		{
+			this.serviceTravelAgency = new ServiceTravelAgency(new DbDataTravelAgency());
+		}
 
         // GET: BackOffice/TravelAgencys
         public ActionResult Index()
@@ -29,18 +28,18 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
             return View(travelAgencyViewModel);
         }
 
-        // GET: BackOffice/TravelAgencys/Details/5
-        public ActionResult Details(int id)
-        {
-            var travelAgencyDetails = serviceTravelAgency.GetTravelAgency(id);
-            return View();
-        }
+		// GET: BackOffice/TravelAgencys/Details/5
+		public ActionResult Details(int id)
+		{
+			var travelAgencyDetails = serviceTravelAgency.GetTravelAgency(id);
+			return View();
+		}
 
-        // GET: BackOffice/TravelAgencys/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+		// GET: BackOffice/TravelAgencys/Create
+		public ActionResult Create()
+		{
+			return View();
+		}
 
         // POST: BackOffice/TravelAgencys/Create
         [HttpPost]
@@ -66,53 +65,53 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
             }
             catch
 
-            {
-                return View();
-            }
-        }
+			{
+				return View();
+			}
+		}
 
-        // GET: BackOffice/TravelAgencys/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+		// GET: BackOffice/TravelAgencys/Edit/5
+		public ActionResult Edit(int id)
+		{
+			return View();
+		}
 
-        // POST: BackOffice/TravelAgencys/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
+		// POST: BackOffice/TravelAgencys/Edit/5
+		[HttpPost]
+		public ActionResult Edit(int id, FormCollection collection)
+		{
+			try
+			{
+				// TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+				return RedirectToAction("Index");
+			}
+			catch
+			{
+				return View();
+			}
+		}
 
-        // GET: BackOffice/TravelAgencys/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+		// GET: BackOffice/TravelAgencys/Delete/5
+		public ActionResult Delete(int id)
+		{
+			return View();
+		}
 
-        // POST: BackOffice/TravelAgencys/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+		// POST: BackOffice/TravelAgencys/Delete/5
+		[HttpPost]
+		public ActionResult Delete(int id, FormCollection collection)
+		{
+			try
+			{
+				// TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-    }
+				return RedirectToAction("Index");
+			}
+			catch
+			{
+				return View();
+			}
+		}
+	}
 }

@@ -148,6 +148,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\Base\BaseController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\CustomersController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DestinationsController.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Areas\BackOffice\Controllers\TravelsController.cs" />
     <Compile Include="Models\TravelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\Message.cs" />
     <Compile Include="Tools\TransformModelToModelView.cs" />
     <Compile Include="Validators\AgeOver.cs" />
     <Compile Include="Validators\DateBeforeAfterToday.cs" />
@@ -239,7 +241,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_PartialDisplayMessage.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

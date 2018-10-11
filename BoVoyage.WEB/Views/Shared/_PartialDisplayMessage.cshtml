@@ -1,0 +1,9 @@
+﻿@using BoVoyage.WEB.Tools;
+@{
+	Message message = TempData["MESSAGE"] as Message;
+}
+
+@if (message != null)
+{
+	<p class="alert alert-@message.MessageType">@message.Text</p>
+}
