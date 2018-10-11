@@ -23,10 +23,21 @@
 			<td>
 				@Html.DisplayFor(modelItem => item.Type)
 			</td>
-			<td>
-				@Html.ActionLink("Modifier", "Edit", new { id = item.ID }) |
-				@Html.ActionLink("Supprimer", "Delete", new { id = item.ID })
-			</td>
+
+			@if (item.Insurances.Count() > 0)
+			{
+				<td>
+					@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info disabled" }) |
+					@Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-info disabled" })
+				</td>
+			}
+			else
+			{
+				<td>
+					@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info" }) |
+					@Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-info" })
+				</td>
+			}
 		</tr>
 	}
 </table>

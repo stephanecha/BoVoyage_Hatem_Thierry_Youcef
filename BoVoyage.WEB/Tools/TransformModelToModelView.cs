@@ -28,7 +28,8 @@ namespace BoVoyage.WEB.Tools
 				new InsuranceTypeViewModel()
 				{
 					ID = x.ID,
-					Type = x.Type
+					Type = x.Type,
+					Insurances = x.Insurances
 				}).ToList());
 
 			return allAssuranceTypesViewModel;
@@ -44,6 +45,18 @@ namespace BoVoyage.WEB.Tools
 
 			return insurancetype;
 		}
+
+		public static InsuranceTypeViewModel InsuranceTypeToModelView(InsuranceType assurancesType)
+		{
+			InsuranceTypeViewModel assuranceTypeViewModel = new InsuranceTypeViewModel()
+			{
+				ID = assurancesType.ID,
+				Type = assurancesType.Type
+			};
+
+			return assuranceTypeViewModel;
+		}
+	}
         public static List<TravelAgencyViewModel> TravelAgencyToModelView(IEnumerable<TravelAgency> listAgences)
         {
             List<TravelAgencyViewModel> agencesViewModel = new List<TravelAgencyViewModel>(listAgences.Select(x =>
@@ -52,7 +65,6 @@ namespace BoVoyage.WEB.Tools
                     ID = x.ID,
                     Name = x.Name,
                     Travels = x.Travels
-
                 }).ToList());
             return agencesViewModel;
         }
@@ -68,8 +80,6 @@ namespace BoVoyage.WEB.Tools
                     PricePerPerson = x.PricePerPerson,
                     AvailablePlaces = x.AvailablePlaces,
                     Destination = x.Destination
-
-
                 }).ToList());
             return agencesViewModel;
         }
@@ -83,5 +93,4 @@ namespace BoVoyage.WEB.Tools
             return travelViewModel;
         }
     }
-   
 }
