@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BoVoyage.DAL.Entites.Travel>
+﻿@using BoVoyage.DAL.Entites;
+@model IEnumerable<BoVoyage.DAL.Entites.Travel>
 @{
     ViewBag.Title = "Index";
 }
@@ -28,6 +29,8 @@
                         
                     
                     @*<h3>@item.Destination.City</h3>*@
+                    
+                    <p>@item.Destination.City</p>
                     <p>@item.DepartureDate</p>
                     <p>@item.ReturnDate.ToString("ddd dd MMM yyyy ")</p>
                     <p class="text-center">

@@ -23,12 +23,14 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         public ActionResult Index()
         {
 
-            var model = new DashboardIndexViewModel();
-            model.TravelsInLessthan15Days = serviceTravel.GetAllTravels().Where(x => x.DepartureDate < DateTime.Today.AddDays(15));
-            //var travel = serviceTravel.GetAllTravels().Where(x => x.DepartureDate < (DateTime.Today.AddDays(15))).OrderBy(x => x.DepartureDate);
-            var travel = serviceTravel.GetAllTravels(); //.Where(x => x.DepartureDate < (DateTime.Today.AddDays(15)));
+            //var model = new DashboardIndexViewModel();
+            //model.TravelsInLessthan15Days = serviceTravel.GetAllTravels().Where(x => x.DepartureDate < DateTime.Today.AddDays(15));
+            ////var travel = serviceTravel.GetAllTravels().Where(x => x.DepartureDate < (DateTime.Today.AddDays(15))).OrderBy(x => x.DepartureDate);
+            //var travel = serviceTravel.GetAllTravels(); //.Where(x => x.DepartureDate < (DateTime.Today.AddDays(15)));
+            
+            var voyages = serviceTravel.GetTravelsInLessThan15Days();
 
-            return View(model);
+            return View(voyages);
         }
     }
 }
