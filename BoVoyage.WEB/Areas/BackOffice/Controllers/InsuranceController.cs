@@ -2,6 +2,7 @@
 using BoVoyage.DAL.Data;
 using BoVoyage.DAL.Entites;
 using BoVoyage.WEB.Models;
+using BoVoyage.WEB.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,16 +26,8 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
         public ActionResult Index()
         {
 
-            var assurance = serviceInsurance.GetAllInsurances();
-
-            List<InsuranceViewModel> assuranceViewModel = new List<InsuranceViewModel>(assurance.Select(x =>
-                new InsuranceViewModel(){
-                ID = x.ID,
-                Description=x.Description,
-                Price=x.Price,
-                InsuranceTypeID=x.InsuranceTypeID
-
-                }).ToList());
+            var assurance = serviceInsurance.GetAllInsurancesWithTypesIncluded();
+            var assuranceViewModel = TransformModelToModelView.InsuranceToModelView(assurance);
 
             return View(assuranceViewModel);
         }

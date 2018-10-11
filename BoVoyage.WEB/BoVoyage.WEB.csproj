@@ -171,6 +171,7 @@
     <Compile Include="Areas\BackOffice\Controllers\TravelsController.cs" />
     <Compile Include="Models\TravelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\TransformModelToModelView.cs" />
     <Compile Include="Validators\AgeOver.cs" />
     <Compile Include="Validators\DateBeforeAfterToday.cs" />
     <Compile Include="Validators\DateComparaison.cs" />
