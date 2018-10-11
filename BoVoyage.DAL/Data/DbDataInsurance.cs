@@ -17,7 +17,7 @@ namespace BoVoyage.DAL.Data
 
 		public void DeleteInsurance(int id)
 		{
-			Insurance insurance = this.context.Insurances.Single(x => x.ID == id);
+			Insurance insurance = this.context.Insurances.SingleOrDefault(x => x.ID == id);
 			this.context.Insurances.Remove(insurance);
 			this.context.SaveChanges();
 		}
@@ -27,14 +27,14 @@ namespace BoVoyage.DAL.Data
 			return this.context.Insurances.ToList();
 		}
 
-        public IEnumerable<Insurance> GetAllInsurancesWithTypesIncluded()
-        {
-            return this.context.Insurances.Include("InsuranceType").ToList();
-        }
-
-        public Insurance GetInsurance(int id)
+		public IEnumerable<Insurance> GetAllInsurancesWithTypesIncluded()
 		{
-			return this.context.Insurances.Single(x => x.ID == id);
+			return this.context.Insurances.Include("InsuranceType").ToList();
+		}
+
+		public Insurance GetInsurance(int id)
+		{
+			return this.context.Insurances.SingleOrDefault(x => x.ID == id);
 		}
 
 		public void UpdateInsurance(Insurance insurance)

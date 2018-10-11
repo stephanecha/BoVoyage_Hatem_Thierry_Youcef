@@ -17,7 +17,7 @@ namespace BoVoyage.DAL.Data
 
 		public void DeleteCustomer(int id)
 		{
-			Customer customer = this.context.Customers.Single(x => x.ID == id);
+			Customer customer = this.context.Customers.SingleOrDefault(x => x.ID == id);
 			this.context.Customers.Remove(customer);
 			this.context.SaveChanges();
 		}
@@ -29,7 +29,7 @@ namespace BoVoyage.DAL.Data
 
 		public Customer GetCustomer(int id)
 		{
-			return this.context.Customers.Single(x => x.ID == id);
+			return this.context.Customers.SingleOrDefault(x => x.ID == id);
 		}
 
 		public void UpdateCustomer(Customer customer)

@@ -1,10 +1,10 @@
-﻿@model BoVoyage.WEB.Models.InsuranceTypeViewModel
+﻿@model BoVoyage.WEB.Models.TravelAgencyViewModel
 
 @{
-	ViewBag.Title = "Modification de type d'assurance";
+	ViewBag.Title = "Modification d'une agence de voyage";
 }
 
-<h2>Modification de type d'assurance</h2>
+<h2>Modification d'une agence de voyage</h2>
 
 @using (Html.BeginForm())
 {
@@ -16,10 +16,10 @@
 		@Html.HiddenFor(model => model.ID)
 
 		<div class="form-group">
-			@Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+			@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
-				@Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+				@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
 			</div>
 		</div>
 

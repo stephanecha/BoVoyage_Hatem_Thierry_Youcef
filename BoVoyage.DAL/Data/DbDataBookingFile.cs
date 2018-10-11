@@ -17,7 +17,7 @@ namespace BoVoyage.DAL.Data
 
 		public void DeleteBookingFile(int id)
 		{
-			BookingFile bookingFile = this.context.BookingFiles.Single(x => x.ID == id);
+			BookingFile bookingFile = this.context.BookingFiles.SingleOrDefault(x => x.ID == id);
 			this.context.BookingFiles.Remove(bookingFile);
 			this.context.SaveChanges();
 		}
@@ -29,7 +29,7 @@ namespace BoVoyage.DAL.Data
 
 		public BookingFile GetBookingFile(int id)
 		{
-			return this.context.BookingFiles.Single(x => x.ID == id);
+			return this.context.BookingFiles.SingleOrDefault(x => x.ID == id);
 		}
 
 		public void UpdateBookingFile(BookingFile bookingFile)

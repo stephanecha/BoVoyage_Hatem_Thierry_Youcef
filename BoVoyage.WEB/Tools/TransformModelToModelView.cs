@@ -69,6 +69,27 @@ namespace BoVoyage.WEB.Tools
 			return agencesViewModel;
 		}
 
+		public static TravelAgencyViewModel TravelAgencyToModelView(TravelAgency travelAgency)
+		{
+			TravelAgencyViewModel travelAgencyViewModel = new TravelAgencyViewModel()
+			{
+				ID = travelAgency.ID,
+				Name = travelAgency.Name,
+				Travels = travelAgency.Travels
+			};
+			return travelAgencyViewModel;
+		}
+
+		public static TravelAgency TravelAgencyModelViewToModel(TravelAgencyViewModel travelAgencyViewModel)
+		{
+			TravelAgency travelAgency = new TravelAgency()
+			{
+				ID = travelAgencyViewModel.ID,
+				Name = travelAgencyViewModel.Name
+			};
+			return travelAgency;
+		}
+
 		public static List<TravelViewModel> TravelToModelView(IEnumerable<Travel> listTravel)
 		{
 			List<TravelViewModel> agencesViewModel = new List<TravelViewModel>(listTravel.Select(x =>
@@ -91,6 +112,22 @@ namespace BoVoyage.WEB.Tools
 				TravelViewModel = TravelToModelView(listTravel)
 			};
 			return travelViewModel;
+		}
+
+		public static List<DestinationViewModel> DestinationToModelView(IEnumerable<Destination> listDestinations)
+		{
+			List<DestinationViewModel> destinationToModelView = new List<DestinationViewModel>(listDestinations.Select(x =>
+				new DestinationViewModel()
+				{
+					ID = x.ID,
+					Description = x.Description,
+					City = x.City,
+					Area = x.Area,
+					Continent = x.Continent,
+					Country = x.Country,
+					Travels = x.Travels
+				}).ToList());
+			return destinationToModelView;
 		}
 	}
 }

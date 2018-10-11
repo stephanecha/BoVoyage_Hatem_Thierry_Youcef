@@ -157,6 +157,7 @@
     <Compile Include="Areas\BackOffice\Controllers\TravelAgencysController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\TravelsController.cs" />
     <Compile Include="Areas\BackOffice\Models\DashboardIndexViewModel.cs" />
+    <Compile Include="Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,6 +223,8 @@
     <Content Include="Areas\BackOffice\Views\TravelAgencys\Create.cshtml" />
     <Content Include="Areas\BackOffice\Views\Travels\Index.cshtml" />
     <Content Include="Areas\BackOffice\Views\Travels\Create.cshtml" />
+    <Content Include="Areas\BackOffice\Views\TravelAgencys\Edit.cshtml" />
+    <Content Include="Areas\BackOffice\Views\TravelAgencys\Delete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -253,6 +256,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\BackOffice\Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Destinations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
