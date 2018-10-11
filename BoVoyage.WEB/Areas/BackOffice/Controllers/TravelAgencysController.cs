@@ -21,7 +21,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 		public ActionResult Index()
 		{
 			var travelAgencyIndex = serviceTravelAgency.GetAllTravelAgenciesIncludeTravels();
-			var travelAgencyViewModel = TransformModelToModelView.TravelAgencyToModelView(travelAgencyIndex);
+			var travelAgencyViewModel = TransformModelTravelAgency.TravelAgencyToModelView(travelAgencyIndex);
 			return View(travelAgencyViewModel);
 		}
 
@@ -40,7 +40,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 			{
 				if (ModelState.IsValid)
 				{
-					TravelAgency travelAgency = TransformModelToModelView.TravelAgencyModelViewToModel(travelAgencyViewModel);
+					TravelAgency travelAgency = TransformModelTravelAgency.TravelAgencyModelViewToModel(travelAgencyViewModel);
 					this.serviceTravelAgency.AddTravelAgency(travelAgency);
 					Display("Le nouveau type d'assurance a bien été enregistré !");
 					return RedirectToAction("Index");
@@ -65,7 +65,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 			if (travelAgency == null)
 				return HttpNotFound();
 
-			TravelAgencyViewModel travelAgencyViewModel = TransformModelToModelView.TravelAgencyToModelView(travelAgency);
+			TravelAgencyViewModel travelAgencyViewModel = TransformModelTravelAgency.TravelAgencyToModelView(travelAgency);
 			return View(travelAgencyViewModel);
 		}
 
@@ -78,16 +78,19 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 				if (travelAgencyViewModel == null)
 					return HttpNotFound();
 				if (id != travelAgencyViewModel.ID)
+					return HttpNotFound();
+
+				if (ModelState.IsValid)
 				{
-					Display("Erreur !", MessageType.ERROR);
-					return View();
+					TravelAgency travelAgency = TransformModelTravelAgency.TravelAgencyModelViewToModel(travelAgencyViewModel);
+					this.serviceTravelAgency.UpdateTravelAgency(travelAgency);
+					Display("L'agence de voyage a bien été modifié !");
+					return RedirectToAction("Index");
 				}
-
-				TravelAgency travelAgency = TransformModelToModelView.TravelAgencyModelViewToModel(travelAgencyViewModel);
-				this.serviceTravelAgency.UpdateTravelAgency(travelAgency);
-				Display("L'agence de voyage a bien été modifié !");
-				return RedirectToAction("Index");
-
+				else
+				{
+					return View(travelAgencyViewModel);
+				}
 				// TODO: Add update logic here
 			}
 			catch
@@ -104,7 +107,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 			if (travelAgency == null)
 				return HttpNotFound();
 
-			TravelAgencyViewModel travelAgencyViewModel = TransformModelToModelView.TravelAgencyToModelView(travelAgency);
+			TravelAgencyViewModel travelAgencyViewModel = TransformModelTravelAgency.TravelAgencyToModelView(travelAgency);
 			return View(travelAgencyViewModel);
 		}
 
@@ -117,10 +120,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 				if (travelAgencyViewModel == null)
 					return HttpNotFound();
 				if (id != travelAgencyViewModel.ID)
-				{
-					Display("Erreur !", MessageType.ERROR);
-					return View();
-				}
+					return HttpNotFound();
 
 				this.serviceTravelAgency.DeleteTravelAgency(id);
 				Display("L'agence de voyage a bien été supprimé !");
