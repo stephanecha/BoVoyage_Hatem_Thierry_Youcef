@@ -27,6 +27,11 @@ namespace BoVoyage.DAL.Data
 			return this.context.Insurances.ToList();
 		}
 
+		public IEnumerable<Insurance> GetAllInsurancesWithTypesAndBookingFilesIncluded()
+		{
+			return this.context.Insurances.Include("InsuranceType").Include("BookingFiles").ToList();
+		}
+
 		public IEnumerable<Insurance> GetAllInsurancesWithTypesIncluded()
 		{
 			return this.context.Insurances.Include("InsuranceType").ToList();
@@ -35,6 +40,11 @@ namespace BoVoyage.DAL.Data
 		public Insurance GetInsurance(int id)
 		{
 			return this.context.Insurances.SingleOrDefault(x => x.ID == id);
+		}
+
+		public Insurance GetInsuranceWithTypesIncluded(int id)
+		{
+			return this.context.Insurances.Include("InsuranceType").SingleOrDefault(x => x.ID == id);
 		}
 
 		public void UpdateInsurance(Insurance insurance)
