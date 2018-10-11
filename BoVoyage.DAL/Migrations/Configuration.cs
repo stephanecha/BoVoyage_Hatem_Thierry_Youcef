@@ -67,7 +67,7 @@ namespace BoVoyage.DAL.Migrations
 				new Travel()
 				{
 					ID = 1,
-					DepartureDate = DateTime.Parse("2018/10/29"),
+					DepartureDate = DateTime.Parse("2018/10/21"),
 					ReturnDate = DateTime.Parse("2018/11/01"),
 					AvailablePlaces = 150,
 					PricePerPerson = 1999.0m,
@@ -97,7 +97,7 @@ namespace BoVoyage.DAL.Migrations
 				new Travel()
 				{
 					ID = 4,
-					DepartureDate = DateTime.Parse("2018/10/28"),
+					DepartureDate = DateTime.Parse("2018/10/24"),
 					ReturnDate = DateTime.Parse("2018/11/20"),
 					AvailablePlaces = 25,
 					PricePerPerson = 479.0m,
