@@ -64,6 +64,10 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 		public ActionResult Edit(int id)
 		{
 			InsuranceType insuranceType = this.serviceInsuranceType.GetInsuranceType(id);
+			if (insuranceType == null)
+			{
+				return HttpNotFound();
+			}
 			InsuranceTypeViewModel insuranceTypeViewModel = TransformModelToModelView.InsuranceTypeToModelView(insuranceType);
 			return View(insuranceTypeViewModel);
 		}
@@ -74,14 +78,17 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 		{
 			try
 			{
+				if (insuranceTypeViewModel == null)
+					return HttpNotFound();
 				if (id != insuranceTypeViewModel.ID)
 				{
 					Display("Erreur !", MessageType.ERROR);
 					return View();
 				}
+
 				InsuranceType insuranceType = TransformModelToModelView.InsuranceTypeModelViewToModel(insuranceTypeViewModel);
 				this.serviceInsuranceType.UpdateInsuranceType(insuranceType);
-				Display("Le nouveau type d'assurance a bien été modifié !");
+				Display("Le type d'assurance a bien été modifié !");
 				return RedirectToAction("Index");
 
 				// TODO: Add update logic here
@@ -97,6 +104,11 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 		public ActionResult Delete(int id)
 		{
 			InsuranceType insuranceType = this.serviceInsuranceType.GetInsuranceType(id);
+			if (insuranceType == null)
+			{
+				return HttpNotFound();
+			}
+
 			InsuranceTypeViewModel insuranceTypeViewModel = TransformModelToModelView.InsuranceTypeToModelView(insuranceType);
 			return View(insuranceTypeViewModel);
 		}
@@ -107,6 +119,8 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 		{
 			try
 			{
+				if (insuranceTypeViewModel == null)
+					return HttpNotFound();
 				if (id != insuranceTypeViewModel.ID)
 				{
 					Display("Erreur !", MessageType.ERROR);
