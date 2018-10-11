@@ -22,5 +22,37 @@ namespace BoVoyage.WEB.Tools
 				}).ToList());
 			return destinationToModelView;
 		}
+
+		public static Destination DestinationModelViewToModel(DestinationViewModel destinationToModelView)
+		{
+			Destination destination = new Destination()
+			{
+				ID = destinationToModelView.ID,
+				Continent = destinationToModelView.Continent,
+				Country = destinationToModelView.Country,
+				Area = destinationToModelView.Area,
+				City = destinationToModelView.City,
+				Description = destinationToModelView.Description,
+				Travels = destinationToModelView.Travels
+			};
+
+			return destination;
+		}
+
+		public static DestinationViewModel DestinationToModelView(Destination destination)
+		{
+			DestinationViewModel destinationToModelView = new DestinationViewModel()
+			{
+				ID = destination.ID,
+				Continent = destination.Continent,
+				Country = destination.Country,
+				Area = destination.Area,
+				City = destination.City,
+				Description = destination.Description,
+				Travels = destination.Travels
+			};
+
+			return destinationToModelView;
+		}
 	}
 }
