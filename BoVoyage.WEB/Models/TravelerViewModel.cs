@@ -18,7 +18,7 @@ namespace BoVoyage.WEB.Models
 		[Display(Name = "Date de naissance")]
 		[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
 		[DataType(DataType.Date)]
-		[DateBeforeAfterToday(CompareDateCase.BEFORE, ErrorMessage = "Le champ {0} doit être avant aujourd'hui.")]
+		[DateBeforeAfterToday(CompareCase.BELOW, ErrorMessage = "Le champ {0} doit être avant aujourd'hui.")]
 		//TODO: Unique Civility, LastName, FirstName, Address and BirthDate
 		public DateTime BirthDate { get; set; }
 
