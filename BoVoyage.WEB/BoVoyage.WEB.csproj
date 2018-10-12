@@ -148,6 +148,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\BackOffice\BackOfficeAreaRegistration.cs" />
+    <Compile Include="Areas\BackOffice\Controllers\AuthenticationController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\Base\BaseController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\CustomersController.cs" />
     <Compile Include="Areas\BackOffice\Controllers\DashboardController.cs" />
@@ -159,9 +160,11 @@
     <Compile Include="Areas\BackOffice\Models\DashboardIndexViewModel.cs" />
     <Compile Include="Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\AuthenticationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthenticationLoginViewModel.cs" />
     <Compile Include="Models\Base\BasePersonViewModel.cs" />
     <Compile Include="Models\Base\BaseModelViewModel.cs" />
     <Compile Include="Models\BookingFileViewModel.cs" />
@@ -170,6 +173,7 @@
     <Compile Include="Models\InsuranceTypeViewModel.cs" />
     <Compile Include="Models\InsuranceViewModel.cs" />
     <Compile Include="Models\DestinationViewModel.cs" />
+    <Compile Include="Models\SalesManagerViewModel.cs" />
     <Compile Include="Models\TravelAgencyViewModel.cs" />
     <Compile Include="Models\TravelerViewModel.cs" />
     <Compile Include="Models\TravelIndexSearchViewModel.cs" />
@@ -179,6 +183,7 @@
     <Compile Include="Tools\TransformModelDestination.cs" />
     <Compile Include="Tools\TransformModelInsuranceType.cs" />
     <Compile Include="Tools\TransformModelInsurance.cs" />
+    <Compile Include="Tools\TransformModelSalesManager.cs" />
     <Compile Include="Tools\TransformModelTravel.cs" />
     <Compile Include="Tools\TransformModelTravelAgency.cs" />
     <Compile Include="Validators\AgeOver.cs" />
@@ -250,6 +255,7 @@
     <Content Include="Contents\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Contents\bootstrap-datepicker.css.map" />
     <Content Include="Areas\BackOffice\Views\Travels\Delete.cshtml" />
+    <Content Include="Areas\BackOffice\Views\Authentication\Login.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
