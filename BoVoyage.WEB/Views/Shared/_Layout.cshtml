@@ -39,8 +39,6 @@
 
         @if (customer == null)
         {
-            //<a href="@Url.Action("Subscribe", "Customers", new { area="" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Inscription</a>
-
             <form class="navbar-form navbar-right" method="post" action="@Url.Action("login", "Authentification")">
                 @Html.AntiForgeryToken()
                 <div class="form-group">
@@ -59,7 +57,7 @@
                 <li><a href="@Url.Action("logout", "Authentification")">Bonjour @customer.LastName</a></li>
                 <li><a href="@Url.Action("logout", "Authentification")"><i class="glyphicon glyphicon-log-out"></i></a></li>
             </ul>
-            
+
         }
 
         <a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">BackOffice</a>
