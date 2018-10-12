@@ -1,6 +1,7 @@
 ﻿using BoVoyage.DAL.Data.Interface;
 using BoVoyage.DAL.Entites;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BoVoyage.BUSINESS.Services
 {
@@ -16,6 +17,11 @@ namespace BoVoyage.BUSINESS.Services
 		public IEnumerable<Destination> GetAllDestinations()
 		{
 			return this.dataDestination.GetAllDestinations();
+		}
+
+		public IEnumerable<Destination> GetAllDestinationsWithTravelsNotNull()
+		{
+			return this.dataDestination.GetAllDestinationsWithTravelsIncluded().Where(x => x.Travels.Count > 0);
 		}
 
 		public IEnumerable<Destination> GetAllDestinationsWithTravelsIncluded()
