@@ -27,14 +27,24 @@ namespace BoVoyage.DAL.Data
 			return this.context.Travels.ToList();
 		}
 
-		public IEnumerable<Travel> GetAllTravelsWithDestinationsIncluded()//include des agences
+		public IEnumerable<Travel> GetAllTravelsWithDestinationAndAgencyIncluded()
 		{
 			return this.context.Travels.Include("Destination").Include("TravelAgency").ToList();
+		}
+
+		public IEnumerable<Travel> GetAllTravelsWithDestinationIncluded()
+		{
+			return this.context.Travels.Include("Destination").ToList();
 		}
 
 		public Travel GetTravel(int id)
 		{
 			return this.context.Travels.SingleOrDefault(x => x.ID == id);
+		}
+
+		public Travel GetTravelWithDestinationAndAgencyIncluded(int id)
+		{
+			return this.context.Travels.Include("Destination").Include("TravelAgency").SingleOrDefault(x => x.ID == id);
 		}
 
 		public void UpdateTravel(Travel travel)

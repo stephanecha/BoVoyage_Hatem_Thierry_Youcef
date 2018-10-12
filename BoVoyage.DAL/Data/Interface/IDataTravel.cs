@@ -7,9 +7,13 @@ namespace BoVoyage.DAL.Data.Interface
 	{
 		IEnumerable<Travel> GetAllTravels();
 
-		IEnumerable<Travel> GetAllTravelsWithDestinationsIncluded();
+		IEnumerable<Travel> GetAllTravelsWithDestinationIncluded();
+
+		IEnumerable<Travel> GetAllTravelsWithDestinationAndAgencyIncluded();
 
 		Travel GetTravel(int id);
+
+		Travel GetTravelWithDestinationAndAgencyIncluded(int id);
 
 		void AddTravel(Travel travel);
 
