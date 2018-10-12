@@ -28,15 +28,6 @@
         <a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>BoVoyage</b></a>
         <a href="@Url.Action("index", "Destinations", new { area="" })" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Nos Destinations</b></a>
 
-        <div class="w3-dropdown-hover w3-text-red">
-            <button class="w3-button">Gestion Dossiers</button>
-            <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                <a href="@Url.Action("index", "Destinations")" class="w3-bar-item w3-button w3-text-red w3-hover-red">1</a>
-                <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">2</a>
-                <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">3</a>
-            </div>
-        </div>
-
         @if (customer == null)
         {
             <form class="navbar-form navbar-right" method="post" action="@Url.Action("login", "Authentification")">
