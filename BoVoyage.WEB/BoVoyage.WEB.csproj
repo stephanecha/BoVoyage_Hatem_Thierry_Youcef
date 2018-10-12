@@ -162,6 +162,7 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Filters\AuthenticationAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -175,6 +176,7 @@
     <Compile Include="Models\InsuranceTypeViewModel.cs" />
     <Compile Include="Models\InsuranceViewModel.cs" />
     <Compile Include="Models\DestinationViewModel.cs" />
+    <Compile Include="Models\ReservationViewModel.cs" />
     <Compile Include="Models\SalesManagerViewModel.cs" />
     <Compile Include="Models\TravelAgencyViewModel.cs" />
     <Compile Include="Models\TravelerViewModel.cs" />
@@ -541,6 +543,7 @@
     <Content Include="Views\Customers\Subscribe.cshtml" />
     <Content Include="Views\Destinations\Details.cshtml" />
     <Content Include="Views\Authentification\Login.cshtml" />
+    <Content Include="Views\Reservations\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,176 +1,153 @@
 ﻿@{
-    var customer = Session["CUSTOMER"] as BoVoyage.WEB.Models.CustomerViewModel;
+	var customer = Session["CUSTOMER"] as BoVoyage.WEB.Models.CustomerViewModel;
 }
 
 @{
-    Layout = null;
+	Layout = null;
 }
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BoVoyage | @ViewBag.Title</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    @Styles.Render("~/Content/bootstrap")
-    @Styles.Render("~/Content/bootstrap-theme")
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    @Styles.Render("~/Content/site")
-    @Scripts.Render("~/bundles/modernizr")
-    <link rel="icon" href="~/Content/Images/travelFlag.ico" />
+	<title>BoVoyage | @ViewBag.Title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	@Styles.Render("~/Content/bootstrap")
+	@Styles.Render("~/Content/bootstrap-theme")
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	@Styles.Render("~/Content/site")
+	@Scripts.Render("~/bundles/modernizr")
+	<link rel="icon" href="~/Content/Images/travelFlag.ico" />
 </head>
 <body class="w3-light-grey">
 
-    <!-- Navigation Bar -->
-    <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
-        <a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>Bo Voyages</b></a>
-        <a href="@Url.Action("index", "Destinations", new { area="" })" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Nos Destinations</b></a>
+	<!-- Navigation Bar -->
+	<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+		<a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>Bo Voyages</b></a>
+		<a href="@Url.Action("index", "Destinations", new { area="" })" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Nos Destinations</b></a>
 
-        <div class="w3-dropdown-hover w3-text-red">
-            <button class="w3-button">Gestion Dossiers</button>
-            <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                <a href="@Url.Action("index", "Destinations")" class="w3-bar-item w3-button w3-text-red w3-hover-red">1</a>
-                <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">2</a>
-                <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">3</a>
-            </div>
-        </div>
+		<div class="w3-dropdown-hover w3-text-red">
+			<button class="w3-button">Gestion Dossiers</button>
+			<div class="w3-dropdown-content w3-bar-block w3-card-4">
+				<a href="@Url.Action("index", "Destinations")" class="w3-bar-item w3-button w3-text-red w3-hover-red">1</a>
+				<a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">2</a>
+				<a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">3</a>
+			</div>
+		</div>
 
+		@if (customer == null)
+		{
+			//<a href="@Url.Action("Subscribe", "Customers", new { area="" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Inscription</a>
 
+			<form class="navbar-form navbar-right" method="post" action="@Url.Action("login", "Authentification")">
+				@Html.AntiForgeryToken()
+				<div class="form-group">
+					<input type="text" name="mail" class="form-control" placeholder="Login">
+					<input type="password" name="password" class="form-control" placeholder="Mot de passe" />
+				</div>
+				<button type="submit" class="btn btn-info">OK</button>
+			</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="@Url.Action("subscribe", "Customers")">Inscription</a></li>
+			</ul>
+		}
+		else
+		{
+			<ul class="nav navbar-nav navbar-right">
+				<li>Bonjour @customer.LastName </li>
+				<li><a href="@Url.Action("logout", "Authentification")"><i class="glyphicon glyphicon-log-out"></i></a></li>
+			</ul>
+		}
 
+		<a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">BackOffice</a>
+	</div>
 
-        @if (customer == null)
-        {
-            //<a href="@Url.Action("Subscribe", "Customers", new { area="" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Inscription</a>
+	<!-- Header -->
+	<header class="w3-display-container w3-content" style="max-width:1500px">
+		<img class="w3-image" src="~/Content/Images/maldives.jpg" alt="London" width="1500" height="700" style="opacity:0.4;">
+		<div class="w3-display-middle" style="width:65%">
 
-        <form class="navbar-form navbar-right" method="post" action="@Url.Action("login", "Authentification")">
-            @Html.AntiForgeryToken()
-            <div class="form-group">
-                <input type="text" name="mail" class="form-control" placeholder="Login">
-                <input type="password" name="password" class="form-control" placeholder="Mot de passe" />
-            </div>
-            <button type="submit" class="btn btn-info">OK</button>
-        </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="@Url.Action("subscribe", "Customers")">Inscription</a></li>
-            </ul>
-        }
-        else
-        {
-            <ul class="nav navbar-nav navbar-right">
-                <li>Bonjour @customer.LastName </li>
-                <li><a href="@Url.Action("logout", "Authentification")"><i class="glyphicon glyphicon-log-out"></i></a></li>
-            </ul>
-        }
+			<!-- ContentBox title -->
+			<div class="w3-bar w3-black">
+				<div class="w3-bar-item w3-button tablink w3-red">
+					<i class="fa fa-plane w3-margin-right"></i>@ViewBag.Title
+				</div>
+			</div>
 
+			<!-- ContentBox -->
+			<div id="Flight" class="w3-container w3-white w3-padding-16 myLink" style="display: block;">
+				<div class="w3-container">
+					@RenderSection("ContentBox", required: false)
+				</div>
+			</div>
+		</div>
+	</header>
 
+	<!-- Page content -->
+	<div class="w3-content" style="max-width:1100px;">
+		@Html.Partial("_PartialDisplayMessage")
+		@RenderBody()
 
-        <a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">BackOffice</a>
-    </div>
+		<!-- Good offers -->
+		@RenderSection("GoodOffers", required: false)
 
-    <!-- Header -->
-    <header class="w3-display-container w3-content" style="max-width:1500px">
-        <img class="w3-image" src="~/Content/Images/maldives.jpg" alt="London" width="1500" height="700" style="opacity:0.4;">
-        <div class="w3-display-middle" style="width:65%">
+		<!-- Explore Nature -->
+		@RenderSection("SoonOffers", required: false)
 
-            <!-- ContentBox title -->
-            <div class="w3-bar w3-black">
-                <div class="w3-bar-item w3-button tablink w3-red">
-                    <i class="fa fa-plane w3-margin-right"></i>@ViewBag.Title
-                </div>
-            </div>
+		<!-- Newsletter -->
+		@RenderSection("Newsletter", required: false)
 
-            <!-- ContentBox -->
-            <div id="Flight" class="w3-container w3-white w3-padding-16 myLink" style="display: block;">
-                <div class="w3-container">
-                    @RenderSection("ContentBox", required: false)
-                </div>
-            </div>
-        </div>
+		<!-- Personal mail booking -->
+		@RenderSection("MailBooking", required: false)
 
-    </header>
+		<!-- End page content -->
+	</div>
 
-    <!-- Page content -->
-    <div class="w3-content" style="max-width:1100px;">
-        @Html.Partial("_PartialDisplayMessage")
-        @RenderBody()
+	<!-- Footer -->
+	<div class="w3-container">
+		<footer class="w3-container w3-center w3-opacity w3-margin-bottom w3-black">
+			<h5>Retrouvez-nous sur</h5>
+			<div class="w3-xlarge w3-padding-16">
+				<i class="fa fa-facebook-official w3-hover-opacity"></i>
+				<i class="fa fa-instagram w3-hover-opacity"></i>
+				<i class="fa fa-snapchat w3-hover-opacity"></i>
+				<i class="fa fa-pinterest-p w3-hover-opacity"></i>
+				<i class="fa fa-twitter w3-hover-opacity"></i>
+				<i class="fa fa-linkedin w3-hover-opacity"></i>
+			</div>
 
-        <!-- Good offers -->
-        @RenderSection("GoodOffers", required: false)
+			<a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">FAQ</a>
+			<a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">Condition Générales de Vente</a>
+			<a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">Mentions Légales</a>
+			<a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red" title="contact">Contact</a>
+			<a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red" title="about">A-propos</a>
 
-        <!-- Explore Nature -->
-        @RenderSection("SoonOffers", required: false)
+			<p>&copy; BoVoyage @DateTime.Now.Year</p>
+		</footer>
+	</div>
 
-        <!-- Newsletter -->
-        <div class="w3-container">
-            <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
-                <h2>Récupérer nos meilleures offre en avance ?</h2>
-                <p>Abonnez vous à nôtre newsletter.</p>
-                <label>E-mail</label>
-                <input class="w3-input w3-border" type="text" placeholder="Your Email address">
-                <button type="button" class="w3-button w3-red w3-margin-top">S'abonner</button>
-            </div>
-        </div>
-
-        <!-- Personal mail booking -->
-        <div class="w3-container">
-            <h2>Une relation de confiance</h2>
-            <p>Confiez nous la réservation de vôtre prochain voyage !</p>
-            <form action="/action_page.php" target="_blank">
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
-                <p><button class="w3-button w3-black w3-padding-large" type="submit">ENVOI</button></p>
-            </form>
-        </div>
-
-        <!-- End page content -->
-    </div>
-
-    <!-- Footer -->
-    <div class="w3-container">
-        <footer class="w3-container w3-center w3-opacity w3-margin-bottom w3-black">
-            <h5>Retrouvez-nous sur</h5>
-            <div class="w3-xlarge w3-padding-16">
-                <i class="fa fa-facebook-official w3-hover-opacity"></i>
-                <i class="fa fa-instagram w3-hover-opacity"></i>
-                <i class="fa fa-snapchat w3-hover-opacity"></i>
-                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-                <i class="fa fa-twitter w3-hover-opacity"></i>
-                <i class="fa fa-linkedin w3-hover-opacity"></i>
-            </div>
-
-            <a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">FAQ</a>
-            <a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">Condition Générales de Vente</a>
-            <a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">Mentions Légales</a>
-            <a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red" title="contact">Contact</a>
-            <a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red" title="about">A-propos</a>
-
-            <p>&copy; BoVoyage @DateTime.Now.Year</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    <script>
-        // Tabs
-        function openLink(evt, linkName) {
-            var i, x, tablinks;
-            x = document.getElementsByClassName("myLink");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < x.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-            }
-            document.getElementById(linkName).style.display = "block";
-            evt.currentTarget.className += " w3-red";
-        }
-        // Click on the first tablink on load
-        document.getElementsByClassName("tablink")[0].click();
-    </script>
-    @RenderSection("Scripts", required: false)
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	<script>
+		// Tabs
+		function openLink(evt, linkName) {
+			var i, x, tablinks;
+			x = document.getElementsByClassName("myLink");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablink");
+			for (i = 0; i < x.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+			}
+			document.getElementById(linkName).style.display = "block";
+			evt.currentTarget.className += " w3-red";
+		}
+		// Click on the first tablink on load
+		document.getElementsByClassName("tablink")[0].click();
+	</script>
+	@RenderSection("Scripts", required: false)
 </body>
 </html>
