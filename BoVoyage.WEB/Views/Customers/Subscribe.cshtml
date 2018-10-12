@@ -10,21 +10,16 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 @Html.LabelFor(model => model.Civility, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-
                     @Html.RadioButtonFor(model => model.Civility, "M", new { htmlAttributes = new { @class = "form-control" } }) <label>M</label>
                     @Html.RadioButtonFor(model => model.Civility, "M", new { htmlAttributes = new { @class = "form-control" } }) <label>Mme</label>
                     @Html.RadioButtonFor(model => model.Civility, "M", new { htmlAttributes = new { @class = "form-control" } }) <label>Autre</label>
-                    @*@Html.EditorFor(model => model.Civility, new { htmlAttributes = new { @class = "form-control" } })*@
                     @Html.ValidationMessageFor(model => model.Civility, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-
 
             <div class="form-group">
                 @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -57,14 +52,6 @@
                     @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            @*<div class="form-group">
-                    @Html.LabelFor(model => model.CreatedOn, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.CreatedOn, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.CreatedOn, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
