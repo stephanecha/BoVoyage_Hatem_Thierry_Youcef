@@ -1,5 +1,7 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
+using BoVoyage.DAL.Entites;
+using BoVoyage.WEB.Models;
 using BoVoyage.WEB.Tools;
 using System.Web.Mvc;
 
@@ -28,7 +30,13 @@ namespace BoVoyage.WEB.Controllers
 		// GET: Destinations/Details/5
 		public ActionResult Details(int id)
 		{
-			return View();
+			Destination destination = this.serviceDestination.GetDestinationWithTravelsIncluded(id);
+			if (destination == null)
+				return HttpNotFound();
+
+			DestinationViewModel destinationViewModel = TransformModelDestination.DestinationToModelView(destination);
+
+			return View(destinationViewModel);
 		}
 
 		// GET: Destinations/Create
