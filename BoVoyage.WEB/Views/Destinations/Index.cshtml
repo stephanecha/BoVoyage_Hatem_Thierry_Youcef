@@ -1,57 +1,65 @@
 ﻿@model IEnumerable<BoVoyage.WEB.Models.DestinationViewModel>
 
 @{
-	ViewBag.Title = "Index";
+    ViewBag.Title = "Nos Destinations";
 }
 
-<h2>Index</h2>
+@section ContentBox{
+    <h2>Nos destinations du moment</h2>
 
-<p>
-	@Html.ActionLink("Create New", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
-<table class="table">
-	<tr>
-		<th>
-			@Html.DisplayNameFor(model => model.Continent)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Country)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Area)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.City)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Description)
-		</th>
-		<th></th>
-	</tr>
+    <table class="table w3-hoverable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Continent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
 
-	@foreach (var item in Model)
-	{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.Continent)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Country)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Area)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.City)
-				<img src="~/Content/Images/cinqueterre.jpg" alt="Cinque Terre" style="width:20%">
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Description)
-			</td>
-			<td>
-				@Html.ActionLink("Voir les voyages disponibles", "Details", new { id = item.ID })
-			</td>
-		</tr>
-	}
-</table>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Continent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+
+                    <img src="~/Content/Images/cinqueterre.jpg" alt="Cinque Terre" style="width:100px">
+                </td>
+                <td>
+                    @Html.ActionLink("Voir les voyages disponibles", "Details", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </table>
+    }
