@@ -38,18 +38,22 @@
     </div>
 
     <!-- Header -->
-    <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
-        <img class="w3-image" src="~/Content/Images/maldives.jpg" alt="London" width="1500" height="700">
+    <header class="w3-display-container w3-content" style="max-width:1500px">
+        <img class="w3-image" src="~/Content/Images/maldives.jpg" alt="London" width="1500" height="700" style="opacity:0.4;">
         <div class="w3-display-middle" style="width:65%">
+
+            <!-- ContentBox title -->
             <div class="w3-bar w3-black">
-                <button class="w3-bar-item w3-button tablink"><i class="fa fa-plane w3-margin-right"></i>@ViewBag.Title</button>
+                <div class="w3-bar-item w3-button tablink w3-red">
+                    <i class="fa fa-plane w3-margin-right"></i>@ViewBag.Title
+                </div>
             </div>
 
-            <!-- Tabs -->
-            <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
-
-                @RenderSection("Contenu", required: false)  @*contenu des pages/////////////////////////////////////////////////////////////*@
-
+            <!-- ContentBox -->
+            <div id="Flight" class="w3-container w3-white w3-padding-16 myLink" style="display: block;">
+                <div class="w3-container">
+                    @RenderSection("ContentBox", required: false)
+                </div>
             </div>
         </div>
 
@@ -88,81 +92,6 @@
                 <p><button class="w3-button w3-black w3-padding-large" type="submit">ENVOI</button></p>
             </form>
         </div>
-
-        <!-- Garantie carousel // TODO a faire fonctionner -->
-        @*<div class="w3-container">
-            <div class="ribbon_carousel ui-carousel od-home-ribbon-wrapper" data-start-with-random="false" data-content-type="value_proposition" data-indicator-char="" data-skip-enhance="true">
-                <div class="od-ribbon-title-wrapper">
-                    <div class="od-ribbon-title">
-                        <span class="line"></span>
-                        <span class="title">Pourquoi réserver sur BoVoyage ?</span>
-                        <span class="line"></span>
-                    </div>
-                </div>
-                <div class="carousel_slides od-ribbon-carousel-slides">
-                    <div class="carousel_slide od-ribbon-carousel-slide">
-                        <div class="od-home-ribbon-table">
-                            <div class="od-home-ribbon-cell">
-                                <div class="od-home-ribbon-cell-image benefit1"></div>
-
-                                <h3 class="od-home-ribbon-cell-title">Garantie du prix BoVoyage </h3>
-                                <div class="od-home-ribbon-cell-txt">
-                                    <a title="DES PRIX BAS GARANTIS TOUTE L’ANNÉE !" href="https://www.bovoyage.com/" target="_blank">
-                                        <span style="color: #A5CD38;">Bénéficiez du meilleur prix</span>
-                                    </a> à chaque fois que vous réservez. Si dans les 24 heures suivant votre réservation vous trouvez un tarif moins élevé ailleurs, veuillez nous contacter.
-                                </div>
-                            </div>
-                            <div class="od-home-ribbon-cell">
-                                <div class="od-home-ribbon-cell-image benefit2"> </div>
-
-                                <h3 class="od-home-ribbon-cell-title">Découvrez Bo Prime </h3>
-                                <div class="od-home-ribbon-cell-txt">
-                                    La solution pour payer chaque voyage encore moins cher. Profitez de réductions dès le premier achat sur tous les voyages, toute l'année. Envolez-vous où, quand et avec qui vous avez envie.
-                                    <a class="odf-link" href="https://www.Bovoyage.com/">En savoir plus.</a>
-                                </div>
-                            </div>
-                            <div class="od-home-ribbon-cell">
-                                <div class="od-home-ribbon-cell-image benefit3"></div>
-                                <h3 class="od-home-ribbon-cell-title">
-                                    Puis-je vous apporter
-                                    mon aide ?<br>
-                                </h3>
-                                <div class="od-home-ribbon-cell-txt">N'hésitez pas à nous contacter par mail ou par téléphone pour toute question concernant votre réservation. Notre service client se fera alors un plaisir de vous aider à y répondre. </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel_slide od-ribbon-carousel-slide active">
-                        <div class="od-home-ribbon-table">
-                            <div class="od-home-ribbon-cell">
-                                <div class="od-home-ribbon-cell-image benefit4"> </div>
-
-                                <h3 class="od-home-ribbon-cell-title">Comparateur de voyages et séjours </h3>
-                                <div class="od-home-ribbon-cell-txt">Grâce au comparateur de prix BoVoyage, vous trouverez facilement des voyages low cost, charters et réguliers à des prix imbattables. Nous vous proposons aussi des séjours tout compris, hôtels, transports et bien plus aux meilleurs prix. À vos souris, réservez !  </div>
-                            </div> <div class="od-home-ribbon-cell">
-                                <div class="od-home-ribbon-cell-image benefit5"> </div>
-                                <h3 class="od-home-ribbon-cell-title">Séjours pas cher </h3>
-                                <div class="od-home-ribbon-cell-txt">Envie de Partir en vacances sans vous ruinez ? BoVoyage vous propose les meilleurs prix pour votre séjour en France ou à l’étranger. Consultez nos offres coup de cœur ou réservez votre séjour sur mesure. N’attendez plus pour partir en vacances ! </div>
-                            </div>
-                            <div class="od-home-ribbon-cell">
-                                <div class="od-home-ribbon-cell-image benefit6"> </div>
-                                <h3 class="od-home-ribbon-cell-title">Vols derniere minute </h3>
-                                <div class="od-home-ribbon-cell-txt">Découvrez les offres et promos pour les voyages de dernières minutes. BoVoyage, travaille en partenariat avec plus de 600 agences de voyages afin de vous offrir les meilleurs prix pour des séjours low cost.  </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="od-ribbon-carousel-indicators-container">
-                        <div class="od-ribbon-carousel-indicators-wrapper">
-                            <a class="od-ribbon-carousel-prev carousel_prev ficon">\</a>
-                            <div class="od-carousel-indicators carousel_indicators">
-                                <a class="od-ui-carousel-indicator carousel_goto"></a>
-                                <a class="od-ui-carousel-indicator carousel_goto active"></a>
-                            </div>
-                            <a class="od-ribbon-carousel-next carousel_next ficon">f</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>*@
 
         <!-- End page content -->
     </div>
