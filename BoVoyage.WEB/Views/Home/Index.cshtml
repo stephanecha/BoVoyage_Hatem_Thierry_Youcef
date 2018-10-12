@@ -4,120 +4,134 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section ContentBox
-    {
-    
-    
-        @if (Model.LessExpensiveTravels.Count() > 0)
-        {
-            <div class="w3-container w3-margin-top">
-                <h3>Les 5 Voyages les moins chers du moment</h3>
-                <h6>Un tarif <strong>imbattable</strong>.</h6>
-            </div>
+@section ContentBox{
+    <h3>Voyagez à travers le monde avec BoVoyage</h3>
+    <div class="w3-row-padding" style="margin:0 -16px;">
+        <div class="w3-half">
+            <label>Départ</label>
+            <input class="w3-input w3-border" type="text" placeholder="Departing from">
+        </div>
+        <div class="w3-half">
+            <label>Destination</label>
+            <input class="w3-input w3-border" type="text" placeholder="Arriving at">
+        </div>
+    </div>
+        <div>
+            <p><button class="w3-button w3-dark-grey">Rechercher une date</button></p>
+        </div>
+}
 
-            <div class="w3-row-padding w3-text-white w3-large">
-
-                <div class="w3-half w3-margin-bottom">
-                    <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.First().ID">
-                        <img src="~/Content/Images/cinqueterre.jpg" alt="Cinque Terre" style="width:100%">
-                        <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.First().Destination.City</span>
-                        <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.First().PricePerPerson)</span>
-                    </div>
-                </div>
-
-                <div class="w3-half">
-
-                    <div class="w3-row-padding" style="margin:0 -16px">
-
-                        <div class="w3-half w3-margin-bottom">
-                            <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(1).ID">
-                                <img src="~/Content/Images/newyork2.jpg" alt="New York" style="width:100%">
-                                <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(1).Destination.City</span>
-                                <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(1).PricePerPerson)</span>
-                            </div>
-                        </div>
-
-                        <div class="w3-half w3-margin-bottom">
-                            <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(2).ID">
-                                <img src="~/Content/Images/sanfran.jpg" alt="Sanfran" style="width:100%">
-                                <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(2).Destination.City</span>
-                                <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(2).PricePerPerson)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="w3-row-padding" style="margin:0 -16px">
-
-                        <div class="w3-half w3-margin-bottom">
-
-                            <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(3).ID">
-                                <img src="~/Content/Images/pisa.jpg" alt="Pisa" style="width:100%">
-                                <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(3).Destination.City</span>
-                                <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(3).PricePerPerson)</span>
-                            </div>
-                        </div>
-
-                        <div class="w3-half w3-margin-bottom">
-
-                            <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(4).ID">
-                                <img src="~/Content/Images/paris.jpg" alt="Paris" style="width:100%">
-                                <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(4).Destination.City</span>
-                                <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(4).PricePerPerson)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-    
- }
-
-    @section SoonOffers
+@section GoodOffers
 {
-        @if (Model.SoonDepartureTravels.Count() > 0)
-        {
-            <div class="w3-container">
-                <h3>Départ imminent</h3>
-                <p>Envie de prendre l'air ?</p>
+    @if (Model.LessExpensiveTravels.Count() > 0)
+    {
+        <div class="w3-container w3-margin-top">
+            <h3>Les 5 Voyages les moins chers du moment</h3>
+            <h6>Un tarif <strong>imbattable</strong>.</h6>
+        </div>
+
+        <div class="w3-row-padding w3-text-white w3-large">
+
+            <div class="w3-half w3-margin-bottom">
+                <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.First().ID">
+                    <img src="~/Content/Images/cinqueterre.jpg" alt="Cinque Terre" style="width:100%">
+                    <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.First().Destination.City</span>
+                    <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.First().PricePerPerson)</span>
+                </div>
             </div>
-            <div class="w3-row-padding">
-                @foreach (var item in @Model.SoonDepartureTravels)
-                {
-                    <div class="w3-half w3-margin-bottom" id="travel-@item.ID">
-                        <img src="~/Content/Images/ocean2.jpg" alt="@item.Destination.Country" style="width:100%">
-                        <div class="w3-container w3-white">
-                            <h3>@item.Destination.City, @item.Destination.Country</h3>
-                            <p class="w3-opacity">Aller-Retour à @string.Format("{0:C}", @item.PricePerPerson)</p>
-                            <p>@item.Destination.Description</p>
-                            <button class="w3-button w3-margin-bottom w3-black">Achat</button>
+
+            <div class="w3-half">
+
+                <div class="w3-row-padding" style="margin:0 -16px">
+
+                    <div class="w3-half w3-margin-bottom">
+                        <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(1).ID">
+                            <img src="~/Content/Images/newyork2.jpg" alt="New York" style="width:100%">
+                            <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(1).Destination.City</span>
+                            <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(1).PricePerPerson)</span>
                         </div>
                     </div>
-                }
-            </div>
-        }
-    }
 
-    @section Newsletter {
-        <div class="w3-container">
-            <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
-                <h2>Récupérer nos meilleures offre en avance ?</h2>
-                <p>Abonnez vous à nôtre newsletter.</p>
-                <label>E-mail</label>
-                <input class="w3-input w3-border" type="text" placeholder="Your Email address">
-                <button type="button" class="w3-button w3-red w3-margin-top">S'abonner</button>
+                    <div class="w3-half w3-margin-bottom">
+                        <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(2).ID">
+                            <img src="~/Content/Images/sanfran.jpg" alt="Sanfran" style="width:100%">
+                            <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(2).Destination.City</span>
+                            <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(2).PricePerPerson)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-row-padding" style="margin:0 -16px">
+
+                    <div class="w3-half w3-margin-bottom">
+
+                        <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(3).ID">
+                            <img src="~/Content/Images/pisa.jpg" alt="Pisa" style="width:100%">
+                            <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(3).Destination.City</span>
+                            <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(3).PricePerPerson)</span>
+                        </div>
+                    </div>
+
+                    <div class="w3-half w3-margin-bottom">
+
+                        <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(4).ID">
+                            <img src="~/Content/Images/paris.jpg" alt="Paris" style="width:100%">
+                            <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(4).Destination.City</span>
+                            <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(4).PricePerPerson)</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     }
+}
 
-    @section MailBooking {
+@section SoonOffers
+{
+    @if (Model.SoonDepartureTravels.Count() > 0)
+    {
         <div class="w3-container">
-            <h2>Une relation de confiance</h2>
-            <p>Confiez nous la réservation de vôtre prochain voyage !</p>
-            <form action="/action_page.php" target="_blank">
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-                <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
-                <p><button class="w3-button w3-black w3-padding-large" type="submit">ENVOI</button></p>
-            </form>
+            <h3>Départ imminent</h3>
+            <p>Envie de prendre l'air ?</p>
+        </div>
+        <div class="w3-row-padding">
+            @foreach (var item in @Model.SoonDepartureTravels)
+            {
+                <div class="w3-half w3-margin-bottom" id="travel-@item.ID">
+                    <img src="~/Content/Images/ocean2.jpg" alt="@item.Destination.Country" style="width:100%">
+                    <div class="w3-container w3-white">
+                        <h3>@item.Destination.City, @item.Destination.Country</h3>
+                        <p class="w3-opacity">Aller-Retour à @string.Format("{0:C}", @item.PricePerPerson)</p>
+                        <p>@item.Destination.Description</p>
+                        <button class="w3-button w3-margin-bottom w3-black">Achat</button>
+                    </div>
+                </div>
+            }
         </div>
     }
+}
+
+@section Newsletter {
+    <div class="w3-container">
+        <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
+            <h2>Récupérer nos meilleures offre en avance ?</h2>
+            <p>Abonnez vous à nôtre newsletter.</p>
+            <label>E-mail</label>
+            <input class="w3-input w3-border" type="text" placeholder="Your Email address">
+            <button type="button" class="w3-button w3-red w3-margin-top">S'abonner</button>
+        </div>
+    </div>
+}
+
+@section MailBooking {
+    <div class="w3-container">
+        <h2>Une relation de confiance</h2>
+        <p>Confiez nous la réservation de vôtre prochain voyage !</p>
+        <form action="/action_page.php" target="_blank">
+            <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+            <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+            <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+            <p><button class="w3-button w3-black w3-padding-large" type="submit">ENVOI</button></p>
+        </form>
+    </div>
+}

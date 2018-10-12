@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @Styles.Render("~/Content/site")
     @Scripts.Render("~/bundles/modernizr")
-    <link rel="icon" href="~/Content/Images/travelFlag.ico" />
+    <link rel="icon" href="~/Content/Images/flagSite.png" />
 </head>
 <body class="w3-light-grey">
 
     <!-- Navigation Bar -->
     <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
-        <a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>Bo Voyages</b></a>
+        <a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>BoVoyage</b></a>
         <a href="@Url.Action("index", "Destinations", new { area="" })" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Nos Destinations</b></a>
 
         <div class="w3-dropdown-hover w3-text-red">
@@ -55,14 +55,10 @@
         }
         else
         {
-            <div class="w3-dropdown-hover w3-text-blue w3-right">
-                <button class="w3-button">Bonjour @customer.LastName</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="@Url.Action("Details", "Customers")" class="w3-bar-item w3-button w3-text-blue">Profil</a>
-                    <a href="@Url.Action("Logout", "Authentification")" class="w3-bar-item w3-button w3-text-blue">Déconnexion <i class="glyphicon glyphicon-log-out"></i></a>
-
-                </div>
-            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="@Url.Action("logout", "Authentification")">Bonjour @customer.LastName</a></li>
+                <li><a href="@Url.Action("logout", "Authentification")"><i class="glyphicon glyphicon-log-out"></i></a></li>
+            </ul>
             
         }
 
