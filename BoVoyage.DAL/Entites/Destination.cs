@@ -32,5 +32,14 @@ namespace BoVoyage.DAL.Entites
 		public string Description { get; set; }
 
 		public ICollection<Travel> Travels { get; set; }
+
+		[NotMapped]
+		public string Fullname
+		{
+			get
+			{
+				return string.Format("{0} - {1}", Country, City);
+			}
+		}
 	}
 }
