@@ -55,11 +55,14 @@
         }
         else
         {
-            <ul class="nav navbar-nav navbar-right">
-                @*<li>Bonjour @customer.LastName</li>*@
-                <li><a href="@Url.Action("logout", "Authentification")">Bonjour @customer.LastName</a></li>
-                <li><a href="@Url.Action("logout", "Authentification")"><i class="glyphicon glyphicon-log-out"></i></a></li>
-            </ul>
+            <div class="w3-dropdown-hover w3-text-blue w3-right">
+                <button class="w3-button">Bonjour @customer.LastName</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="@Url.Action("Details", "Customers")" class="w3-bar-item w3-button w3-text-blue">Profil</a>
+                    <a href="@Url.Action("Logout", "Authentification")" class="w3-bar-item w3-button w3-text-blue">Déconnexion <i class="glyphicon glyphicon-log-out"></i></a>
+
+                </div>
+            </div>
             
         }
 

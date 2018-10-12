@@ -63,7 +63,7 @@ namespace BoVoyage.WEB.Controllers
                         return RedirectToAction("index", "home");
                 }
             }
-            return View();
+            return RedirectToAction("index", "home");
         }
 
         [Authentication(Type = "CUSTOMER")]
