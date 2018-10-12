@@ -15,10 +15,10 @@ namespace BoVoyage.WEB.Controllers
 		}
 
 		// GET: Destinations
-		
+
 		public ActionResult Index()
 		{
-			var destination = serviceDestination.GetAllDestinations();
+			var destination = serviceDestination.GetAllDestinationsWithTravelsNotNull();
 
 			var destinationViewModel = TransformModelDestination.DestinationToModelView(destination);
 
