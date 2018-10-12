@@ -7,6 +7,8 @@ namespace BoVoyage.DAL.Data.Interface
 	{
 		IEnumerable<SalesManager> GetAllSalesManagers();
 
+		IEnumerable<SalesManager> GetAllSalesManagersWithAuthentificationInclude();
+
 		SalesManager GetSalesManager(int id);
 
 		void AddSalesManager(SalesManager salesManager);

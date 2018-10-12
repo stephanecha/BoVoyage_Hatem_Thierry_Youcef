@@ -2,6 +2,7 @@
 using BoVoyage.DAL.Data.Interface;
 using BoVoyage.DAL.Entites;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BoVoyage.BUSINESS.Services
 {
@@ -22,6 +23,13 @@ namespace BoVoyage.BUSINESS.Services
 		public SalesManager GetSalesManager(int id)
 		{
 			return this.dataSalesManager.GetSalesManager(id);
+		}
+
+		public SalesManager GetSalesManagerWithAuthentificationInclude(string mail, string hashPassword)
+		{
+			return this.dataSalesManager.GetAllSalesManagersWithAuthentificationInclude()
+				.SingleOrDefault(x => x.Authentification.Email == mail
+									&& x.Authentification.Password == hashPassword);
 		}
 
 		public void AddSalesManager(SalesManager salesManager)
