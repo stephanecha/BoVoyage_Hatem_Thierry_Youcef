@@ -3,6 +3,7 @@ using BoVoyage.DAL.Data.Interface;
 using BoVoyage.DAL.Entites;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BoVoyage.BUSINESS.Services
 {
@@ -49,5 +50,12 @@ namespace BoVoyage.BUSINESS.Services
 		{
 			this.dataCustomer.DeleteCustomer(id);
 		}
-	}
+
+        public Customer GetCustomersWithAuthentificationInclude(string mail, string hashPassword)
+        {
+            return this.dataCustomer.GetAllCustomersWithAuthentificationInclude()
+                .SingleOrDefault(x => x.Authentification.Email == mail
+                                    && x.Authentification.Password == hashPassword);
+        }
+    }
 }

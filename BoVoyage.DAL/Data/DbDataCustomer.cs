@@ -38,5 +38,11 @@ namespace BoVoyage.DAL.Data
 			this.context.Entry(customer).State = EntityState.Modified;
 			this.context.SaveChanges();
 		}
-	}
+
+        public IEnumerable<Customer> GetAllCustomersWithAuthentificationInclude()
+        {
+            return this.context.Customers.Include("Authentification").ToList();
+        }
+
+    }
 }

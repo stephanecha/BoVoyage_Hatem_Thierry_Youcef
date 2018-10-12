@@ -44,5 +44,23 @@ namespace BoVoyage.WEB.Tools
 
             return customer; 
         }
+        public static CustomerViewModel CustomerToModelView(Customer customer)
+        {
+            CustomerViewModel customerViewModel = new CustomerViewModel()
+            {
+                ID = customer.ID,
+                Civility = customer.Civility,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                Address = customer.Address,
+                PhoneNumber = customer.PhoneNumber,
+                BirthDate = customer.BirthDate,
+                Email = customer.Authentification.Email
+            };
+
+            return customerViewModel;
+        }
+
+
     }
 }
