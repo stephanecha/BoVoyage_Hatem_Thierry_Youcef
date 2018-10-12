@@ -26,7 +26,12 @@ namespace BoVoyage.DAL.Data
 			return this.context.Authentifications.SingleOrDefault(x => x.ID == id);
 		}
 
-		public void UpdateAuthentification(Authentification authentification)
+        public Authentification GetAuthentification(string email)
+        {
+            return this.context.Authentifications.SingleOrDefault(x => x.Email == email);
+        }
+
+        public void UpdateAuthentification(Authentification authentification)
 		{
 			this.context.Authentifications.Attach(authentification);
 			this.context.Entry(authentification).State = EntityState.Modified;
