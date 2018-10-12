@@ -77,7 +77,7 @@
 			</div>
 
 			<!-- ContentBox -->
-			<div id="Flight" class="w3-container w3-white w3-padding-16 myLink" style="display: block;">
+			<div id="Flight" class="w3-container w3-white w3-padding-64 myLink" style="display: block;">
 				<div class="w3-container">
 					@RenderSection("ContentBox", required: false)
 				</div>
@@ -118,9 +118,9 @@
 				<i class="fa fa-linkedin w3-hover-opacity"></i>
 			</div>
 
-			<a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">FAQ</a>
-			<a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">Condition Générales de Vente</a>
-			<a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">Mentions Légales</a>
+			<a href="@Url.Action("faq", "home")" class="w3-bar-item w3-button w3-text-red" title="For next release">FAQ</a>
+			<a href="@Url.Action("CGV", "home")" class="w3-bar-item w3-button w3-text-red" title="For next release">Condition Générales de Vente</a>
+			<a href="@Url.Action("Mentions", "home")" class="w3-bar-item w3-button w3-text-red" title="For next release">Mentions Légales</a>
 			<a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red" title="contact">Contact</a>
 			<a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red" title="about">A-propos</a>
 
