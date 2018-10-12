@@ -23,7 +23,7 @@
 			<td>
 				@Html.DisplayFor(modelItem => item.Type)
 			</td>
-			@if (item.Insurances.Count() > 0)
+			@if (item.Insurances != null && item.Insurances.Count() > 0)
 			{
 				<td>
 					@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info disabled" }) |

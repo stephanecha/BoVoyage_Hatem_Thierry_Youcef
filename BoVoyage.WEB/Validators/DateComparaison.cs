@@ -9,11 +9,11 @@ namespace BoVoyage.WEB.Validators
 	[AttributeUsage(AttributeTargets.Property)]
 	public sealed class DateComparaison : ValidationAttribute
 	{
-		private CompareDateCase CompareDateCase { get; }
+		private CompareCase CompareDateCase { get; }
 
 		private string ComparaisonProperty { get; set; }
 
-		public DateComparaison(CompareDateCase compareDateCase, string comparisonProperty)
+		public DateComparaison(CompareCase compareDateCase, string comparisonProperty)
 		{
 			this.CompareDateCase = compareDateCase;
 			this.ComparaisonProperty = comparisonProperty;
@@ -21,7 +21,7 @@ namespace BoVoyage.WEB.Validators
 
 		private bool IsValid(DateTime valueDate, DateTime propertyValueDate)
 		{
-			return this.CompareDateCase == CompareDateCase.AFTER
+			return this.CompareDateCase == CompareCase.OVER
 				? valueDate > propertyValueDate
 				: valueDate < propertyValueDate;
 		}
@@ -39,7 +39,7 @@ namespace BoVoyage.WEB.Validators
 				PropertyInfo property = validationContext.ObjectType.GetProperty(this.ComparaisonProperty);
 
 				if (property == null)
-					throw new ArgumentException("Le nom de la propriété n'a pas été trouvé.");
+					new ValidationResult(ErrorMessageResourceName);
 
 				object propertyValue = property.GetValue(validationContext.ObjectInstance);
 				if (propertyValue is DateTime propertyValueDate)

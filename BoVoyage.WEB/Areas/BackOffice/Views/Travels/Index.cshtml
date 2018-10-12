@@ -1,150 +1,171 @@
 ﻿@model BoVoyage.WEB.Models.TravelIndexSearchViewModel
-@*@using BoVoyage.DAL.Entites;
-@model IEnumerable<BoVoyage.WEB.Models.TravelIndexSearchViewModel>*@
 
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Liste des voyages";
 }
 
-<h2>Index</h2>
+<h2>Liste des voyages</h2>
 
+<p>
+	@Html.ActionLink("Créer un nouveau voyage", "Create")
+</p>
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
+	@Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>TravelIndexSearchViewModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DepartureDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-horizontal">
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		<div class="form-group">
+			@Html.LabelFor(model => model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.DepartureDate, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
+			</div>
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="form-group">
+			@Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
+			</div>
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.AvailablePlaces, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AvailablePlaces, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AvailablePlaces, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="form-group">
+			@Html.LabelFor(model => model.AvailablePlaces, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.AvailablePlaces, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.AvailablePlaces, "", new { @class = "text-danger" })
+			</div>
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PricePerPerson, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PricePerPerson, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PricePerPerson, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="form-group">
+			@Html.LabelFor(model => model.PricePerPersonMin, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.PricePerPersonMin, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.PricePerPersonMin, "", new { @class = "text-danger" })
+			</div>
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="form-group">
+			@Html.LabelFor(model => model.PricePerPersonMax, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.PricePerPersonMax, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.PricePerPersonMax, "", new { @class = "text-danger" })
+			</div>
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Continent, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Continent, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Continent, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="form-group">
+			@Html.LabelFor(model => model.TravelAgencyName, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.TravelAgencyName, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.TravelAgencyName, "", new { @class = "text-danger" })
+			</div>
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="form-group">
+			@Html.LabelFor(model => model.Continent, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.Continent, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.Continent, "", new { @class = "text-danger" })
+			</div>
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="form-group">
+			@Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+			</div>
+		</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="form-group">
+			@Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+			</div>
+		</div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Rechercher" class="btn btn-default" />
+			</div>
+		</div>
+	</div>
 }
 
-
-
 <table class="w3-table-all">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Country)
+		</th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.DepartureDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReturnDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PricePerPerson)
-        </th>
+		<th>
+			@Html.DisplayNameFor(model => model.City)
+		</th>
 
-    </tr>
+		<th>
+			@Html.DisplayNameFor(model => model.TravelViewModel.FirstOrDefault().DepartureDate)
+		</th>
 
-    @foreach (var item in Model.TravelViewModel)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Destination.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Destination.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartureDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReturnDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PricePerPerson)
-            </td>
-            @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>*@
-        </tr>
-    }
+		<th>
+			@Html.DisplayNameFor(model => model.TravelViewModel.FirstOrDefault().ReturnDate)
+		</th>
+
+		<th>
+			@Html.DisplayNameFor(model => model.TravelViewModel.FirstOrDefault().AvailablePlaces)
+		</th>
+
+		<th>
+			@Html.DisplayNameFor(model => model.TravelViewModel.FirstOrDefault().PricePerPerson)
+		</th>
+
+		<th>
+			@Html.DisplayNameFor(model => model.TravelAgencyName)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model.TravelViewModel)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Destination.Country)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Destination.City)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.DepartureDate)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.ReturnDate)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.AvailablePlaces)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.PricePerPerson)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.TravelAgency.Name)
+			</td>
+			@if (item.BookingFiles != null && item.BookingFiles.Count() > 0)
+			{
+				<td>
+					@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info disabled" }) |
+					@Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-info disabled" })
+				</td>
+			}
+			else
+			{
+				<td>
+					@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info" }) |
+					@Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-info" })
+				</td>
+			}
+		</tr>
+	}
 </table>
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

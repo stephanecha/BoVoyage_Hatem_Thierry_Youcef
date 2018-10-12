@@ -1,0 +1,94 @@
+﻿@model BoVoyage.WEB.Models.TravelViewModel
+
+@{
+	ViewBag.Title = "Modification d'un voyage";
+}
+
+<h2>Modification d'un voyage</h2>
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		@Html.HiddenFor(model => model.ID)
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.DepartureDate, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.AvailablePlaces, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.AvailablePlaces, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.AvailablePlaces, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.PricePerPerson, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.PricePerPerson, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.PricePerPerson, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.TravelAgency, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.DropDownList("TravelAgencyID", (SelectList)ViewBag.AgenciesValues, new { @class = "form-control" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.Destination, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.DropDownList("DestinationID", (SelectList)ViewBag.DestinationsValues, new { @class = "form-control" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Enregistrer" class="btn btn-default" />
+			</div>
+		</div>
+	</div>
+}
+
+<div>
+	@Html.ActionLink("Retour à la liste", "Index")
+</div>
+
+@section Scripts {
+	@*<link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />
+		<script src="~/Scripts/jquery.datetimepicker.js"></script>
+		<script src="~/Scripts/bootstrap-datepicker.js"></script>
+		<script>
+			$(function () {
+				//$('#DepartureDate').datetimepicker({
+				//	lang: 'fr',
+				//	format: 'd/m/y'
+				//});
+				//$('#ReturnDate').datetimepicker({
+				//	lang: 'fr',
+				//	format: 'd/m/y'
+				//});
+				$('#DepartureDate').datepicker();
+				$('#ReturnDate').datepicker();
+			});
+		</script>*@
+}

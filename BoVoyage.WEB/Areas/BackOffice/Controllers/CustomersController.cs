@@ -1,10 +1,12 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
+using BoVoyage.WEB.Filters;
 using BoVoyage.WEB.Models;
 using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 {
+	[Authentication]
 	public class CustomersController : Controller
 	{
 		private readonly ServiceCustomer serviceCustomer;

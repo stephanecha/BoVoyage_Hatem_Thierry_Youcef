@@ -1,56 +1,56 @@
 ﻿@model IEnumerable<BoVoyage.WEB.Models.InsuranceViewModel>
 
-	@{
-		ViewBag.Title = "Liste des Assurances";
-	}
+@{
+	ViewBag.Title = "Liste des Assurances";
+}
 
-	<h2>Liste des Assurances</h2>
+<h2>Liste des Assurances</h2>
 
-	<p>
-		@Html.ActionLink("Créer une nouvelle assurance", "Create")
-	</p>
-	<table class="w3-table-all">
+<p>
+	@Html.ActionLink("Créer une nouvelle assurance", "Create")
+</p>
+<table class="w3-table-all">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.InsuranceType)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Price)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Description)
+		</th>
+
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
 		<tr>
-			<th>
-				@Html.DisplayNameFor(model => model.InsuranceType)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Price)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Description)
-			</th>
+			<td>
+				@Html.DisplayFor(modelItem => item.InsuranceType.Type)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Price)
+			</td>
+			<td>
+				@Html.Raw(item.Description)
+			</td>
 
-			<th></th>
+			@if (item.BookingFiles != null && item.BookingFiles.Count() > 0)
+			{
+				<td>
+					@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info disabled" }) |
+					@Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-info disabled" })
+				</td>
+			}
+			else
+			{
+				<td>
+					@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info" }) |
+					@Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-info" })
+				</td>
+			}
 		</tr>
-
-		@foreach (var item in Model)
-		{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.InsuranceType.Type)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Price)
-				</td>
-				<td>
-					@Html.Raw(item.Description)
-				</td>
-
-				@if (item.BookingFiles.Count() > 0)
-				{
-					<td>
-						@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info disabled" }) |
-						@Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-info disabled" })
-					</td>
-				}
-				else
-				{
-					<td>
-						@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info" }) |
-						@Html.ActionLink("Supprimer", "Delete", new { id = item.ID }, new { @class = "btn btn-info" })
-					</td>
-				}
-			</tr>
-		}
-	</table>
+	}
+</table>

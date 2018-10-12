@@ -2,6 +2,7 @@
 using BoVoyage.DAL.Data;
 using BoVoyage.DAL.Entites;
 using BoVoyage.WEB.Areas.BackOffice.Controllers.Base;
+using BoVoyage.WEB.Filters;
 using BoVoyage.WEB.Models;
 using BoVoyage.WEB.Tools;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 {
+	[Authentication]
 	public class InsuranceTypesController : BaseController
 	{
 		private readonly ServiceInsuranceType serviceInsuranceType;

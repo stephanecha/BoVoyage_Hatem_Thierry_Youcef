@@ -47,7 +47,7 @@
 			<td>
 				@Html.Raw(item.Description)
 			</td>
-			@if (item.Travels.Count() > 0)
+			@if (item.Travels != null && item.Travels.Count() > 0)
 			{
 				<td>
 					@Html.ActionLink("Modifier", "Edit", new { id = item.ID }, new { @class = "btn btn-info disabled" }) |

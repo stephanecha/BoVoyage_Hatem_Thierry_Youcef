@@ -27,6 +27,11 @@ namespace BoVoyage.DAL.Data
 			return this.context.SalesManagers.ToList();
 		}
 
+		public IEnumerable<SalesManager> GetAllSalesManagersWithAuthentificationInclude()
+		{
+			return this.context.SalesManagers.Include("Authentification").ToList();
+		}
+
 		public SalesManager GetSalesManager(int id)
 		{
 			return this.context.SalesManagers.SingleOrDefault(x => x.ID == id);
