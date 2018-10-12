@@ -1,10 +1,10 @@
 ﻿@model BoVoyage.WEB.Models.TravelViewModel
 
 @{
-	ViewBag.Title = "Nouveau voyage";
+	ViewBag.Title = "Modification d'un voyage";
 }
 
-<h2>Nouveau voyage</h2>
+<h2>Modification d'un voyage</h2>
 
 @using (Html.BeginForm())
 {
@@ -13,6 +13,8 @@
 	<div class="form-horizontal">
 		<hr />
 		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		@Html.HiddenFor(model => model.ID)
+
 		<div class="form-group">
 			@Html.LabelFor(model => model.DepartureDate, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
@@ -32,7 +34,7 @@
 		<div class="form-group">
 			@Html.LabelFor(model => model.AvailablePlaces, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
-				@Html.EditorFor(model => model.AvailablePlaces, new { htmlAttributes = new { @class = "form-control", min = "0" } })
+				@Html.EditorFor(model => model.AvailablePlaces, new { htmlAttributes = new { @class = "form-control" } })
 				@Html.ValidationMessageFor(model => model.AvailablePlaces, "", new { @class = "text-danger" })
 			</div>
 		</div>
@@ -40,7 +42,7 @@
 		<div class="form-group">
 			@Html.LabelFor(model => model.PricePerPerson, htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
-				@Html.EditorFor(model => model.PricePerPerson, new { htmlAttributes = new { @class = "form-control", min = "1" } })
+				@Html.EditorFor(model => model.PricePerPerson, new { htmlAttributes = new { @class = "form-control" } })
 				@Html.ValidationMessageFor(model => model.PricePerPerson, "", new { @class = "text-danger" })
 			</div>
 		</div>
@@ -70,3 +72,23 @@
 <div>
 	@Html.ActionLink("Retour à la liste", "Index")
 </div>
+
+@section Scripts {
+	@*<link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />
+		<script src="~/Scripts/jquery.datetimepicker.js"></script>
+		<script src="~/Scripts/bootstrap-datepicker.js"></script>
+		<script>
+			$(function () {
+				//$('#DepartureDate').datetimepicker({
+				//	lang: 'fr',
+				//	format: 'd/m/y'
+				//});
+				//$('#ReturnDate').datetimepicker({
+				//	lang: 'fr',
+				//	format: 'd/m/y'
+				//});
+				$('#DepartureDate').datepicker();
+				$('#ReturnDate').datepicker();
+			});
+		</script>*@
+}

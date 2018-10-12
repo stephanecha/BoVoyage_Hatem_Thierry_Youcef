@@ -1,0 +1,71 @@
+﻿@model BoVoyage.WEB.Models.TravelViewModel
+
+@{
+	ViewBag.Title = "Suppression d'un voyage";
+}
+
+<h2>Suppression d'un voyage</h2>
+
+<h3>Etes-vous sur de vouloir supprimer ce voyage ?</h3>
+<div>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.DepartureDate)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.DepartureDate)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ReturnDate)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ReturnDate)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.AvailablePlaces)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.AvailablePlaces)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.PricePerPerson)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.PricePerPerson)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.TravelAgency)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.TravelAgency.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Destination)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Destination.Fullname)
+		</dd>
+	</dl>
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-actions no-color">
+			<input type="submit" value="Supprimer" class="btn btn-default" /> |
+			@Html.ActionLink("Retour à la liste", "Index")
+		</div>
+	}
+</div>
