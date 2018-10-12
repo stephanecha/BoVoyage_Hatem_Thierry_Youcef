@@ -1,18 +1,15 @@
 ﻿@model BoVoyage.WEB.Models.CustomerViewModel
 
 @{
-    ViewBag.Title = "Subscribe";
+    ViewBag.Title = "Inscription";
 }
 
-
-@*@section Contenu
-{*@
+@section ContentBox{
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>Inscription</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
@@ -107,10 +104,11 @@
                 </div>
             </div>
         </div>
-    }
+         }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+}
 
 
