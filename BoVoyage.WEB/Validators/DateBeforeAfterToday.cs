@@ -8,9 +8,9 @@ namespace BoVoyage.WEB.Validators
 	[AttributeUsage(AttributeTargets.Property)]
 	public sealed class DateBeforeAfterToday : ValidationAttribute
 	{
-		private CompareDateCase CompareDateCase { get; }
+		private CompareCase CompareDateCase { get; }
 
-		public DateBeforeAfterToday(CompareDateCase compareDateCase)
+		public DateBeforeAfterToday(CompareCase compareDateCase)
 		{
 			this.CompareDateCase = compareDateCase;
 		}
@@ -21,7 +21,7 @@ namespace BoVoyage.WEB.Validators
 			{
 				if (value is DateTime valueDateTime)
 				{
-					return this.CompareDateCase == CompareDateCase.AFTER
+					return this.CompareDateCase == CompareCase.OVER
 						? valueDateTime > DateTime.Now
 						: valueDateTime < DateTime.Now;
 				}

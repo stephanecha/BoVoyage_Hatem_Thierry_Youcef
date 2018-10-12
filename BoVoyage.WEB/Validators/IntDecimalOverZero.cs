@@ -16,7 +16,7 @@ namespace BoVoyage.WEB.Validators
 				else if (value is decimal y)
 					return y > 0.0m;
 				else
-					throw new ArgumentException(MessageType.MustBeintOrDecimal);
+					throw new ArgumentException(MessageType.MustBeIntOrDecimal);
 			}
 			return false;
 		}
