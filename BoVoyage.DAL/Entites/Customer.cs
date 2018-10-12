@@ -8,7 +8,7 @@ namespace BoVoyage.DAL.Entites
 {
 	public sealed class Customer : BasePerson
 	{
-		[Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		[Required]
 		public DateTime CreatedOn { get; set; }
 
 		public ICollection<BookingFile> BookingFiles { get; set; }

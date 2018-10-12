@@ -6,7 +6,9 @@ namespace BoVoyage.DAL.Data.Interface
 	{
 		Authentification GetAuthentification(int id);
 
-		void AddAuthentification(Authentification authentification);
+        Authentification GetAuthentification(string email);
+
+        void AddAuthentification(Authentification authentification);
 
 		void UpdateAuthentification(Authentification authentification);
 

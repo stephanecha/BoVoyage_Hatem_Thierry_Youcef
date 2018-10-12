@@ -1,6 +1,7 @@
 ﻿using BoVoyage.BUSINESS.Services.Base;
 using BoVoyage.DAL.Data.Interface;
 using BoVoyage.DAL.Entites;
+using System;
 using System.Collections.Generic;
 
 namespace BoVoyage.BUSINESS.Services
@@ -24,10 +25,18 @@ namespace BoVoyage.BUSINESS.Services
 			return this.dataCustomer.GetCustomer(id);
 		}
 
-		public void AddCustomer(Customer customer)
+		public void AddCustomer(Authentification authentification, Customer customer)
 		{
-			//TODO: TESTS A FAIRE
-			this.dataCustomer.AddCustomer(customer);
+            ////TODO: TESTS A FAIRE
+            //this.dataAuthentification.AddAuthentification(authentification);
+            //var testID = this.dataAuthentification.GetAuthentification(authentification.Email);
+            //if (testID == null)
+            //{
+            //    throw new Exception("");
+            //}
+            //customer.AuthentificationID = testID.ID;
+            //customer.Authentification = null;
+            this.dataCustomer.AddCustomer(customer);
 		}
 
 		public void UpdateCustomer(Customer customer)

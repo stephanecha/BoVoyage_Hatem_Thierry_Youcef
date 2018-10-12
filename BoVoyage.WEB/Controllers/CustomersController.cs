@@ -16,6 +16,7 @@ namespace BoVoyage.WEB.Controllers
     {
         private readonly ServiceCustomer serviceCustomer;
 
+
         public CustomersController()
         {
             this.serviceCustomer = new ServiceCustomer(new DbDataAuthentification(), new DbDataCustomer());
@@ -42,7 +43,7 @@ namespace BoVoyage.WEB.Controllers
         // POST: Customers/Create
         [HttpPost]
         
-        public ActionResult Subscribe(CustomerViewModel customerViewModel)
+        public ActionResult Subscribe([Bind(Exclude = "ID, AuthentificationID")] CustomerViewModel customerViewModel)
         {
             try
             {
@@ -51,10 +52,10 @@ namespace BoVoyage.WEB.Controllers
                     
                     var customer = TransformModelCustomer.CustomerModelViewToModel(customerViewModel);
 
-                    this.serviceCustomer.AddCustomer(customer);
+                    this.serviceCustomer.AddCustomer(customer.Authentification, customer);
 
                     Display("L'enregistrement est un succès");
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
