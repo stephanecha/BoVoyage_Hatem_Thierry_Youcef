@@ -7,6 +7,22 @@ namespace BoVoyage.WEB.Tools
 {
 	public static class TransformModelDestination
 	{
+		public static DestinationViewModel DestinationToModelView(Destination destination)
+		{
+			DestinationViewModel destinationToModelView = new DestinationViewModel()
+			{
+				ID = destination.ID,
+				Continent = destination.Continent,
+				Country = destination.Country,
+				Area = destination.Area,
+				City = destination.City,
+				Description = destination.Description,
+				Travels = TransformModelTravel.TravelToModelView(destination.Travels)
+			};
+
+			return destinationToModelView;
+		}
+
 		public static List<DestinationViewModel> DestinationToModelView(IEnumerable<Destination> listDestinations)
 		{
 			List<DestinationViewModel> destinationToModelView = new List<DestinationViewModel>(listDestinations.Select(x =>
@@ -18,7 +34,7 @@ namespace BoVoyage.WEB.Tools
 					Area = x.Area,
 					Continent = x.Continent,
 					Country = x.Country,
-					Travels = x.Travels
+					Travels = TransformModelTravel.TravelToModelView(x.Travels)
 				}).ToList());
 			return destinationToModelView;
 		}
@@ -33,26 +49,10 @@ namespace BoVoyage.WEB.Tools
 				Area = destinationToModelView.Area,
 				City = destinationToModelView.City,
 				Description = destinationToModelView.Description,
-				Travels = destinationToModelView.Travels
+				Travels = TransformModelTravel.TravelModelViewToModel(destinationToModelView.Travels)
 			};
 
 			return destination;
-		}
-
-		public static DestinationViewModel DestinationToModelView(Destination destination)
-		{
-			DestinationViewModel destinationToModelView = new DestinationViewModel()
-			{
-				ID = destination.ID,
-				Continent = destination.Continent,
-				Country = destination.Country,
-				Area = destination.Area,
-				City = destination.City,
-				Description = destination.Description,
-				Travels = destination.Travels
-			};
-
-			return destinationToModelView;
 		}
 	}
 }

@@ -56,5 +56,21 @@ namespace BoVoyage.WEB.Tools
 			};
 			return travel;
 		}
+
+		public static List<Travel> TravelModelViewToModel(IEnumerable<TravelViewModel> travelViewModel)
+		{
+			List<Travel> travel = new List<Travel>(travelViewModel.Select(x =>
+				new Travel()
+				{
+					ID = x.ID,
+					DepartureDate = x.DepartureDate,
+					ReturnDate = x.ReturnDate,
+					PricePerPerson = x.PricePerPerson,
+					AvailablePlaces = x.AvailablePlaces,
+					DestinationID = x.DestinationID,
+					TravelAgencyID = x.TravelAgencyID
+				}).ToList());
+			return travel;
+		}
 	}
 }
