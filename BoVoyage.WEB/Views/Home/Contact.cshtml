@@ -1,18 +1,24 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
+@*<h3>@ViewBag.Message</h3>*@
+
+<div class="w3-container">
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
 <address>
-    BoVoyage <br />
-    12 rue du Faubourg Saint Honoré <br />
-    75008 Paris <br />
-    <abbr title="Phone">Phone number :</abbr>
-    +33 125.555.010
-</address>
+    <i class="fa fa-map-marker" style="width:30px"></i>
+    <div>
+    BoVoyage<br />
+    12 rue du Faubourg Saint Honoré<br />
+    75008 Paris, FR<br>
+    </div>
+    <hr />
 
-<address>
-    <strong>Support :</strong>   <a title="Support Mail" href="mailto:BoVoyage.Support@gtm.com">Support@Team.com</a><br />
-    <strong>Marketing :</strong> <a title="Marketing Mail" href="mailto:BoVoyage.Marketing@gtm.com">Marketing@Team.com</a>
+    <div>
+    <i class="fa fa-phone" style="width:30px"></i>Phone : +33 125.555.010<br>
+    <i class="fa fa-envelope" style="width:30px"></i><strong>Email : </strong><a title="BoVoyage Agency Mail" href="mailto:BoVoyage.Agency@mail.com:">BoVoyage.Agency@mail.com</a><br>
+    <i class="fa fa-envelope" style="width:30px"></i><strong>Support : </strong><a title="Support Mail" href="mailto:BoVoyage.Support@gtm.com">Support@Team.com</a><br />
+    <i class="fa fa-envelope" style="width:30px"></i><strong>Marketing : </strong><a title="Marketing Mail" href="mailto:BoVoyage.Marketing@gtm.com">Marketing@Team.com</a>
+    </div>
 </address>
+</div>
