@@ -3,6 +3,7 @@ using BoVoyage.COMMON.Extensions;
 using BoVoyage.DAL.Data;
 using BoVoyage.DAL.Entites;
 using BoVoyage.WEB.Areas.BackOffice.Controllers.Base;
+using BoVoyage.WEB.Filters;
 using BoVoyage.WEB.Models;
 using BoVoyage.WEB.Tools;
 using System;
@@ -25,13 +26,16 @@ namespace BoVoyage.WEB.Controllers
         // GET: Customers
         public ActionResult Index()
         {
+            
             return View();
         }
 
         // GET: Customers/Details/5
-        public ActionResult Details(int id)
+        [Authentication(Type = "CUSTOMER")]
+        public ActionResult Details()
         {
-            return View();
+            CustomerViewModel customerViewModel = (CustomerViewModel)Session["CUSTOMER"];
+            return View(customerViewModel);
         }
 
         // GET: Customers/Create
