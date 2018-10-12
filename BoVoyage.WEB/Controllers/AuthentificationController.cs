@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BoVoyage.WEB.Filters;
 
 namespace BoVoyage.WEB.Controllers
 {
@@ -64,6 +65,14 @@ namespace BoVoyage.WEB.Controllers
             }
             return View();
         }
+
+        [Authentication(Type = "CUSTOMER")]
+        public ActionResult Logout()
+        {
+            Session.Remove("CUSTOMER");
+            return RedirectToAction("index", "home");
+        }
+
 
         // GET: Authentification/Edit/5
         public ActionResult Edit(int id)
