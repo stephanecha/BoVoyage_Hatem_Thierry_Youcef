@@ -1,5 +1,9 @@
 ﻿@{
-	Layout = null;
+    var customer = Session["CUSTOMER"] as BoVoyage.WEB.Models.CustomerViewModel;
+}
+
+@{
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -33,8 +37,36 @@
             </div>
         </div>
 
-        <a href="@Url.Action("Subscribe", "Customers", new { area="" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Inscription</a>
-        <a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Login</a>
+
+
+
+        @if (customer == null)
+        {
+            //<a href="@Url.Action("Subscribe", "Customers", new { area="" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Inscription</a>
+
+        <form class="navbar-form navbar-right" method="post" action="@Url.Action("login", "Authentification")">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <input type="text" name="mail" class="form-control" placeholder="Login">
+                <input type="password" name="password" class="form-control" placeholder="Mot de passe" />
+            </div>
+            <button type="submit" class="btn btn-info">OK</button>
+        </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="@Url.Action("subscribe", "Customers")">Inscription</a></li>
+            </ul>
+        }
+        else
+        {
+            <ul class="nav navbar-nav navbar-right">
+                <li>Bonjour @customer.LastName </li>
+                <li><a href="@Url.Action("logout", "Authentification")"><i class="glyphicon glyphicon-log-out"></i></a></li>
+            </ul>
+        }
+
+
+
+        <a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">BackOffice</a>
     </div>
 
     <!-- Header -->

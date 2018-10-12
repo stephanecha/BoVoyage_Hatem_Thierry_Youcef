@@ -1,10 +1,9 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.COMMON.Extensions;
+using BoVoyage.WEB.Tools;
 using BoVoyage.DAL.Data;
-using BoVoyage.DAL.Entites;
 using BoVoyage.WEB.Areas.BackOffice.Controllers.Base;
 using BoVoyage.WEB.Models;
-using BoVoyage.WEB.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,72 +12,66 @@ using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Controllers
 {
-    public class CustomersController : BaseController
+    public class AuthentificationController : BaseController
     {
+
         private readonly ServiceCustomer serviceCustomer;
 
-
-        public CustomersController()
+        public AuthentificationController()
         {
             this.serviceCustomer = new ServiceCustomer(new DbDataAuthentification(), new DbDataCustomer());
         }
-        // GET: Customers
+        // GET: Authentification
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Customers/Details/5
+        // GET: Authentification/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Customers/Create
-        public ActionResult Subscribe()
-        {
+       
 
-            return View();
-        }
-
-        // POST: Customers/Create
+        // POST: Authentification/Create
         [HttpPost]
-        
-        public ActionResult Subscribe([Bind(Exclude = "ID, AuthentificationID")] CustomerViewModel customerViewModel)
+       // [ValidateAntiForgeryToken]
+        public ActionResult Login(AuthenticationLoginViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                var hash = model.Password.GenerateSHA512String();
+
+                var customer = this.serviceCustomer.GetCustomersWithAuthentificationInclude(model.Mail, hash);
+
+                if (customer == null)
                 {
-                    
-                    var customer = TransformModelCustomer.CustomerModelViewToModel(customerViewModel);
-                    customer.Authentification.Password = customer.Authentification.Password.GenerateSHA512String();
-
-                    this.serviceCustomer.AddCustomer(customer.Authentification, customer);
-
-                    Display("L'enregistrement est un succès");
-                    return RedirectToAction("Index", "Home");
+                    Display("Login / mot de passe invalide", MessageType.ERROR);
+                    return RedirectToAction("index", "home");
                 }
                 else
                 {
-                    return View(customerViewModel);
+                    CustomerViewModel customerViewModel = TransformModelCustomer.CustomerToModelView(customer);
+                    Session["CUSTOMER"] = customerViewModel;
+
+                    if (TempData["REDIRECT"] != null)
+                        return Redirect(TempData["REDIRECT"].ToString());
+                    else
+                        return RedirectToAction("index", "home");
                 }
-                // TODO: Add insert logic here
             }
-            catch
-            {
-                Display("Erreur !", MessageType.ERROR);
-                return View();
-            }
+            return View();
         }
 
-        // GET: Customers/Edit/5
+        // GET: Authentification/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Customers/Edit/5
+        // POST: Authentification/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -94,13 +87,13 @@ namespace BoVoyage.WEB.Controllers
             }
         }
 
-        // GET: Customers/Delete/5
+        // GET: Authentification/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Customers/Delete/5
+        // POST: Authentification/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

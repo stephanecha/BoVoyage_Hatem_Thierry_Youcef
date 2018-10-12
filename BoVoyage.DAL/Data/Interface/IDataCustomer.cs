@@ -14,5 +14,7 @@ namespace BoVoyage.DAL.Data.Interface
 		void UpdateCustomer(Customer customer);
 
 		void DeleteCustomer(int id);
-	}
+
+        IEnumerable<Customer> GetAllCustomersWithAuthentificationInclude();
+    }
 }
