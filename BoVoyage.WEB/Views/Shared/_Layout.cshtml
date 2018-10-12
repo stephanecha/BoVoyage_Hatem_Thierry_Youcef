@@ -5,39 +5,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BoVoyage | @ViewBag.Title</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	@Styles.Render("~/Content/bootstrap")
-	@Styles.Render("~/Content/bootstrap-theme")
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	@Styles.Render("~/Content/site")
-	@Scripts.Render("~/bundles/modernizr")
+    <title>BoVoyage | @ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/bootstrap-theme")
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @Styles.Render("~/Content/site")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta content="~/Content/Images/flagSite.png" property="og:image" itemprop="image">
 </head>
 <body class="w3-light-grey">
 
-	<!-- Navigation Bar -->
-	<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
-		<a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>Bo Voyages</b></a>
-		<a href="@Url.Action("index", "Destinations", new { area="" })" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Voyages</b></a>
-	   
-		<div class="w3-dropdown-hover w3-text-red">
-			<button class="w3-button">Gestion Dossiers</button>
-			<div class="w3-dropdown-content w3-bar-block w3-card-4">
-				<a href="@Url.Action("index", "Destinations")" class="w3-bar-item w3-button w3-text-red w3-hover-red">1</a>
-				<a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">2</a>
-				<a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">3</a>
-			</div>
-		</div>
+    <!-- Navigation Bar -->
+    <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+        <a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>Bo Voyages</b></a>
+        <a href="@Url.Action("index", "Destinations", new { area="" })" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Voyages</b></a>
 
-		<a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>About</b></a>
-		<a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Contact</b></a>
-		<a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Login</a>
-	</div>
+        <div class="w3-dropdown-hover w3-text-red">
+            <button class="w3-button">Gestion Dossiers</button>
+            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a href="@Url.Action("index", "Destinations")" class="w3-bar-item w3-button w3-text-red w3-hover-red">1</a>
+                <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">2</a>
+                <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red">3</a>
+            </div>
+        </div>
 
-	<!-- Header -->
+        <a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>About</b></a>
+        <a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Contact</b></a>
+        <a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Login</a>
+    </div>
+
+    <!-- Header -->
     <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
         <img class="w3-image" src="~/Content/Images/maldives.jpg" alt="London" width="1500" height="700">
         <div class="w3-display-middle" style="width:65%">
@@ -63,35 +64,32 @@
         </div>
     </header>
 
-	<!-- Page content -->
-	<div class="w3-content" style="max-width:1100px;">
-		@Html.Partial("_PartialDisplayMessage")
-		@RenderBody()
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:1100px;">
+        @Html.Partial("_PartialDisplayMessage")
+        @RenderBody()
 
-		<!-- Good offers -->
-		@RenderSection("GoodOffers", required: false)
+        <!-- Good offers -->
+        @RenderSection("GoodOffers", required: false)
 
-		<!-- Explore Nature -->
-		@RenderSection("SoonOffers", required: false)
+        <!-- Explore Nature -->
+        @RenderSection("SoonOffers", required: false)
 
-		<!-- Newsletter -->
-		<div class="w3-container">
-			<div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
-				<h2>Récupérer nos meilleures offre en avance !</h2>
-				<p>Abonnement à nôtre newsletter.</p>
-				<label>E-mail</label>
-				<input class="w3-input w3-border" type="text" placeholder="Your Email address">
-				<button type="button" class="w3-button w3-red w3-margin-top">S'abonner</button>
-			</div>
-		</div>
-
-		<!-- Contact -->
+        <!-- Newsletter -->
         <div class="w3-container">
-            <h2>Contact</h2>
+            <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
+                <h2>Récupérer nos meilleures offre en avance ?</h2>
+                <p>Abonnez vous à nôtre newsletter.</p>
+                <label>E-mail</label>
+                <input class="w3-input w3-border" type="text" placeholder="Your Email address">
+                <button type="button" class="w3-button w3-red w3-margin-top">S'abonner</button>
+            </div>
+        </div>
+
+        <!-- Personal mail booking -->
+        <div class="w3-container">
+            <h2>Une relation de confiance</h2>
             <p>Confiez nous la réservation de vôtre prochain voyage !</p>
-            <i class="fa fa-map-marker" style="width:30px"></i> Paris, FR<br>
-            <i class="fa fa-phone" style="width:30px"></i> Phone : +33 125.555.010<br>
-            <i class="fa fa-envelope" style="width:30px"> </i> Email : BoVoyage.Agence@mail.com<br>
             <form action="/action_page.php" target="_blank">
                 <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
                 <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
@@ -100,54 +98,127 @@
             </form>
         </div>
 
-		<!-- End page content -->
-	</div>
+        <!-- Garantie carousel // TODO a faire fonctionner -->
+        @*<div class="w3-container">
+            <div class="ribbon_carousel ui-carousel od-home-ribbon-wrapper" data-start-with-random="false" data-content-type="value_proposition" data-indicator-char="" data-skip-enhance="true">
+                <div class="od-ribbon-title-wrapper">
+                    <div class="od-ribbon-title">
+                        <span class="line"></span>
+                        <span class="title">Pourquoi réserver sur BoVoyage ?</span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+                <div class="carousel_slides od-ribbon-carousel-slides">
+                    <div class="carousel_slide od-ribbon-carousel-slide">
+                        <div class="od-home-ribbon-table">
+                            <div class="od-home-ribbon-cell">
+                                <div class="od-home-ribbon-cell-image benefit1"></div>
 
-	<!-- Footer -->
-	<footer class="w3-container w3-center w3-opacity w3-margin-bottom w3-black">
-		<h5>Retrouvez-nous sur</h5>
-		<div class="w3-xlarge w3-padding-16">
-			<i class="fa fa-facebook-official w3-hover-opacity"></i>
-			<i class="fa fa-instagram w3-hover-opacity"></i>
-			<i class="fa fa-snapchat w3-hover-opacity"></i>
-			<i class="fa fa-pinterest-p w3-hover-opacity"></i>
-			<i class="fa fa-twitter w3-hover-opacity"></i>
-			<i class="fa fa-linkedin w3-hover-opacity"></i>
-			
+                                <h3 class="od-home-ribbon-cell-title">Garantie du prix BoVoyage </h3>
+                                <div class="od-home-ribbon-cell-txt">
+                                    <a title="DES PRIX BAS GARANTIS TOUTE L’ANNÉE !" href="https://www.bovoyage.com/" target="_blank">
+                                        <span style="color: #A5CD38;">Bénéficiez du meilleur prix</span>
+                                    </a> à chaque fois que vous réservez. Si dans les 24 heures suivant votre réservation vous trouvez un tarif moins élevé ailleurs, veuillez nous contacter.
+                                </div>
+                            </div>
+                            <div class="od-home-ribbon-cell">
+                                <div class="od-home-ribbon-cell-image benefit2"> </div>
 
-		</div>
-			<a href="#" class="w3-bar-item w3-button w3-text-red">FAQ</a>
-			<a href="#" class="w3-bar-item w3-button w3-text-red">Condition Générales de Vente</a>
-			<a href="#" class="w3-bar-item w3-button w3-text-red">Mentions Légales</a>
-			<a href="#" class="w3-bar-item w3-button w3-text-red">Contact</a>
-			<a href="#" class="w3-bar-item w3-button w3-text-red">A-propos</a>
-		<div>
+                                <h3 class="od-home-ribbon-cell-title">Découvrez Bo Prime </h3>
+                                <div class="od-home-ribbon-cell-txt">
+                                    La solution pour payer chaque voyage encore moins cher. Profitez de réductions dès le premier achat sur tous les voyages, toute l'année. Envolez-vous où, quand et avec qui vous avez envie.
+                                    <a class="odf-link" href="https://www.Bovoyage.com/">En savoir plus.</a>
+                                </div>
+                            </div>
+                            <div class="od-home-ribbon-cell">
+                                <div class="od-home-ribbon-cell-image benefit3"></div>
+                                <h3 class="od-home-ribbon-cell-title">
+                                    Puis-je vous apporter
+                                    mon aide ?<br>
+                                </h3>
+                                <div class="od-home-ribbon-cell-txt">N'hésitez pas à nous contacter par mail ou par téléphone pour toute question concernant votre réservation. Notre service client se fera alors un plaisir de vous aider à y répondre. </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel_slide od-ribbon-carousel-slide active">
+                        <div class="od-home-ribbon-table">
+                            <div class="od-home-ribbon-cell">
+                                <div class="od-home-ribbon-cell-image benefit4"> </div>
 
-		</div>
-		<p>&copy; BoVoyage @DateTime.Now.Year</p>
-		
-	</footer>
+                                <h3 class="od-home-ribbon-cell-title">Comparateur de voyages et séjours </h3>
+                                <div class="od-home-ribbon-cell-txt">Grâce au comparateur de prix BoVoyage, vous trouverez facilement des voyages low cost, charters et réguliers à des prix imbattables. Nous vous proposons aussi des séjours tout compris, hôtels, transports et bien plus aux meilleurs prix. À vos souris, réservez !  </div>
+                            </div> <div class="od-home-ribbon-cell">
+                                <div class="od-home-ribbon-cell-image benefit5"> </div>
+                                <h3 class="od-home-ribbon-cell-title">Séjours pas cher </h3>
+                                <div class="od-home-ribbon-cell-txt">Envie de Partir en vacances sans vous ruinez ? BoVoyage vous propose les meilleurs prix pour votre séjour en France ou à l’étranger. Consultez nos offres coup de cœur ou réservez votre séjour sur mesure. N’attendez plus pour partir en vacances ! </div>
+                            </div>
+                            <div class="od-home-ribbon-cell">
+                                <div class="od-home-ribbon-cell-image benefit6"> </div>
+                                <h3 class="od-home-ribbon-cell-title">Vols derniere minute </h3>
+                                <div class="od-home-ribbon-cell-txt">Découvrez les offres et promos pour les voyages de dernières minutes. BoVoyage, travaille en partenariat avec plus de 600 agences de voyages afin de vous offrir les meilleurs prix pour des séjours low cost.  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="od-ribbon-carousel-indicators-container">
+                        <div class="od-ribbon-carousel-indicators-wrapper">
+                            <a class="od-ribbon-carousel-prev carousel_prev ficon">\</a>
+                            <div class="od-carousel-indicators carousel_indicators">
+                                <a class="od-ui-carousel-indicator carousel_goto"></a>
+                                <a class="od-ui-carousel-indicator carousel_goto active"></a>
+                            </div>
+                            <a class="od-ribbon-carousel-next carousel_next ficon">f</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>*@
 
-	@Scripts.Render("~/bundles/jquery")
-	@Scripts.Render("~/bundles/bootstrap")
-	<script>
-		// Tabs
-		function openLink(evt, linkName) {
-			var i, x, tablinks;
-			x = document.getElementsByClassName("myLink");
-			for (i = 0; i < x.length; i++) {
-				x[i].style.display = "none";
-			}
-			tablinks = document.getElementsByClassName("tablink");
-			for (i = 0; i < x.length; i++) {
-				tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-			}
-			document.getElementById(linkName).style.display = "block";
-			evt.currentTarget.className += " w3-red";
-		}
-		// Click on the first tablink on load
-		document.getElementsByClassName("tablink")[0].click();
-	</script>
-	@RenderSection("Scripts", required: false)
+        <!-- End page content -->
+    </div>
+
+    <!-- Footer -->
+    <div class="w3-container">
+        <footer class="w3-container w3-center w3-opacity w3-margin-bottom w3-black">
+            <h5>Retrouvez-nous sur</h5>
+            <div class="w3-xlarge w3-padding-16">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+            </div>
+
+            <a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">FAQ</a>
+            <a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">Condition Générales de Vente</a>
+            <a href="#" class="w3-bar-item w3-button w3-text-red" title="For next release">Mentions Légales</a>
+            <a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red" title="contact">Contact</a>
+            <a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red" title="about">A-propos</a>
+
+            <p>&copy; BoVoyage @DateTime.Now.Year</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        // Tabs
+        function openLink(evt, linkName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("myLink");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+            }
+            document.getElementById(linkName).style.display = "block";
+            evt.currentTarget.className += " w3-red";
+        }
+        // Click on the first tablink on load
+        document.getElementsByClassName("tablink")[0].click();
+    </script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
