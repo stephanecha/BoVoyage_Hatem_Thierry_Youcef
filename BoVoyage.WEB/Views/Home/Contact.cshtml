@@ -1,38 +1,23 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-@*<h3>@ViewBag.Message</h3>*@
 
-<div class="w3-display-middle" style="width:65%">
-    <div class="w3-container">
-        <div class="w3-bar w3-black">
-            <div class="w3-bar-item w3-button tablink w3-red"><i class="fa fa-plane w3-margin-right"></i>Contact</div>
-        </div>
+@section ContentBox{
+            <h2>@ViewBag.Title.</h2>
+            <address>
+                <i class="fa fa-map-marker" style="width:30px"></i>
+                <div>
+                    BoVoyage<br>
+                    12 rue du Faubourg Saint Honoré<br>
+                    75008 Paris, FR<br>
+                </div>
+                <hr>
 
-        <!-- Tabs -->
-        <div id="Flight" class="w3-container w3-white w3-padding-16 myLink" style="display: block;">
-
-
-
-            <div class="w3-container">
-                <h2>@ViewBag.Title.</h2>
-                <address>
-                    <i class="fa fa-map-marker" style="width:30px"></i>
-                    <div>
-                        BoVoyage<br>
-                        12 rue du Faubourg Saint Honoré<br>
-                        75008 Paris, FR<br>
-                    </div>
-                    <hr>
-
-                    <div>
-                        <i class="fa fa-phone" style="width:30px"></i>Phone : +33 125.555.010<br>
-                        <i class="fa fa-envelope" style="width:30px"></i><strong>Email : </strong><a title="BoVoyage Agency Mail" href="mailto:BoVoyage.Agency@mail.com:">BoVoyage.Agency@mail.com</a><br>
-                        <i class="fa fa-envelope" style="width:30px"></i><strong>Support : </strong><a title="Support Mail" href="mailto:BoVoyage.Support@gtm.com">Support@Team.com</a><br>
-                        <i class="fa fa-envelope" style="width:30px"></i><strong>Marketing : </strong><a title="Marketing Mail" href="mailto:BoVoyage.Marketing@gtm.com">Marketing@Team.com</a>
-                    </div>
-                </address>
-            </div>
-        </div>
-    </div>
-</div>
+                <div>
+                    <i class="fa fa-phone" style="width:30px"></i>Phone : +33 125.555.010<br>
+                    <i class="fa fa-envelope" style="width:30px"></i><strong>Email : </strong><a title="BoVoyage Agency Mail" href="mailto:BoVoyage.Agency@mail.com:">BoVoyage.Agency@mail.com</a><br>
+                    <i class="fa fa-envelope" style="width:30px"></i><strong>Support : </strong><a title="Support Mail" href="mailto:BoVoyage.Support@gtm.com">Support@Team.com</a><br>
+                    <i class="fa fa-envelope" style="width:30px"></i><strong>Marketing : </strong><a title="Marketing Mail" href="mailto:BoVoyage.Marketing@gtm.com">Marketing@Team.com</a>
+                </div>
+            </address>
+}
