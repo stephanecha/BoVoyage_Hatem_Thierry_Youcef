@@ -34,6 +34,11 @@ namespace BoVoyage.BUSINESS.Services
 			return this.dataDestination.GetDestination(id);
 		}
 
+		public Destination GetDestinationWithTravelsIncluded(int id)
+		{
+			return this.dataDestination.GetDestinationWithTravelsIncluded(id);
+		}
+
 		public void AddDestination(Destination destination)
 		{
 			//TODO: TESTS A FAIRE

@@ -37,6 +37,11 @@ namespace BoVoyage.DAL.Data
 			return this.context.Destinations.SingleOrDefault(x => x.ID == id);
 		}
 
+		public Destination GetDestinationWithTravelsIncluded(int id)
+		{
+			return this.context.Destinations.Include("Travels").SingleOrDefault(x => x.ID == id);
+		}
+
 		public void UpdateDestination(Destination destination)
 		{
 			this.context.Destinations.Attach(destination);
