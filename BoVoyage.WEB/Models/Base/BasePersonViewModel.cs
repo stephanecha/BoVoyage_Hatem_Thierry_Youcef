@@ -33,7 +33,7 @@ namespace BoVoyage.WEB.Models.Base
 		[Display(Name = "Téléphone")]
 		[StringLength(20, ErrorMessage = MessageType.StringLengthField)]
 		[DataType(DataType.PhoneNumber)]
-		[RegularExpression(@"(0|\+33|0033)[1-9][0-9]{8}", ErrorMessage = "Le champ {0} doit être au format '0xxxxxxxxx, +33xxxxxxxxx ou 0033xxxxxxxxx'.")]
+		[RegularExpression(@"(0|\+33|0033)[1-9][0-9]{8}", ErrorMessage = "Le {0} doit être au format '0xxxxxxxxx, +33xxxxxxxxx ou 0033xxxxxxxxx'.")]
 		[Phone]
 		public string PhoneNumber { get; set; }
 	}

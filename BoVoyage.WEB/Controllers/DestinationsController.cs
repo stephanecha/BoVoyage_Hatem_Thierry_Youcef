@@ -15,7 +15,7 @@ namespace BoVoyage.WEB.Controllers
 		}
 
 		// GET: Destinations
-		[Route("liste-destination")]
+		
 		public ActionResult Index()
 		{
 			var destination = serviceDestination.GetAllDestinations();

@@ -35,7 +35,7 @@ namespace BoVoyage.WEB.Models
 		[DataType(DataType.Password)]
 		[Required(ErrorMessage = MessageType.RequiredField)]
 		[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,}$",
-			ErrorMessage = "{0} incorrect.")]
+			ErrorMessage = "Le {0} doit contenir un chiffre une majuscule et un caractère spécial.")]
 		[StringLength(60)]
 		public string Password { get; set; }
 
