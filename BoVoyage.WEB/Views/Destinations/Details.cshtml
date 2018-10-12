@@ -1,6 +1,10 @@
 ﻿@model BoVoyage.WEB.Models.DestinationViewModel
 
 @{
+	var customer = Session["CUSTOMER"] as BoVoyage.WEB.Models.CustomerViewModel;
+}
+
+@{
 	ViewBag.Title = "Details";
 }
 
@@ -79,9 +83,18 @@
 			<td>
 				@Html.DisplayFor(modelItem => item.PricePerPerson)
 			</td>
-			<td>
-				@Html.ActionLink("Réserver", "Edit", new { id = item.ID }, new { @class = "btn btn-info" })
-			</td>
+			@if (customer == null)
+			{
+				<td>
+					@Html.ActionLink("Réserver", "Create", "Reservations", new { @class = "btn btn-info disabled" })
+				</td>
+			}
+			else
+			{
+				<td>
+					@Html.ActionLink("Réserver", "Create", "Reservations", new { idCustomer = customer.ID, idTravel = item.ID }, new { @class = "btn btn-info" })
+				</td>
+			}
 		</tr>
 	}
 </table>
