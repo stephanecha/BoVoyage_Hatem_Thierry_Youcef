@@ -201,6 +201,8 @@
     <Content Include="Content\Images\paris.jpg" />
     <Content Include="Content\Images\pisa.jpg" />
     <Content Include="Content\Images\sanfran.jpg" />
+    <Content Include="Content\Images\flagSite.png" />
+    <Content Include="Content\Images\travelFlag.ico" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
