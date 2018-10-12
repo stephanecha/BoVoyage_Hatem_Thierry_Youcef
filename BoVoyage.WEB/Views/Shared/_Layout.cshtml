@@ -21,7 +21,7 @@
 
     <!-- Navigation Bar -->
     <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
-        <a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>Bo Voyages</b></a>
+        <a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>BoVoyage</b></a>
         <a href="@Url.Action("index", "Destinations", new { area="" })" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Voyages</b></a>
 
         <div class="w3-dropdown-hover w3-text-red">
@@ -33,8 +33,6 @@
             </div>
         </div>
 
-        <a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>About</b></a>
-        <a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa w3-margin-right"></i>Contact</b></a>
         <a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">Login</a>
     </div>
 
@@ -43,23 +41,12 @@
         <img class="w3-image" src="~/Content/Images/maldives.jpg" alt="London" width="1500" height="700">
         <div class="w3-display-middle" style="width:65%">
             <div class="w3-bar w3-black">
-                <button class="w3-bar-item w3-button tablink" onclick="openLink(event,'Flight');"><i class="fa fa-plane w3-margin-right"></i>Séjour</button>
+                <button class="w3-bar-item w3-button tablink"><i class="fa fa-plane w3-margin-right"></i>@ViewBag.Title</button>
             </div>
 
             <!-- Tabs -->
             <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
-                <h3>Voyagez à travers le monde</h3>
-                <div class="w3-row-padding" style="margin:0 -16px;">
-                    <div class="w3-half">
-                        <label>Ville de départ</label>
-                        <input class="w3-input w3-border" type="text" placeholder="Departing from">
-                    </div>
-                    <div class="w3-half">
-                        <label>Destination</label>
-                        <input class="w3-input w3-border" type="text" placeholder="Arriving at">
-                    </div>
-                </div>
-                <p><button class="w3-button w3-dark-grey">Selectionnez une date</button></p>
+                
             </div>
         </div>
     </header>
