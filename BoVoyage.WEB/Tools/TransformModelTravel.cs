@@ -17,18 +17,44 @@ namespace BoVoyage.WEB.Tools
 					ReturnDate = x.ReturnDate,
 					PricePerPerson = x.PricePerPerson,
 					AvailablePlaces = x.AvailablePlaces,
-					Destination = x.Destination
+					DestinationID = x.DestinationID,
+					Destination = x.Destination,
+					TravelAgencyID = x.TravelAgencyID,
+					TravelAgency = x.TravelAgency
 				}).ToList());
 			return agencesViewModel;
 		}
 
-		public static TravelIndexSearchViewModel TravelToSearchModelView(IEnumerable<Travel> listTravel)
+		public static TravelViewModel TravelToModelView(Travel travel)
 		{
-			TravelIndexSearchViewModel travelViewModel = new TravelIndexSearchViewModel()
+			TravelViewModel travelViewModel = new TravelViewModel()
 			{
-				TravelViewModel = TravelToModelView(listTravel)
+				ID = travel.ID,
+				DepartureDate = travel.DepartureDate,
+				ReturnDate = travel.ReturnDate,
+				PricePerPerson = travel.PricePerPerson,
+				AvailablePlaces = travel.AvailablePlaces,
+				DestinationID = travel.DestinationID,
+				Destination = travel.Destination,
+				TravelAgencyID = travel.TravelAgencyID,
+				TravelAgency = travel.TravelAgency
 			};
 			return travelViewModel;
+		}
+
+		public static Travel TravelViewToModel(TravelViewModel travelViewModel)
+		{
+			Travel travel = new Travel()
+			{
+				ID = travelViewModel.ID,
+				DepartureDate = travelViewModel.DepartureDate,
+				ReturnDate = travelViewModel.ReturnDate,
+				PricePerPerson = travelViewModel.PricePerPerson,
+				AvailablePlaces = travelViewModel.AvailablePlaces,
+				DestinationID = travelViewModel.DestinationID,
+				TravelAgencyID = travelViewModel.TravelAgencyID
+			};
+			return travel;
 		}
 	}
 }
