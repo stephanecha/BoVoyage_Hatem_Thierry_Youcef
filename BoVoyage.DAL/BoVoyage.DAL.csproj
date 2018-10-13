@@ -85,21 +85,9 @@
     <Compile Include="Entites\Travel.cs" />
     <Compile Include="Entites\TravelAgency.cs" />
     <Compile Include="Entites\Traveler.cs" />
-    <Compile Include="Migrations\201810121551243_Init.cs" />
-    <Compile Include="Migrations\201810121551243_Init.Designer.cs">
-      <DependentUpon>201810121551243_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810122156503_AddNbTravelerInBookingFile.cs" />
-    <Compile Include="Migrations\201810122156503_AddNbTravelerInBookingFile.Designer.cs">
-      <DependentUpon>201810122156503_AddNbTravelerInBookingFile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810130017272_PersonWithoutUnique.cs" />
-    <Compile Include="Migrations\201810130017272_PersonWithoutUnique.Designer.cs">
-      <DependentUpon>201810130017272_PersonWithoutUnique.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810130030211_TravelWithoutUnique.cs" />
-    <Compile Include="Migrations\201810130030211_TravelWithoutUnique.Designer.cs">
-      <DependentUpon>201810130030211_TravelWithoutUnique.cs</DependentUpon>
+    <Compile Include="Migrations\201810130244542_Init.cs" />
+    <Compile Include="Migrations\201810130244542_Init.Designer.cs">
+      <DependentUpon>201810130244542_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,17 +104,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810121551243_Init.resx">
-      <DependentUpon>201810121551243_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810122156503_AddNbTravelerInBookingFile.resx">
-      <DependentUpon>201810122156503_AddNbTravelerInBookingFile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810130017272_PersonWithoutUnique.resx">
-      <DependentUpon>201810130017272_PersonWithoutUnique.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810130030211_TravelWithoutUnique.resx">
-      <DependentUpon>201810130030211_TravelWithoutUnique.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810130244542_Init.resx">
+      <DependentUpon>201810130244542_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

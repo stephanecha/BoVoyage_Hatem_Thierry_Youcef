@@ -13,7 +13,7 @@ namespace BoVoyage.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201810121551243_Init"; }
+            get { return "201810130244542_Init"; }
         }
         
         string IMigrationMetadata.Source
