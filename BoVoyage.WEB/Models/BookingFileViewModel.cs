@@ -19,6 +19,11 @@ namespace BoVoyage.WEB.Models
 		[DataType(DataType.CreditCard)]
 		public string CreditCardNb { get; set; }
 
+		[Required(ErrorMessage = MessageType.RequiredField)]
+		[Display(Name = "Nombre de voyageurs")]
+		[Range(1, 9, ErrorMessage = "Le {1} doit être compris entre {1} et {2}.")]
+		public int NbTraveler { get; set; }
+
 		[Display(Name = "Prix par personne")]
 		[DataType(DataType.Currency)]
 		public decimal PricePerPerson { get; set; }
@@ -34,6 +39,9 @@ namespace BoVoyage.WEB.Models
 		public int CustomerID { get; set; }
 
 		public int TravelID { get; set; }
+
+		[Display(Name = "Voyage")]
+		public TravelViewModel TravelViewModel { get; set; }
 
 		[Display(Name = "Assurances")]
 		public ICollection<Insurance> Insurances { get; set; }

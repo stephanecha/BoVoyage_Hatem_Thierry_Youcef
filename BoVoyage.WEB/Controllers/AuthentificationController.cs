@@ -2,10 +2,10 @@
 using BoVoyage.COMMON.Extensions;
 using BoVoyage.DAL.Data;
 using BoVoyage.WEB.Controllers.Base;
+using BoVoyage.WEB.Filters;
 using BoVoyage.WEB.Models;
 using BoVoyage.WEB.Tools;
 using System.Web.Mvc;
-using BoVoyage.WEB.Filters;
 
 namespace BoVoyage.WEB.Controllers
 {
@@ -18,18 +18,6 @@ namespace BoVoyage.WEB.Controllers
 			this.serviceCustomer = new ServiceCustomer(new DbDataAuthentification(), new DbDataCustomer());
 		}
 
-		// GET: Authentification
-		public ActionResult Index()
-		{
-			return View();
-		}
-
-		// GET: Authentification/Details/5
-		public ActionResult Details(int id)
-		{
-			return View();
-		}
-
 		// POST: Authentification/Create
 		[HttpPost]
 		// [ValidateAntiForgeryToken]
@@ -38,7 +26,6 @@ namespace BoVoyage.WEB.Controllers
 			if (ModelState.IsValid)
 			{
 				var hash = model.Password.GenerateSHA512String();
-
 				var customer = this.serviceCustomer.GetCustomersWithAuthentificationInclude(model.Mail, hash);
 
 				if (customer == null)
@@ -51,27 +38,27 @@ namespace BoVoyage.WEB.Controllers
 					CustomerViewModel customerViewModel = TransformModelCustomer.CustomerToModelView(customer);
 					Session["CUSTOMER"] = customerViewModel;
 
-                    if (TempData["REDIRECT"] != null)
-                        return Redirect(TempData["REDIRECT"].ToString());
-                    else
-                        return RedirectToAction("index", "home");
-                }
-            }
-            return RedirectToAction("index", "home");
-        }
+					if (TempData["REDIRECT"] != null)
+						return Redirect(TempData["REDIRECT"].ToString());
+					else
+						return RedirectToAction("index", "home");
+				}
+			}
+			return RedirectToAction("index", "home");
+		}
 
-        [Authentication(Type = "CUSTOMER")]
-        public ActionResult Logout()
-        {
-            Session.Remove("CUSTOMER");
-            return RedirectToAction("index", "home");
-        }
+		[Authentication(Type = "CUSTOMER")]
+		public ActionResult Logout()
+		{
+			Session.Remove("CUSTOMER");
+			return RedirectToAction("index", "home");
+		}
 
-        // GET: Authentification/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+		// GET: Authentification/Edit/5
+		public ActionResult Edit(int id)
+		{
+			return View();
+		}
 
 		// POST: Authentification/Edit/5
 		[HttpPost]

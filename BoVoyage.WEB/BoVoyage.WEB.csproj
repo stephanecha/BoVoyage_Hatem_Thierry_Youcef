@@ -178,7 +178,6 @@
     <Compile Include="Models\InsuranceViewModel.cs" />
     <Compile Include="Models\DestinationViewModel.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
-    <Compile Include="Models\ReservationTravelerViewModel.cs" />
     <Compile Include="Models\SalesManagerViewModel.cs" />
     <Compile Include="Models\TravelAgencyViewModel.cs" />
     <Compile Include="Models\TravelerViewModel.cs" />
@@ -550,6 +549,9 @@
     <Content Include="Views\Home\CGV.cshtml" />
     <Content Include="Views\Home\Mentions.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Shared\_LayoutForm.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Reservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
