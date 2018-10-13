@@ -89,6 +89,10 @@
     <Compile Include="Migrations\201810130244542_Init.Designer.cs">
       <DependentUpon>201810130244542_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810130346449_DeleteCreatedOn.cs" />
+    <Compile Include="Migrations\201810130346449_DeleteCreatedOn.Designer.cs">
+      <DependentUpon>201810130346449_DeleteCreatedOn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\UniqueTravelAgencyName.cs" />
@@ -106,6 +110,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810130244542_Init.resx">
       <DependentUpon>201810130244542_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810130346449_DeleteCreatedOn.resx">
+      <DependentUpon>201810130346449_DeleteCreatedOn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
