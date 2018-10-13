@@ -1,13 +1,14 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
 using BoVoyage.DAL.Entites;
+using BoVoyage.WEB.Controllers.Base;
 using BoVoyage.WEB.Models;
 using BoVoyage.WEB.Tools;
 using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Controllers
 {
-	public class DestinationsController : Controller
+	public class DestinationsController : BaseController
 	{
 		private readonly ServiceDestination serviceDestination;
 

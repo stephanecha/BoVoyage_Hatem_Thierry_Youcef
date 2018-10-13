@@ -1,6 +1,7 @@
 ﻿using BoVoyage.DAL.Data.Interface;
 using BoVoyage.DAL.Entites;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BoVoyage.BUSINESS.Services
 {
@@ -16,6 +17,11 @@ namespace BoVoyage.BUSINESS.Services
 		public IEnumerable<Insurance> GetAllInsurances()
 		{
 			return this.dataInsurance.GetAllInsurances();
+		}
+
+		public IEnumerable<Insurance> GetAllSelectedInsurances(int[] insurancesID)
+		{
+			return this.dataInsurance.GetAllInsurances().Where(x => insurancesID.Contains(x.ID)).ToList();
 		}
 
 		public IEnumerable<Insurance> GetAllInsurancesWithTypesIncluded()

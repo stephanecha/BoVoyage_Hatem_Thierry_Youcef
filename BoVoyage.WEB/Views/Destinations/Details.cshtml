@@ -92,7 +92,7 @@
 			else
 			{
 				<td>
-					@Html.ActionLink("Réserver", "Create", "Reservations", new { idCustomer = customer.ID, idTravel = item.ID }, new { @class = "btn btn-info" })
+					@Html.ActionLink("Réserver", "Create", "Reservations", new { customer = customer.ID, travel = item.ID }, new { @class = "btn btn-info" })
 				</td>
 			}
 		</tr>

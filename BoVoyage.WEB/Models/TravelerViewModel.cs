@@ -28,7 +28,7 @@ namespace BoVoyage.WEB.Models
 		}
 
 		[Display(Name = "Réduction")]
-		public float Discount
+		public decimal Discount
 		{
 			get
 			{

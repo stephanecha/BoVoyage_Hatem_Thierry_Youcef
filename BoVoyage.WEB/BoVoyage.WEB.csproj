@@ -159,6 +159,7 @@
     <Compile Include="Areas\BackOffice\Controllers\TravelsController.cs" />
     <Compile Include="Areas\BackOffice\Models\DashboardIndexViewModel.cs" />
     <Compile Include="Controllers\AuthentificationController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DestinationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Models\InsuranceViewModel.cs" />
     <Compile Include="Models\DestinationViewModel.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
+    <Compile Include="Models\ReservationTravelerViewModel.cs" />
     <Compile Include="Models\SalesManagerViewModel.cs" />
     <Compile Include="Models\TravelAgencyViewModel.cs" />
     <Compile Include="Models\TravelerViewModel.cs" />

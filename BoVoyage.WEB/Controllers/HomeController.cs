@@ -1,11 +1,12 @@
 ﻿using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
+using BoVoyage.WEB.Controllers.Base;
 using BoVoyage.WEB.Models;
 using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Controllers
 {
-	public class HomeController : Controller
+	public class HomeController : BaseController
 	{
 		private readonly ServiceTravel serviceTravel;
 

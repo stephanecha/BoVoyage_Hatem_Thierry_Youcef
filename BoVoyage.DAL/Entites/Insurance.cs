@@ -8,7 +8,6 @@ namespace BoVoyage.DAL.Entites
 	public sealed class Insurance : BaseModel
 	{
 		[Required]
-		[Index("IX_PriceType", 1, IsUnique = true)]
 		[Column(TypeName = "Money")]
 		public decimal Price { get; set; }
 
@@ -16,12 +15,20 @@ namespace BoVoyage.DAL.Entites
 		[StringLength(250)]
 		public string Description { get; set; }
 
-		[Index("IX_PriceType", 2, IsUnique = true)]
 		public int InsuranceTypeID { get; set; }
 
 		[ForeignKey("InsuranceTypeID")]
 		public InsuranceType InsuranceType { get; set; }
 
 		public ICollection<BookingFile> BookingFiles { get; set; }
+
+		[NotMapped]
+		public string FullName
+		{
+			get
+			{
+				return string.Format("{0} - {1}€", InsuranceType.Type, Price);
+			}
+		}
 	}
 }

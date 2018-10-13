@@ -18,6 +18,9 @@ namespace BoVoyage.DAL.Entites
 		public string CreditCardNb { get; set; }
 
 		[Required]
+		public int NbTraveler { get; set; }
+
+		[Required]
 		[Column(TypeName = "Money")]
 		public decimal PricePerPerson { get; set; }
 

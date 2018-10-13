@@ -35,6 +35,11 @@ namespace BoVoyage.BUSINESS.Services
 			return this.dataTravel.GetTravel(id);
 		}
 
+		public Travel GetTravelWithDestinationIncluded(int id)
+		{
+			return this.dataTravel.GetTravelWithDestinationIncluded(id);
+		}
+
 		public Travel GetTravelWithDestinationAndAgencyIncluded(int id)
 		{
 			return this.dataTravel.GetTravelWithDestinationAndAgencyIncluded(id);

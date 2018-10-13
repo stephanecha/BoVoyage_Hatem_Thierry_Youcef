@@ -34,7 +34,7 @@ namespace BoVoyage.DAL.Entites
 		public ICollection<Travel> Travels { get; set; }
 
 		[NotMapped]
-		public string Fullname
+		public string FullName
 		{
 			get
 			{

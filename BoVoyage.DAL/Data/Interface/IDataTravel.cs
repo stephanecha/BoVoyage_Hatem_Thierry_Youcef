@@ -13,6 +13,8 @@ namespace BoVoyage.DAL.Data.Interface
 
 		Travel GetTravel(int id);
 
+		Travel GetTravelWithDestinationIncluded(int id);
+
 		Travel GetTravelWithDestinationAndAgencyIncluded(int id);
 
 		void AddTravel(Travel travel);

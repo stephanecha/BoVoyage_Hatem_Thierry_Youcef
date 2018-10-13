@@ -39,10 +39,14 @@ namespace BoVoyage.DAL.Data
 			this.context.SaveChanges();
 		}
 
-        public IEnumerable<Customer> GetAllCustomersWithAuthentificationInclude()
-        {
-            return this.context.Customers.Include("Authentification").ToList();
-        }
+		public IEnumerable<Customer> GetAllCustomersWithAuthentificationInclude()
+		{
+			return this.context.Customers.Include("Authentification").ToList();
+		}
 
-    }
+		public Customer GetCustomerWithAuthentificationInclude(int id)
+		{
+			return this.context.Customers.Include("Authentification").SingleOrDefault(x => x.ID == id);
+		}
+	}
 }
