@@ -23,10 +23,20 @@ namespace BoVoyage.BUSINESS.Services
 			return this.dataBookingFile.GetBookingFile(id);
 		}
 
-		public void AddBookingFile(BookingFile bookingFile)
+		public BookingFile GetBookingFile(string sequentialNb)
+		{
+			return this.dataBookingFile.GetBookingFile(sequentialNb);
+		}
+
+		public BookingFile GetBookingFileWithInsurancesIncluded(string sequentialNb)
+		{
+			return this.dataBookingFile.GetBookingFileWithInsurancesIncluded(sequentialNb);
+		}
+
+		public void AddBookingFile(BookingFile bookingFile, int[] insurancesID)
 		{
 			//TODO: TESTS A FAIRE
-			this.dataBookingFile.AddBookingFile(bookingFile);
+			this.dataBookingFile.AddBookingFile(bookingFile, insurancesID);
 		}
 
 		public void UpdateBookingFile(BookingFile bookingFile)

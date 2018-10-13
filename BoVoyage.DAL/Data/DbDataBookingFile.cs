@@ -9,8 +9,13 @@ namespace BoVoyage.DAL.Data
 {
 	public class DbDataBookingFile : DbDataBase, IDataBookingFile
 	{
-		public void AddBookingFile(BookingFile bookingFile)
+		public void AddBookingFile(BookingFile bookingFile, int[] insurancesID)
 		{
+			if (insurancesID != null)
+			{
+				bookingFile.Insurances = this.context.Insurances.Where(x => insurancesID.Contains(x.ID)).ToList();
+			}
+
 			this.context.BookingFiles.Add(bookingFile);
 			this.context.SaveChanges();
 		}
@@ -30,6 +35,16 @@ namespace BoVoyage.DAL.Data
 		public BookingFile GetBookingFile(int id)
 		{
 			return this.context.BookingFiles.SingleOrDefault(x => x.ID == id);
+		}
+
+		public BookingFile GetBookingFile(string sequentialNb)
+		{
+			return this.context.BookingFiles.SingleOrDefault(x => x.SequentialNb == sequentialNb);
+		}
+
+		public BookingFile GetBookingFileWithInsurancesIncluded(string sequentialNb)
+		{
+			return this.context.BookingFiles.Include("Insurances").SingleOrDefault(x => x.SequentialNb == sequentialNb);
 		}
 
 		public void UpdateBookingFile(BookingFile bookingFile)

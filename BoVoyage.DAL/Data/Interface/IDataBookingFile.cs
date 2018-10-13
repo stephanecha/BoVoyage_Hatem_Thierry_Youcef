@@ -9,7 +9,11 @@ namespace BoVoyage.DAL.Data.Interface
 
 		BookingFile GetBookingFile(int id);
 
-		void AddBookingFile(BookingFile bookingFile);
+		BookingFile GetBookingFile(string sequentialNb);
+
+		BookingFile GetBookingFileWithInsurancesIncluded(string sequentialNb);
+
+		void AddBookingFile(BookingFile bookingFile, int[] insurancesID);
 
 		void UpdateBookingFile(BookingFile bookingFile);
 
