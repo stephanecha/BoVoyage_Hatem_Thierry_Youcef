@@ -72,12 +72,8 @@ namespace BoVoyage.WEB.Controllers
 						CreditCardNb = reservationViewModel.CreditCardNb,
 						NbTraveler = reservationViewModel.NbTraveler,
 						SequentialNb = string.Format("{0}-{1}-{2}-{3}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString(), customer, travel),
-						State = DAL.Entites.Enum.BookingFileState.Pending
+						State = BookingFileState.Pending
 					};
-
-					//Ajout des potentiels assurances
-					if (insurancesID != null)
-						bookingfile.Insurances = (System.Collections.Generic.ICollection<Insurance>)this.serviceInsurance.GetAllSelectedInsurances(insurancesID);
 
 					//Ajout d'un Participant si le client en fait partie
 					if (reservationViewModel.IsTraveler)
@@ -99,18 +95,20 @@ namespace BoVoyage.WEB.Controllers
 						};
 					}
 
-					//Cacul du prix par personne et du prix total
-					var getTravel = this.serviceTravel.GetTravelWithDestinationIncluded(travel);
+					this.serviceBookingFile.AddBookingFile(bookingfile, insurancesID);
+					bookingfile = this.serviceBookingFile.GetBookingFileWithInsurancesIncluded(bookingfile.SequentialNb);
+
+					var getTravel = this.serviceTravel.GetTravel(travel);
 					bookingfile.PricePerPerson = bookingfile.Insurances == null ? getTravel.PricePerPerson : bookingfile.Insurances.Sum(x => x.Price) + getTravel.PricePerPerson;
 
+					//Si voyageur et client unique fait avancé le statut du dossier
 					if (bookingfile.NbTraveler == 1 && reservationViewModel.IsTraveler)
 					{
 						var birthDate = bookingfile.Travelers.First().BirthDate;
 						bookingfile.TotalPrice = bookingfile.PricePerPerson * DiscountTypeEnum.GetDiscount(birthDate, getTravel.DepartureDate);
 						bookingfile.State = BookingFileState.InProgress;
 					}
-
-					this.serviceBookingFile.AddBookingFile(bookingfile);
+					this.serviceBookingFile.UpdateBookingFile(bookingfile);
 
 					if (bookingfile.NbTraveler == 1 && reservationViewModel.IsTraveler)
 					{
@@ -143,7 +141,22 @@ namespace BoVoyage.WEB.Controllers
 			catch
 			{
 				Display("Erreur !", MessageType.ERROR);
-				return View();
+				reservationViewModel = new ReservationViewModel();
+
+				var getCustomer = this.serviceCustomer.GetCustomerWithAuthentificationInclude(customer);
+				if (getCustomer == null)
+					return HttpNotFound();
+				var customerViewModel = TransformModelCustomer.CustomerToModelView(getCustomer);
+				reservationViewModel.CustomerViewModel = customerViewModel;
+
+				var getTravel = this.serviceTravel.GetTravelWithDestinationIncluded(travel);
+				if (getTravel == null)
+					return HttpNotFound();
+				var travelViewModel = TransformModelTravel.TravelToModelView(getTravel);
+				reservationViewModel.TravelViewModel = travelViewModel;
+
+				ViewBag.Insurances = new MultiSelectList(this.serviceInsurance.GetAllInsurancesWithTypesIncluded(), "ID", "FullName");
+				return View(reservationViewModel);
 			}
 		}
 	}
