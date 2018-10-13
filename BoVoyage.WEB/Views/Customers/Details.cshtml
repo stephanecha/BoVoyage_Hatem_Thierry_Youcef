@@ -1,96 +1,79 @@
 ﻿@model BoVoyage.WEB.Models.CustomerViewModel
 
 @{
-    ViewBag.Title = "Profil";
+	ViewBag.Title = "Votre profil";
 }
 
 @section ContentBox{
-    <div>
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Civility)
-            </dt>
+	<div>
+		<dl class="dl-horizontal">
+			<dt>
+				@Html.DisplayNameFor(model => model.Civility)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Civility)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.Civility)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.LastName)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.LastName)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.LastName)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.LastName)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.FirstName)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.FirstName)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.FirstName)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Address)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.Address)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Address)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.Address)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.PhoneNumber)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.PhoneNumber)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.PhoneNumber)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.CreatedOn)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.CreatedOn)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.CreatedOn)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.CreatedOn)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.BirthDate)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.BirthDate)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.BirthDate)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.BirthDate)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.Email)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-
-            @*<dt>
-                @Html.DisplayNameFor(model => model.Password)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Password)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ConfirmedPassword)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ConfirmedPassword)
-            </dd>*@
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-    }
+			<dd>
+				@Html.DisplayFor(model => model.Email)
+			</dd>
+		</dl>
+	</div>
+	<p>
+		@Html.ActionLink("Modifier votre profil", "Edit", new { id = Model.ID }) |
+		@Html.ActionLink("Retour au menu principal", "Index", "Home")
+	</p>
+}
