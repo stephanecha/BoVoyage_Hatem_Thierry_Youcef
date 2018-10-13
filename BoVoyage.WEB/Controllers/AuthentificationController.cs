@@ -5,6 +5,7 @@ using BoVoyage.WEB.Controllers.Base;
 using BoVoyage.WEB.Models;
 using BoVoyage.WEB.Tools;
 using System.Web.Mvc;
+using BoVoyage.WEB.Filters;
 
 namespace BoVoyage.WEB.Controllers
 {
@@ -50,20 +51,27 @@ namespace BoVoyage.WEB.Controllers
 					CustomerViewModel customerViewModel = TransformModelCustomer.CustomerToModelView(customer);
 					Session["CUSTOMER"] = customerViewModel;
 
-					if (TempData["REDIRECT"] != null)
-						return Redirect(TempData["REDIRECT"].ToString());
-					else
-						return RedirectToAction("index", "home");
-				}
-			}
-			return View();
-		}
+                    if (TempData["REDIRECT"] != null)
+                        return Redirect(TempData["REDIRECT"].ToString());
+                    else
+                        return RedirectToAction("index", "home");
+                }
+            }
+            return RedirectToAction("index", "home");
+        }
 
-		// GET: Authentification/Edit/5
-		public ActionResult Edit(int id)
-		{
-			return View();
-		}
+        [Authentication(Type = "CUSTOMER")]
+        public ActionResult Logout()
+        {
+            Session.Remove("CUSTOMER");
+            return RedirectToAction("index", "home");
+        }
+
+        // GET: Authentification/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
 
 		// POST: Authentification/Edit/5
 		[HttpPost]

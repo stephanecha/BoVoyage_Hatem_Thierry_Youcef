@@ -41,5 +41,25 @@ namespace BoVoyage.WEB.Controllers
 
 			return View();
 		}
-	}
+
+        public ActionResult FAQ()
+		{
+			ViewBag.Message = "Your contact page.";
+
+			return View();
+		}
+
+        public ActionResult Mentions()
+		{
+			ViewBag.Message = "Your contact page.";
+
+			return View();
+		}
+        public ActionResult CGV()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+    }
 }

@@ -546,6 +546,10 @@
     <Content Include="Views\Destinations\Details.cshtml" />
     <Content Include="Views\Authentification\Login.cshtml" />
     <Content Include="Views\Reservations\Create.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Home\CGV.cshtml" />
+    <Content Include="Views\Home\Mentions.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

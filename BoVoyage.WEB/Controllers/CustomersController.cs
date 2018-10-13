@@ -2,6 +2,8 @@
 using BoVoyage.COMMON.Extensions;
 using BoVoyage.DAL.Data;
 using BoVoyage.WEB.Controllers.Base;
+using BoVoyage.DAL.Entites;
+using BoVoyage.WEB.Filters;
 using BoVoyage.WEB.Models;
 using BoVoyage.WEB.Tools;
 using System.Web.Mvc;
@@ -12,22 +14,23 @@ namespace BoVoyage.WEB.Controllers
 	{
 		private readonly ServiceCustomer serviceCustomer;
 
-		public CustomersController()
-		{
-			this.serviceCustomer = new ServiceCustomer(new DbDataAuthentification(), new DbDataCustomer());
-		}
+        public CustomersController()
+        {
+            this.serviceCustomer = new ServiceCustomer(new DbDataAuthentification(), new DbDataCustomer());
+        }
+        // GET: Customers
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-		// GET: Customers
-		public ActionResult Index()
-		{
-			return View();
-		}
-
-		// GET: Customers/Details/5
-		public ActionResult Details(int id)
-		{
-			return View();
-		}
+        // GET: Customers/Details/5
+        [Authentication(Type = "CUSTOMER")]
+        public ActionResult Details()
+        {
+            CustomerViewModel customerViewModel = (CustomerViewModel)Session["CUSTOMER"];
+            return View(customerViewModel);
+        }
 
 		// GET: Customers/Create
 		public ActionResult Subscribe()
