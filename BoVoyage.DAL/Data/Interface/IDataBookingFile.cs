@@ -7,6 +7,8 @@ namespace BoVoyage.DAL.Data.Interface
 	{
 		IEnumerable<BookingFile> GetAllBookingFiles();
 
+		IEnumerable<BookingFile> GetAllBookingFilesWithTravelsAndDestinationsIncluded();
+
 		BookingFile GetBookingFile(int id);
 
 		BookingFile GetBookingFile(string sequentialNb);

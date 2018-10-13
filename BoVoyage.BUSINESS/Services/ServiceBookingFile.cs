@@ -1,6 +1,7 @@
 ﻿using BoVoyage.DAL.Data.Interface;
 using BoVoyage.DAL.Entites;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BoVoyage.BUSINESS.Services
 {
@@ -16,6 +17,11 @@ namespace BoVoyage.BUSINESS.Services
 		public IEnumerable<BookingFile> GetAllBookingFiles()
 		{
 			return this.dataBookingFile.GetAllBookingFiles();
+		}
+
+		public IEnumerable<BookingFile> GetAllBookingFilesWithTravelsAndDestinationsIncluded(int CustomerID)
+		{
+			return this.dataBookingFile.GetAllBookingFiles().Where(x => x.CustomerID == CustomerID);
 		}
 
 		public BookingFile GetBookingFile(int id)

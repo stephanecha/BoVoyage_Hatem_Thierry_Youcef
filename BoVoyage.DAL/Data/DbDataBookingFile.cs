@@ -32,6 +32,11 @@ namespace BoVoyage.DAL.Data
 			return this.context.BookingFiles.ToList();
 		}
 
+		public IEnumerable<BookingFile> GetAllBookingFilesWithTravelsAndDestinationsIncluded()
+		{
+			return this.context.BookingFiles.Include("Travel").Include("Travel.Destination").ToList();
+		}
+
 		public BookingFile GetBookingFile(int id)
 		{
 			return this.context.BookingFiles.SingleOrDefault(x => x.ID == id);
