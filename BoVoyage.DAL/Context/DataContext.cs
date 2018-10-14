@@ -36,5 +36,7 @@ namespace BoVoyage.DAL.Context
 		public DbSet<Traveler> Travelers { get; set; }
 
 		public DbSet<SalesManager> SalesManagers { get; set; }
+
+		public DbSet<DestinationPicture> destinationPicture { get; set; }
 	}
 }

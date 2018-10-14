@@ -46,6 +46,7 @@
     <Compile Include="Services\ServiceBookingFile.cs" />
     <Compile Include="Services\ServiceCustomer.cs" />
     <Compile Include="Services\ServiceDestination.cs" />
+    <Compile Include="Services\ServiceDestinationPicture.cs" />
     <Compile Include="Services\ServiceInsurance.cs" />
     <Compile Include="Services\ServiceInsuranceType.cs" />
     <Compile Include="Services\ServiceSalesManager.cs" />

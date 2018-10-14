@@ -5,6 +5,9 @@ using BoVoyage.WEB.Areas.BackOffice.Controllers.Base;
 using BoVoyage.WEB.Filters;
 using BoVoyage.WEB.Models;
 using BoVoyage.WEB.Tools;
+using System.IO;
+using System.Net;
+using System.Web;
 using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Areas.BackOffice.Controllers
@@ -14,9 +17,14 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 	{
 		private readonly ServiceDestination serviceDestination;
 
-		public DestinationsController()
+        private readonly ServiceDestinationPicture serviceDestinationPicture;
+
+
+        public DestinationsController()
 		{
 			this.serviceDestination = new ServiceDestination(new DbDataDestination());
+			this.serviceDestinationPicture = new ServiceDestinationPicture(new DbDataDestinationPicture());
+
 		}
 
 		// GET: BackOffice/Destinations
@@ -102,8 +110,48 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 			}
 		}
 
-		// GET: BackOffice/Destinations/Delete/5
-		public ActionResult Delete(int id)
+
+        public ActionResult AddPicture(HttpPostedFileBase picture, int id)
+        {
+            if (picture?.ContentLength > 0)
+            {
+                var tp = new DestinationPicture();
+                tp.ContentType = picture.ContentType;
+                tp.Nom = picture.FileName;
+                tp.DestinationID = id;
+                using (var reader = new BinaryReader(picture.InputStream))
+                {
+                    tp.Content = reader.ReadBytes(picture.ContentLength);
+                }
+                serviceDestinationPicture.AddDestinationPicture(tp);
+
+                return RedirectToAction("Edit", "Destinations", new { id = id });
+
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+        [HttpPost]
+        public ActionResult DeletePicture(int? id)
+        {
+            if (!id.HasValue)
+                return HttpNotFound();
+
+            var picture = new DestinationPicture();
+            picture.ID = id.Value;
+            serviceDestinationPicture.DeleteDestinationPicture(id.Value);
+
+            if (picture == null)
+                return HttpNotFound();
+
+            //db.TournamentPictures.Remove(picture);
+            //db.SaveChanges();
+            return Json(picture);
+        }
+
+
+        // GET: BackOffice/Destinations/Delete/5
+        public ActionResult Delete(int id)
 		{
 			Destination destination = this.serviceDestination.GetDestination(id);
 			if (destination == null)
