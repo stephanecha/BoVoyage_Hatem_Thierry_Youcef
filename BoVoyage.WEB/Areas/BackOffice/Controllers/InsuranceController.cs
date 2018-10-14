@@ -49,7 +49,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 				{
 					Insurance insurance = TransformModelInsurance.InsuranceModelViewToModel(insuranceViewModel);
 					this.serviceInsurance.AddInsurance(insurance);
-					Display("Le nouveau type d'assurance a bien été enregistré !");
+					Display("Nouvelle agence enregistrée !");
 					return RedirectToAction("Index");
 				}
 				else

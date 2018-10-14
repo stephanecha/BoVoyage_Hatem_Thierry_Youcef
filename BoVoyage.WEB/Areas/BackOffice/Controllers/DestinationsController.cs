@@ -44,7 +44,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 				{
 					Destination destination = TransformModelDestination.DestinationModelViewToModel(destinationViewModel);
 					this.serviceDestination.AddDestination(destination);
-					Display("Le nouveau type d'assurance a bien été enregistré !");
+					Display("Nouvelle destination enregistée !");
 					return RedirectToAction("Index");
 				}
 				else
