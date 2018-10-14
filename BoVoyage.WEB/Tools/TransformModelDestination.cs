@@ -17,8 +17,9 @@ namespace BoVoyage.WEB.Tools
 				Area = destination.Area,
 				City = destination.City,
 				Description = destination.Description,
-				Travels = TransformModelTravel.TravelToModelView(destination.Travels)
-			};
+                Travels = destination.Travels == null ? null : TransformModelTravel.TravelToModelView(destination.Travels)
+
+            };
 
 			return destinationToModelView;
 		}
@@ -34,8 +35,9 @@ namespace BoVoyage.WEB.Tools
 					Area = x.Area,
 					Continent = x.Continent,
 					Country = x.Country,
-					Travels = TransformModelTravel.TravelToModelView(x.Travels)
-				}).ToList());
+                    Travels = x.Travels == null ? null : TransformModelTravel.TravelToModelView(x.Travels)
+
+                }).ToList());
 			return destinationToModelView;
 		}
 

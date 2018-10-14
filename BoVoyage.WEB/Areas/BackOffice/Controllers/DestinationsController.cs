@@ -44,7 +44,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 				{
 					Destination destination = TransformModelDestination.DestinationModelViewToModel(destinationViewModel);
 					this.serviceDestination.AddDestination(destination);
-					Display("La nouvelle destination a bien été enregistré !");
+					Display("La nouvelle destination à bien été enregistrée !");
 					return RedirectToAction("Index");
 				}
 				else
@@ -86,7 +86,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 				{
 					Destination destination = TransformModelDestination.DestinationModelViewToModel(destinationViewModel);
 					this.serviceDestination.UpdateDestination(destination);
-					Display("La destination a bien été modifié !");
+					Display("La destination à bien été modifiée !");
 					return RedirectToAction("Index");
 				}
 				else
@@ -127,7 +127,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 
 				// TODO: Add delete logic here
 				this.serviceDestination.DeleteDestination(id);
-				Display("La destination a bien été supprimé !");
+				Display("La destination à bien été supprimée !");
 				return RedirectToAction("Index");
 			}
 			catch
