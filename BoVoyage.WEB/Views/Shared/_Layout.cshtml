@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Scripts/CookieBar.css" rel="stylesheet" />
 	@Styles.Render("~/Content/site")
 	@Scripts.Render("~/bundles/modernizr")
 	<link rel="icon" href="~/Content/Images/flagSite.png" />
@@ -147,7 +148,19 @@
 			evt.currentTarget.className += " w3-red";
 		}
 		// Click on the first tablink on load
-		document.getElementsByClassName("tablink")[0].click();
+        document.getElementsByClassName("tablink")[0].click();
+
+
+        //Cookie
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#cookieConsent").fadeIn(200);
+            }, 4000);
+            $("#closeCookieConsent, .cookieConsentOK").click(function () {
+                $("#cookieConsent").fadeOut(200);
+            });
+        });
+
 	</script>
 	@RenderSection("Scripts", required: false)
 </body>
