@@ -44,7 +44,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 				{
 					TravelAgency travelAgency = TransformModelTravelAgency.TravelAgencyModelViewToModel(travelAgencyViewModel);
 					this.serviceTravelAgency.AddTravelAgency(travelAgency);
-					Display("Le nouveau type d'assurance a bien été enregistré !");
+					Display("La nouvelle agence de voyage à bien été enregistrée !");
 					return RedirectToAction("Index");
 				}
 				else

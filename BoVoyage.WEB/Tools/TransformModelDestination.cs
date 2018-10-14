@@ -49,7 +49,7 @@ namespace BoVoyage.WEB.Tools
 				Area = destinationToModelView.Area,
 				City = destinationToModelView.City,
 				Description = destinationToModelView.Description,
-				Travels = TransformModelTravel.TravelModelViewToModel(destinationToModelView.Travels)
+				Travels = destinationToModelView.Travels == null ? null : TransformModelTravel.TravelModelViewToModel(destinationToModelView.Travels)
 			};
 
 			return destination;
