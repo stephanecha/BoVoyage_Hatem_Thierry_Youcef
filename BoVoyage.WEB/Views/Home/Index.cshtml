@@ -168,15 +168,31 @@
         <div class="w3-row-padding">
             @foreach (var item in @Model.SoonDepartureTravels)
             {
-                <div class="w3-half w3-margin-bottom" id="travel-@item.ID">
-                    <img src="~/Content/Images/ocean2.jpg" alt="@item.Destination.Country" style="width:100%">
-                    <div class="w3-container w3-white">
-                        <h3>@item.Destination.City, @item.Destination.Country</h3>
-                        <p class="w3-opacity">Aller-Retour à @string.Format("{0:C}", @item.PricePerPerson)</p>
-                        <p>@item.Destination.Description</p>
-                        <button class="w3-button w3-margin-bottom w3-black">Achat</button>
-                    </div>
+            <div class="w3-half w3-margin-bottom" id="travel-@item.ID">
+
+                @*@item.Destination.DestinationPicture.First()*@
+
+                @if (Model.SoonDepartureTravels.First().Destination.DestinationPicture?.Count() > 0)
+                {
+                    @Html.PictureTournament(item.Destination.DestinationPicture.First(), "img-circle")
+                }
+                else
+                {
+
+                    <img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+
+                }
+
+                @*<img src="~/Content/Images/ocean2.jpg" alt="@item.Destination.Country" style="width:100%">*@
+
+
+                <div class="w3-container w3-white">
+                    <h3>@item.Destination.City, @item.Destination.Country</h3>
+                    <p class="w3-opacity">Aller-Retour à @string.Format("{0:C}", @item.PricePerPerson)</p>
+                    <p>@item.Destination.Description</p>
+                    <button class="w3-button w3-margin-bottom w3-black">Achat</button>
                 </div>
+            </div>
             }
         </div>
     }
