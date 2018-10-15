@@ -18,6 +18,7 @@ namespace BoVoyage.WEB.Helpers
 
             image.Attributes.Add("src", src);
             image.Attributes.Add("alt", picture.Nom);
+            image.Attributes.Add("style","width:100px");
             if (!string.IsNullOrWhiteSpace(cssClass))
                 image.Attributes.Add("class", cssClass);
 
