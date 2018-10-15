@@ -3,22 +3,24 @@ using System.Collections.Generic;
 
 namespace BoVoyage.DAL.Data.Interface
 {
-	public interface IDataBookingFile
-	{
-		IEnumerable<BookingFile> GetAllBookingFiles();
+    public interface IDataBookingFile
+    {
+        IEnumerable<BookingFile> GetAllBookingFiles();
 
-		IEnumerable<BookingFile> GetAllBookingFilesWithTravelsAndDestinationsIncluded();
+        IEnumerable<BookingFile> GetAllBookingFilesWithTravelsAndDestinationsIncluded();
 
-		BookingFile GetBookingFile(int id);
+        BookingFile GetBookingFile(int id);
 
-		BookingFile GetBookingFile(string sequentialNb);
+        BookingFile GetBookingFileWithTravelersAndInsurancesIncluded(int id);
 
-		BookingFile GetBookingFileWithInsurancesIncluded(string sequentialNb);
+        BookingFile GetBookingFile(string sequentialNb);
 
-		void AddBookingFile(BookingFile bookingFile, int[] insurancesID);
+        BookingFile GetBookingFileWithInsurancesIncluded(string sequentialNb);
 
-		void UpdateBookingFile(BookingFile bookingFile);
+        void AddBookingFile(BookingFile bookingFile, int[] insurancesID);
 
-		void DeleteBookingFile(int id);
-	}
+        void UpdateBookingFile(BookingFile bookingFile);
+
+        void DeleteBookingFile(int id);
+    }
 }
