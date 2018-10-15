@@ -1,5 +1,5 @@
 ﻿@model BoVoyage.WEB.Models.HomeIndexThreeSetsTravelsViewModel
-
+@using BoVoyage.WEB.Helpers;
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -44,7 +44,20 @@
 
             <div class="w3-half w3-margin-bottom">
                 <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.First().ID">
-                    <img src="~/Content/Images/cinqueterre.jpg" alt="Cinque Terre" style="width:100%">
+
+                    @if (Model.LessExpensiveTravels.First().Destination.DestinationPicture?.Count() > 0)
+                    {
+                        @Html.PictureTournament(Model.LessExpensiveTravels.First().Destination.DestinationPicture.First(), "img-circle")
+                    }
+                    else
+                    {
+
+                        <img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+
+                    }
+
+
+                    @*<img src="~/Content/Images/cinqueterre.jpg" alt="Cinque Terre" style="width:100%">*@
                     <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.First().Destination.City</span>
                     <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.First().PricePerPerson)</span>
                 </div>
@@ -56,7 +69,19 @@
 
                     <div class="w3-half w3-margin-bottom">
                         <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(1).ID">
-                            <img src="~/Content/Images/newyork2.jpg" alt="New York" style="width:100%">
+
+                            @if (Model.LessExpensiveTravels.First().Destination.DestinationPicture?.Count() > 0)
+                            {
+                                @Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(1).Destination.DestinationPicture.First(), "img-circle")
+                            }
+                            else
+                            {
+
+                                <img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+
+                            }
+
+                            @*<img src="~/Content/Images/newyork2.jpg" alt="New York" style="width:100%">*@
                             <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(1).Destination.City</span>
                             <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(1).PricePerPerson)</span>
                         </div>
@@ -64,7 +89,19 @@
 
                     <div class="w3-half w3-margin-bottom">
                         <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(2).ID">
-                            <img src="~/Content/Images/sanfran.jpg" alt="Sanfran" style="width:100%">
+
+                            @if (Model.LessExpensiveTravels.First().Destination.DestinationPicture?.Count() > 0)
+                            {
+                                @Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(2).Destination.DestinationPicture.First(), "img-circle")
+                            }
+                            else
+                            {
+
+                                <img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+
+                            }
+
+                            @*<img src="~/Content/Images/sanfran.jpg" alt="Sanfran" style="width:100%">*@
                             <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(2).Destination.City</span>
                             <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(2).PricePerPerson)</span>
                         </div>
@@ -76,7 +113,19 @@
                     <div class="w3-half w3-margin-bottom">
 
                         <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(3).ID">
-                            <img src="~/Content/Images/pisa.jpg" alt="Pisa" style="width:100%">
+
+                            @if (Model.LessExpensiveTravels.First().Destination.DestinationPicture?.Count() > 0)
+                            {
+                                @Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(3).Destination.DestinationPicture.First(), "img-circle")
+                            }
+                            else
+                            {
+
+                                <img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+
+                            }
+
+                            @*<img src="~/Content/Images/pisa.jpg" alt="Pisa" style="width:100%">*@
                             <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(3).Destination.City</span>
                             <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(3).PricePerPerson)</span>
                         </div>
@@ -85,7 +134,19 @@
                     <div class="w3-half w3-margin-bottom">
 
                         <div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(4).ID">
-                            <img src="~/Content/Images/paris.jpg" alt="Paris" style="width:100%">
+
+                            @if (Model.LessExpensiveTravels.First().Destination.DestinationPicture?.Count() > 0)
+                            {
+                                @Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(4).Destination.DestinationPicture.First(), "img-circle")
+                            }
+                            else
+                            {
+
+                                <img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+
+                            }
+
+                            @*<img src="~/Content/Images/paris.jpg" alt="Paris" style="width:100%">*@
                             <span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(4).Destination.City</span>
                             <span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(4).PricePerPerson)</span>
                         </div>
@@ -150,15 +211,15 @@
 
     <script>
 
-    //Cookie
-    $(document).ready(function () {
-    setTimeout(function () {
-    $("#cookieConsent").fadeIn(200);
-    }, 4000);
-    $("#closeCookieConsent, .cookieConsentOK").click(function () {
-    $("#cookieConsent").fadeOut(200);
-    });
-    });
+        //Cookie
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#cookieConsent").fadeIn(200);
+            }, 4000);
+            $("#closeCookieConsent, .cookieConsentOK").click(function () {
+                $("#cookieConsent").fadeOut(200);
+            });
+        });
 
     </script>
 }
