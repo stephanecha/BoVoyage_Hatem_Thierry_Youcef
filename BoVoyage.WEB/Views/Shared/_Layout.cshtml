@@ -1,6 +1,6 @@
 ﻿@{
-    var customer = Session["CUSTOMER"] as BoVoyage.WEB.Models.CustomerViewModel;
-    //var backofficer = Session["BACKOFFICER"] as BoVoyage.WEB.Models.AuthenticationLoginViewModel; // Fx pour faire apparaitre le menu du backoffice à verifirer
+	var customer = Session["CUSTOMER"] as BoVoyage.WEB.Models.CustomerViewModel;
+	//var backofficer = Session["BACKOFFICER"] as BoVoyage.WEB.Models.AuthenticationLoginViewModel; // Fx pour faire apparaitre le menu du backoffice à verifirer
 }
 
 @{
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="~/Scripts/CookieBar.css" rel="stylesheet"/>
+    <link href="~/Scripts/CookieBar.css" rel="stylesheet" />
     @Styles.Render("~/Content/site")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="icon" href="~/Content/Images/flagSite.png" />
@@ -27,48 +27,48 @@
             position: relative;
         }
 
-        .affix {
-            top: 0;
-            width: 100%;
-            z-index: 9999 !important;
-        }
+		.affix {
+			top: 0;
+			width: 100%;
+			z-index: 9999 !important;
+		}
 
-        .navbar {
-            margin-bottom: 0px;
-        }
+		.navbar {
+			margin-bottom: 0px;
+		}
 
-        .affix ~ .container-fluid {
-            position: relative;
-            top: 50px;
-        }
+		.affix ~ .container-fluid {
+			position: relative;
+			top: 50px;
+		}
 
-        #section1 {
-            padding-top: 50px;
-            height: 500px;
-            color: #fff;
-            background-color: #1E88E5;
-        }
+		#section1 {
+			padding-top: 50px;
+			height: 500px;
+			color: #fff;
+			background-color: #1E88E5;
+		}
 
-        #section2 {
-            padding-top: 50px;
-            height: 500px;
-            color: #fff;
-            background-color: #673ab7;
-        }
+		#section2 {
+			padding-top: 50px;
+			height: 500px;
+			color: #fff;
+			background-color: #673ab7;
+		}
 
-        #section3 {
-            padding-top: 50px;
-            height: 500px;
-            color: #fff;
-            background-color: #ff9800;
-        }
+		#section3 {
+			padding-top: 50px;
+			height: 500px;
+			color: #fff;
+			background-color: #ff9800;
+		}
 
-        #section41 {
-            padding-top: 50px;
-            height: 500px;
-            color: #fff;
-            background-color: #00bcd4;
-        }
+		#section41 {
+			padding-top: 50px;
+			height: 500px;
+			color: #fff;
+			background-color: #00bcd4;
+		}
 
         #section42 {
             padding-top: 50px;
@@ -78,11 +78,8 @@
         }
     </style>*@
 </head>
-    
+
 <body class="w3-light-grey" data-spy="scroll" data-target=".navbar" data-offset="20">
-
-
-
 
     @*// TODO ramener le footer en arriere plan pour affichage correct du contentBox, retravailler le menu une fois reduit, ainsi que le contentBox*@
     <!-- Navigation Bar -->
@@ -128,8 +125,8 @@
                                     </div>
                                 </li>
 
-                                <li><a href="@Url.Action("logout", "Authentification")"><i class="glyphicon glyphicon-log-out"></i></a></li>
-                            </ul>
+								<li><a href="@Url.Action("logout", "Authentification")"><i class="glyphicon glyphicon-log-out"></i></a></li>
+							</ul>
 
                         }
                         @*// Pour afficher les liens dans la bar nav lorsqu'il s'agit d'un backofficer/commercial'
@@ -138,7 +135,6 @@
                                 <a href="@Url.Action("index", "dashboard", new { area="backoffice" })" class="w3-bar-item w3-button w3-right w3-hover-blue w3-text-grey">BackOffice</a>
                             }*@
                     </li>
-
                 </ul>
 
                 @*// Login icon*@
@@ -146,15 +142,14 @@
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>*@
-
-
             </div>
         </div>
     </nav>
 
+	@Html.Partial("_PartialDisplayMessage")
 
-    @*// TODO ancienne navbar*@
-    @*<nav data-spy="affix" data-offset-top="167">
+	@*// TODO ancienne navbar*@
+	@*<nav data-spy="affix" data-offset-top="167">
 
             <div class="w3-bar w3-light-grey w3-mlarge w3-opacity w3-hover-opacity-off container-fluid">
                 <a href="@Url.Action("index", "home")" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-plane w3-margin-right"></i>BoVoyage</b></a>
@@ -204,12 +199,12 @@
         <img class="w3-image img-responsive" src="~/Content/Images/maldives.jpg" alt="London" width="1500" height="700">
         <div class="w3-display-middle" style="width:65%">
 
-            <!-- ContentBox title -->
-            <div class="w3-bar w3-black">
-                <div class="w3-bar-item w3-red">
-                    <i class="fa fa-plane w3-margin-right"></i>@ViewBag.Title
-                </div>
-            </div>
+			<!-- ContentBox title -->
+			<div class="w3-bar w3-black">
+				<div class="w3-bar-item w3-red">
+					<i class="fa fa-plane w3-margin-right"></i>@ViewBag.Title
+				</div>
+			</div>
 
             <!-- ContentBox -->
             <div id="Flight" class="w3-white w3-opacity w3-card w3-hover-opacity-off" style="display:flex">
@@ -220,25 +215,24 @@
         </div>
     </header>
 
-    <!-- Page content -->
-    <div class="w3-content" style="max-width:1100px;">
-        @Html.Partial("_PartialDisplayMessage")
-        @RenderBody()
+	<!-- Page content -->
+	<div class="w3-content" style="max-width:1100px;">
+		@RenderBody()
 
-        <!-- Good offers -->
-        @RenderSection("GoodOffers", required: false)
+		<!-- Good offers -->
+		@RenderSection("GoodOffers", required: false)
 
-        <!-- Explore Nature -->
-        @RenderSection("SoonOffers", required: false)
+		<!-- Explore Nature -->
+		@RenderSection("SoonOffers", required: false)
 
-        <!-- Newsletter -->
-        @RenderSection("Newsletter", required: false)
+		<!-- Newsletter -->
+		@RenderSection("Newsletter", required: false)
 
-        <!-- Personal mail booking -->
-        @RenderSection("MailBooking", required: false)
+		<!-- Personal mail booking -->
+		@RenderSection("MailBooking", required: false)
 
-        <!-- End page content -->
-    </div>
+		<!-- End page content -->
+	</div>
 
     <!-- Footer -->
     <div class="w3-container">
@@ -253,15 +247,15 @@
                 <i class="fa fa-linkedin w3-hover-opacity"></i>
             </div>
 
-            <a href="@Url.Action("faq", "home")" class="w3-bar-item w3-button w3-text-red" title="FAQ">FAQ</a>
-            <a href="@Url.Action("CGV", "home")" class="w3-bar-item w3-button w3-text-red" title="CG">Condition Générales de Vente</a>
-            <a href="@Url.Action("Mentions", "home")" class="w3-bar-item w3-button w3-text-red" title="Legacy">Mentions Légales</a>
-            <a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red" title="Contact">Contact</a>
-            <a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red" title="About">A-propos</a>
+			<a href="@Url.Action("faq", "home")" class="w3-bar-item w3-button w3-text-red" title="FAQ">FAQ</a>
+			<a href="@Url.Action("CGV", "home")" class="w3-bar-item w3-button w3-text-red" title="CG">Condition Générales de Vente</a>
+			<a href="@Url.Action("Mentions", "home")" class="w3-bar-item w3-button w3-text-red" title="Legacy">Mentions Légales</a>
+			<a href="@Url.Action("contact", "home")" class="w3-bar-item w3-button w3-text-red" title="Contact">Contact</a>
+			<a href="@Url.Action("about", "home")" class="w3-bar-item w3-button w3-text-red" title="About">A-propos</a>
 
-            <p>&copy; BoVoyage @DateTime.Now.Year</p>
-        </footer>
-    </div>
+			<p>&copy; BoVoyage @DateTime.Now.Year</p>
+		</footer>
+	</div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
