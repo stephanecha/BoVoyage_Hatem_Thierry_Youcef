@@ -168,6 +168,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\PictureHelper.cs" />
     <Compile Include="Models\AuthenticationLoginViewModel.cs" />
     <Compile Include="Models\Base\BasePersonViewModel.cs" />
     <Compile Include="Models\Base\BaseModelViewModel.cs" />
@@ -268,6 +269,7 @@
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
     <Content Include="Scripts\cldr\unresolved.js" />
+    <Content Include="Scripts\CookieBar.css" />
     <Content Include="Scripts\globalize.js" />
     <Content Include="Scripts\globalize\currency.js" />
     <Content Include="Scripts\globalize\date.js" />

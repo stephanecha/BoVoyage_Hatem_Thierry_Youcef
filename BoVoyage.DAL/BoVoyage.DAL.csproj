@@ -60,10 +60,12 @@
     <Compile Include="Data\DbDataTravel.cs" />
     <Compile Include="Data\DbDataTravelAgency.cs" />
     <Compile Include="Data\DbDataTraveler.cs" />
+    <Compile Include="Data\DbDataDestinationPicture.cs" />
     <Compile Include="Data\Interface\IDataAuthentification.cs" />
     <Compile Include="Data\Interface\IDataBookingFile.cs" />
     <Compile Include="Data\Interface\IDataCustomer.cs" />
     <Compile Include="Data\Interface\IDataDestination.cs" />
+    <Compile Include="Data\Interface\IDataDestinationPicture.cs" />
     <Compile Include="Data\Interface\IDataInsurance.cs" />
     <Compile Include="Data\Interface\IDataInsuranceType.cs" />
     <Compile Include="Data\Interface\IDataSalesManager.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Entites\BookingFile.cs" />
     <Compile Include="Entites\Customer.cs" />
     <Compile Include="Entites\Destination.cs" />
+    <Compile Include="Entites\DestinationPicture.cs" />
     <Compile Include="Entites\Enum\BookingFileCancellationReason.cs" />
     <Compile Include="Entites\Enum\BookingFileState.cs" />
     <Compile Include="Entites\Enum\DiscountTypeEnum.cs" />
@@ -92,6 +95,10 @@
     <Compile Include="Migrations\201810130346449_DeleteCreatedOn.cs" />
     <Compile Include="Migrations\201810130346449_DeleteCreatedOn.Designer.cs">
       <DependentUpon>201810130346449_DeleteCreatedOn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810141730095_AjoutDesPictures.cs" />
+    <Compile Include="Migrations\201810141730095_AjoutDesPictures.Designer.cs">
+      <DependentUpon>201810141730095_AjoutDesPictures.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810130346449_DeleteCreatedOn.resx">
       <DependentUpon>201810130346449_DeleteCreatedOn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810141730095_AjoutDesPictures.resx">
+      <DependentUpon>201810141730095_AjoutDesPictures.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

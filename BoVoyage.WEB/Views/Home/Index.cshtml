@@ -4,6 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<div id="cookieConsent">
+    <div id="closeCookieConsent">x</div>
+    Ce site utilise des cookies. En poursuivant votre navigation sur ce site,
+    vous acceptez l’utilisation des cookies. <a href="#" target="_blank">En savoir plus</a>. <a class="cookieConsentOK">J'accepte</a>
+</div>
+
+
 @section ContentBox{
     <h3>Voyagez à travers le monde avec BoVoyage</h3>
     <div class="w3-row-padding" style="margin:0 -16px;">
@@ -16,9 +24,9 @@
             <input class="w3-input w3-border" type="text" placeholder="Arriving at">
         </div>
     </div>
-        <div>
-            <p><button class="w3-button w3-dark-grey">Rechercher une date</button></p>
-        </div>
+    <div>
+        <p><button class="w3-button w3-dark-grey">Rechercher une date</button></p>
+    </div>
 }
 
 @section GoodOffers

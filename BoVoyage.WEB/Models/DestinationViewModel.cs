@@ -1,4 +1,5 @@
 ﻿using BoVoyage.COMMON.Tools;
+using BoVoyage.DAL.Entites;
 using BoVoyage.WEB.Models.Base;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -36,7 +37,11 @@ namespace BoVoyage.WEB.Models
 		[AllowHtml]
 		public string Description { get; set; }
 
-		[Display(Name = "Voyage(s)")]
+        [Display(Name = "Image(s)")]
+        public ICollection<DestinationPicture> Pictures { get; set; }
+
+
+        [Display(Name = "Voyage(s)")]
 		public ICollection<TravelViewModel> Travels { get; set; }
 
 		// voir model depuis depot gitHub Archery dans les model

@@ -235,18 +235,18 @@
         <!-- End page content -->
     </div>
 
-    <!-- Footer -->
-    <div class="w3-panel">
-        <footer class="w3-container w3-center w3-opacity w3-margin-bottom w3-black">
-            <h5>Retrouvez-nous sur</h5>
-            <div class="w3-xlarge w3-padding-16">
-                <i class="fa fa-facebook-official w3-hover-opacity"></i>
-                <i class="fa fa-instagram w3-hover-opacity"></i>
-                <i class="fa fa-snapchat w3-hover-opacity"></i>
-                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-                <i class="fa fa-twitter w3-hover-opacity"></i>
-                <i class="fa fa-linkedin w3-hover-opacity"></i>
-            </div>
+	<!-- Footer -->
+	<div class="w3-container">
+		<footer class="w3-container w3-center w3-opacity w3-margin-bottom w3-black">
+			<h5>Retrouvez-nous sur</h5>
+			<div class="w3-xlarge w3-padding-16">
+				<i class="fa fa-facebook-official w3-hover-opacity"></i>
+				<i class="fa fa-instagram w3-hover-opacity"></i>
+				<i class="fa fa-snapchat w3-hover-opacity"></i>
+				<i class="fa fa-pinterest-p w3-hover-opacity"></i>
+				<i class="fa fa-twitter w3-hover-opacity"></i>
+				<i class="fa fa-linkedin w3-hover-opacity"></i>
+			</div>
 
             <a href="@Url.Action("faq", "home")" class="w3-bar-item w3-button w3-text-red" title="FAQ">FAQ</a>
             <a href="@Url.Action("CGV", "home")" class="w3-bar-item w3-button w3-text-red" title="CG">Condition Générales de Vente</a>
@@ -259,29 +259,41 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/cldr.js"></script>
-    <script src="~/Scripts/globalize.js"></script>
-    <script src="~/Scripts/jquery.validate.globalize.js"></script>
-    <script>
-        // Tabs
-        function openLink(evt, linkName) {
-            var i, x, tablinks;
-            x = document.getElementsByClassName("myLink");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < x.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-            }
-            document.getElementById(linkName).style.display = "block";
-            evt.currentTarget.className += " w3-red";
-        }
-        // Click on the first tablink on load
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	<script src="~/Scripts/cldr.js"></script>
+	<script src="~/Scripts/globalize.js"></script>
+	<script src="~/Scripts/jquery.validate.globalize.js"></script>
+	<script>
+		// Tabs
+		function openLink(evt, linkName) {
+			var i, x, tablinks;
+			x = document.getElementsByClassName("myLink");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablink");
+			for (i = 0; i < x.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+			}
+			document.getElementById(linkName).style.display = "block";
+			evt.currentTarget.className += " w3-red";
+		}
+		// Click on the first tablink on load
         document.getElementsByClassName("tablink")[0].click();
-    </script>
-    @RenderSection("Scripts", required: false)
+
+
+        //Cookie
+        $(document).ready(function () {
+            setTimeout(function () {
+                $("#cookieConsent").fadeIn(200);
+            }, 4000);
+            $("#closeCookieConsent, .cookieConsentOK").click(function () {
+                $("#cookieConsent").fadeOut(200);
+            });
+        });
+
+	</script>
+	@RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -33,7 +33,11 @@ namespace BoVoyage.DAL.Entites
 
 		public ICollection<Travel> Travels { get; set; }
 
-		[NotMapped]
+        [Display(Name = "Images")]
+        public ICollection<DestinationPicture> DestinationPicture { get; set; }
+
+
+        [NotMapped]
 		public string FullName
 		{
 			get
