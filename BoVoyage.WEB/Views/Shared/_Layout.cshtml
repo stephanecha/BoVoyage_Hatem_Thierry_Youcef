@@ -199,6 +199,7 @@
         </nav>*@
 
     <!-- Header -->
+
     <header class="w3-display-container w3-content" style="max-width:1500px">
         <img class="w3-image img-responsive" src="~/Content/Images/maldives.jpg" alt="London" width="1500" height="700">
         <div class="w3-display-middle" style="width:65%">
@@ -285,17 +286,7 @@
         // Click on the first tablink on load
         document.getElementsByClassName("tablink")[0].click();
 
-
-        //Cookie
-        $(document).ready(function () {
-            setTimeout(function () {
-                $("#cookieConsent").fadeIn(200);
-            }, 4000);
-            $("#closeCookieConsent, .cookieConsentOK").click(function () {
-                $("#cookieConsent").fadeOut(200);
-            });
-        });
-
+        
     </script>
     @RenderSection("Scripts", required: false)
 </body>
