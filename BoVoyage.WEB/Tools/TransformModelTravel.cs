@@ -20,7 +20,8 @@ namespace BoVoyage.WEB.Tools
 					DestinationID = x.DestinationID,
 					Destination = x.Destination,
 					TravelAgencyID = x.TravelAgencyID,
-					TravelAgency = x.TravelAgency
+					TravelAgency = x.TravelAgency,
+					BookingFiles = x.BookingFiles
 				}).ToList());
 			return agencesViewModel;
 		}
@@ -37,7 +38,8 @@ namespace BoVoyage.WEB.Tools
 				DestinationID = travel.DestinationID,
 				Destination = travel.Destination,
 				TravelAgencyID = travel.TravelAgencyID,
-				TravelAgency = travel.TravelAgency
+				TravelAgency = travel.TravelAgency,
+				BookingFiles = travel.BookingFiles
 			};
 			return travelViewModel;
 		}
@@ -52,7 +54,8 @@ namespace BoVoyage.WEB.Tools
 				PricePerPerson = travelViewModel.PricePerPerson,
 				AvailablePlaces = travelViewModel.AvailablePlaces,
 				DestinationID = travelViewModel.DestinationID,
-				TravelAgencyID = travelViewModel.TravelAgencyID
+				TravelAgencyID = travelViewModel.TravelAgencyID,
+				BookingFiles = travelViewModel.BookingFiles
 			};
 			return travel;
 		}
@@ -68,7 +71,8 @@ namespace BoVoyage.WEB.Tools
 					PricePerPerson = x.PricePerPerson,
 					AvailablePlaces = x.AvailablePlaces,
 					DestinationID = x.DestinationID,
-					TravelAgencyID = x.TravelAgencyID
+					TravelAgencyID = x.TravelAgencyID,
+					BookingFiles = x.BookingFiles
 				}).ToList());
 			return travel;
 		}

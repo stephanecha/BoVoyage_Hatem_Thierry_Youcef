@@ -1,105 +1,108 @@
 ﻿@model BoVoyage.WEB.Models.DestinationViewModel
 
 @{
-    var customer = Session["CUSTOMER"] as BoVoyage.WEB.Models.CustomerViewModel;
+	var customer = Session["CUSTOMER"] as BoVoyage.WEB.Models.CustomerViewModel;
 }
 
 @{
-    ViewBag.Title = "Details";
+	ViewBag.Title = "Details";
 }
 
 @section ContentBox{
 
-    <div>
+	<div>
 
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Continent)
-            </dt>
+		<dl class="dl-horizontal">
+			<dt>
+				@Html.DisplayNameFor(model => model.Continent)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Continent)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.Continent)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Country)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.Country)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Country)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.Country)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Area)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.Area)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Area)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.Area)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.City)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.City)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.City)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.City)
+			</dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
+			<dt>
+				@Html.DisplayNameFor(model => model.Description)
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-        </dl>
-    </div>
+			<dd>
+				@Html.DisplayFor(model => model.Description)
+			</dd>
+		</dl>
+	</div>
 
-    <table class="w3-table-all">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Travels.FirstOrDefault().DepartureDate)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.Travels.FirstOrDefault().ReturnDate)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.Travels.FirstOrDefault().PricePerPerson)
-            </th>
-            <th></th>
-        </tr>
-
-	@foreach (var item in Model.Travels)
-	{
+	<table class="w3-table-all">
 		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.DepartureDate)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.ReturnDate)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.PricePerPerson)
-			</td>
-			@if (customer == null)
-			{
-				<td>
-					@Html.ActionLink("Réserver", "Create", "Reservations", new { @class = "btn btn-info disabled" })
-				</td>
-			}
-			else
-			{
-				<td>
-					@Html.ActionLink("Réserver", "Create", "Reservations", new { customer = customer.ID, travel = item.ID }, new { @class = "btn btn-info" })
-				</td>
-			}
-		</tr>
-	}
-</table>
+			<th>
+				@Html.DisplayNameFor(model => model.Travels.FirstOrDefault().DepartureDate)
+			</th>
 
-    <div>
-        @Html.ActionLink("Retour à la liste", "Index")
-    </div>
-    }
+			<th>
+				@Html.DisplayNameFor(model => model.Travels.FirstOrDefault().ReturnDate)
+			</th>
+
+			<th>
+				@Html.DisplayNameFor(model => model.Travels.FirstOrDefault().PricePerPerson)
+			</th>
+			<th></th>
+		</tr>
+
+		@foreach (var item in Model.Travels)
+		{
+			if (item.AvailablePlaces > 0)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.DepartureDate)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.ReturnDate)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.PricePerPerson)
+					</td>
+					@if (customer == null)
+					{
+						<td>
+							@Html.ActionLink("Réserver", "Create", "Reservations", new { @class = "btn btn-info disabled" })
+						</td>
+					}
+					else
+					{
+						<td>
+							@Html.ActionLink("Réserver", "Create", "Reservations", new { customer = customer.ID, travel = item.ID }, new { @class = "btn btn-info" })
+						</td>
+					}
+				</tr>
+			}
+		}
+	</table>
+
+	<div>
+		@Html.ActionLink("Retour à la liste", "Index")
+	</div>
+}

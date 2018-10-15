@@ -2,116 +2,146 @@
 @using BoVoyage.WEB.Helpers;
 
 @{
-    ViewBag.Title = "Modification d'une destination";
+	ViewBag.Title = "Modification d'une destination";
 }
 
 <h2>Modification d'une destination</h2>
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
+	@Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
+	<div class="form-horizontal">
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		@Html.HiddenFor(model => model.ID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Continent, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Continent, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Continent, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		@if (Model.Travels != null && Model.Travels.Count > 0)
+		{
+			<div class="form-group">
+				@Html.LabelFor(model => model.Continent, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Continent, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+					@Html.ValidationMessageFor(model => model.Continent, "", new { @class = "text-danger" })
+				</div>
+			</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
-            </div>
-        </div>
+			<div class="form-group">
+				@Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+					@Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+				</div>
+			</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
-            </div>
-        </div>
+			<div class="form-group">
+				@Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+					@Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+				</div>
+			</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
-            </div>
-        </div>
+			<div class="form-group">
+				@Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+					@Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+				</div>
+			</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
+			<div class="form-group">
+				@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+					@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+				</div>
+			</div>
+		}
+		else
+		{
+			<div class="form-group">
+				@Html.LabelFor(model => model.Continent, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Continent, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Continent, "", new { @class = "text-danger" })
+				</div>
+			</div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Enregistrer" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+			<div class="form-group">
+				@Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+				</div>
+			</div>
+		}
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Enregistrer" class="btn btn-default" />
+			</div>
+		</div>
+	</div>
 }
-
 
 <h3>Images</h3>
 <form action="@Url.Action("AddPicture","Destinations")" method="post" enctype="multipart/form-data">
-    @Html.HiddenFor(model => model.ID)
-    <div class="form-group">
-        <label for="if">Fichier</label>
-        <input type="file" id="if" name="picture" /> @*picture sera le paramètre dans la méthode post*@
-    </div>
-    <button type="submit" class="btn btn-default">Enregistrer</button>
+	@Html.HiddenFor(model => model.ID)
+	<div class="form-group">
+		<label for="if">Fichier</label>
+		<input type="file" id="if" name="picture" /> @*picture sera le paramètre dans la méthode post*@
+	</div>
+	<button type="submit" class="btn btn-default">Enregistrer</button>
 </form>
 <div class="row">
-    
 
-
-
-
-@if (Model.Pictures != null)
-{
-    foreach (var picture in Model.Pictures)
-    {
-        <div class="col-md-3" id="div-@picture.ID">
-            <p>@picture.Nom <a href="#" class="delete" data-id="@picture.ID"><i class="glyphicon glyphicon-trash"></i></a></p>
-            @*@<img src="data:@picture.ContentType;base64,@Convert.ToBase64String(picture.Content)" class="img-thumbnail"/>*@
-            @Html.PictureTournament(picture, "img-thumbnail")
-        </div>
-    }
-}
-
-
+	@if (Model.Pictures != null)
+	{
+		foreach (var picture in Model.Pictures)
+		{
+			<div class="col-md-3" id="div-@picture.ID">
+				<p>@picture.Nom <a href="#" class="delete" data-id="@picture.ID"><i class="glyphicon glyphicon-trash"></i></a></p>
+				@*@<img src="data:@picture.ContentType;base64,@Convert.ToBase64String(picture.Content)" class="img-thumbnail" />*@
+				@Html.PictureTournament(picture, "img-thumbnail")
+			</div>
+		}
+	}
 </div>
 
-
-
-
-
-
 <div>
-    @Html.ActionLink("Retour à la liste", "Index")
+	@Html.ActionLink("Retour à la liste", "Index")
 </div>
 
 @section Scripts {
-    <script src="~/Scripts/tinymce/tinymce.js"></script>
-    <script>
+	<script src="~/Scripts/tinymce/tinymce.js"></script>
+	<script>
         $(function () {
             tinymce.init({ selector: '#Description' });
-
-
-
 
         $('a.delete').click(function () {
                 var idPicture = $(this).data("id");
@@ -129,10 +159,5 @@
             });
 
         })
-
-
-
-
-
-    </script>
+	</script>
 }

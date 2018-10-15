@@ -64,6 +64,24 @@ namespace BoVoyage.WEB.Controllers
 				// TODO: Add insert logic here
 				if (ModelState.IsValid)
 				{
+					var getTravel = this.serviceTravel.GetTravelWithDestinationIncluded(travel);
+					if (getTravel == null)
+						return HttpNotFound();
+					if (reservationViewModel.NbTraveler > getTravel.AvailablePlaces)
+					{
+						Display("Il n'y a que " + getTravel.AvailablePlaces + " place(s) disponible(s) !", MessageType.ERROR);
+						var getCustomer = this.serviceCustomer.GetCustomerWithAuthentificationInclude(customer);
+						if (getCustomer == null)
+							return HttpNotFound();
+						var customerViewModel = TransformModelCustomer.CustomerToModelView(getCustomer);
+						reservationViewModel.CustomerViewModel = customerViewModel;
+
+						var travelViewModel = TransformModelTravel.TravelToModelView(getTravel);
+						reservationViewModel.TravelViewModel = travelViewModel;
+
+						ViewBag.Insurances = new MultiSelectList(this.serviceInsurance.GetAllInsurancesWithTypesIncluded(), "ID", "FullName");
+						return View(reservationViewModel);
+					}
 					//Création du Bookingfile
 					var bookingfile = new BookingFile()
 					{
@@ -94,11 +112,12 @@ namespace BoVoyage.WEB.Controllers
 							traveler
 						};
 					}
+					getTravel.AvailablePlaces -= bookingfile.NbTraveler;
 
+					this.serviceTravel.UpdateTravel(getTravel);
 					this.serviceBookingFile.AddBookingFile(bookingfile, insurancesID);
 					bookingfile = this.serviceBookingFile.GetBookingFileWithInsurancesIncluded(bookingfile.SequentialNb);
 
-					var getTravel = this.serviceTravel.GetTravel(travel);
 					bookingfile.PricePerPerson = bookingfile.Insurances == null ? getTravel.PricePerPerson : bookingfile.Insurances.Sum(x => x.Price) + getTravel.PricePerPerson;
 
 					//Si voyageur et client unique fait avancé le statut du dossier

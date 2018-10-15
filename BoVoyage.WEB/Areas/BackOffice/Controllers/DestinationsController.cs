@@ -17,14 +17,12 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 	{
 		private readonly ServiceDestination serviceDestination;
 
-        private readonly ServiceDestinationPicture serviceDestinationPicture;
+		private readonly ServiceDestinationPicture serviceDestinationPicture;
 
-
-        public DestinationsController()
+		public DestinationsController()
 		{
 			this.serviceDestination = new ServiceDestination(new DbDataDestination());
 			this.serviceDestinationPicture = new ServiceDestinationPicture(new DbDataDestinationPicture());
-
 		}
 
 		// GET: BackOffice/Destinations
@@ -71,7 +69,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 		// GET: BackOffice/Destinations/Edit/5
 		public ActionResult Edit(int id)
 		{
-			Destination destination = this.serviceDestination.GetDestination(id);
+			Destination destination = this.serviceDestination.GetDestinationWithTravelsIncluded(id);
 			if (destination == null)
 				return HttpNotFound();
 			DestinationViewModel destinationViewModel = TransformModelDestination.DestinationToModelView(destination);
@@ -110,48 +108,45 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 			}
 		}
 
+		public ActionResult AddPicture(HttpPostedFileBase picture, int id)
+		{
+			if (picture?.ContentLength > 0)
+			{
+				var tp = new DestinationPicture();
+				tp.ContentType = picture.ContentType;
+				tp.Nom = picture.FileName;
+				tp.DestinationID = id;
+				using (var reader = new BinaryReader(picture.InputStream))
+				{
+					tp.Content = reader.ReadBytes(picture.ContentLength);
+				}
+				serviceDestinationPicture.AddDestinationPicture(tp);
 
-        public ActionResult AddPicture(HttpPostedFileBase picture, int id)
-        {
-            if (picture?.ContentLength > 0)
-            {
-                var tp = new DestinationPicture();
-                tp.ContentType = picture.ContentType;
-                tp.Nom = picture.FileName;
-                tp.DestinationID = id;
-                using (var reader = new BinaryReader(picture.InputStream))
-                {
-                    tp.Content = reader.ReadBytes(picture.ContentLength);
-                }
-                serviceDestinationPicture.AddDestinationPicture(tp);
+				return RedirectToAction("Edit", "Destinations", new { id = id });
+			}
+			return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+		}
 
-                return RedirectToAction("Edit", "Destinations", new { id = id });
+		[HttpPost]
+		public ActionResult DeletePicture(int? id)
+		{
+			if (!id.HasValue)
+				return HttpNotFound();
 
-            }
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        }
+			var picture = new DestinationPicture();
+			picture.ID = id.Value;
+			serviceDestinationPicture.DeleteDestinationPicture(id.Value);
 
-        [HttpPost]
-        public ActionResult DeletePicture(int? id)
-        {
-            if (!id.HasValue)
-                return HttpNotFound();
+			if (picture == null)
+				return HttpNotFound();
 
-            var picture = new DestinationPicture();
-            picture.ID = id.Value;
-            serviceDestinationPicture.DeleteDestinationPicture(id.Value);
+			//db.TournamentPictures.Remove(picture);
+			//db.SaveChanges();
+			return Json(picture);
+		}
 
-            if (picture == null)
-                return HttpNotFound();
-
-            //db.TournamentPictures.Remove(picture);
-            //db.SaveChanges();
-            return Json(picture);
-        }
-
-
-        // GET: BackOffice/Destinations/Delete/5
-        public ActionResult Delete(int id)
+		// GET: BackOffice/Destinations/Delete/5
+		public ActionResult Delete(int id)
 		{
 			Destination destination = this.serviceDestination.GetDestination(id);
 			if (destination == null)

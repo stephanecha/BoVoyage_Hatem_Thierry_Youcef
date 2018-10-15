@@ -21,7 +21,7 @@ namespace BoVoyage.BUSINESS.Services
 
 		public IEnumerable<Destination> GetAllDestinationsWithTravelsNotNull()
 		{
-			return this.dataDestination.GetAllDestinationsWithTravelsIncluded().Where(x => x.Travels.Count > 0);
+			return this.dataDestination.GetAllDestinationsWithTravelsIncluded().Where(x => x.Travels.Count > 0 && x.Travels.Any(y => y.AvailablePlaces > 0));
 		}
 
 		public IEnumerable<Destination> GetAllDestinationsWithTravelsIncluded()
