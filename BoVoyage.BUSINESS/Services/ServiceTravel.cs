@@ -47,22 +47,22 @@ namespace BoVoyage.BUSINESS.Services
 
 		public void AddTravel(Travel travel)
 		{
-            //TODO: TESTS A FAIRE
-            if (travel.ReturnDate<travel.DepartureDate)
-            {
-                throw new Exception("Le retour doit avoir lieu après le départ");
-            }
+			//TODO: TESTS A FAIRE
+			if (travel.ReturnDate < travel.DepartureDate)
+			{
+				throw new Exception("Le retour doit avoir lieu après le départ");
+			}
 			this.dataTravel.AddTravel(travel);
 		}
 
 		public void UpdateTravel(Travel travel)
 		{
-            //TODO: TESTS A FAIRE
-            if (travel.ReturnDate < travel.DepartureDate)
-            {
-                throw new Exception("Le retour doit avoir lieu après le départ");
-            }
-            this.dataTravel.UpdateTravel(travel);
+			//TODO: TESTS A FAIRE
+			if (travel.ReturnDate < travel.DepartureDate)
+			{
+				throw new Exception("Le retour doit avoir lieu après le départ");
+			}
+			this.dataTravel.UpdateTravel(travel);
 		}
 
 		public void DeleteTravel(int id)
@@ -72,7 +72,7 @@ namespace BoVoyage.BUSINESS.Services
 
 		public IEnumerable<Travel> GetLessExpensiveTravels(int nb)
 		{
-			return this.dataTravel.GetAllTravelsWithDestinationIncluded()
+			return this.dataTravel.GetAllTravelsWithDestinationAndAgencyIncluded()
 									.Where(x => x.AvailablePlaces > 0)
 									.OrderByDescending(x => x.PricePerPerson)
 									.Take(nb);
@@ -80,7 +80,7 @@ namespace BoVoyage.BUSINESS.Services
 
 		public IEnumerable<Travel> GetSoonDepartureTravels(int nb)
 		{
-			return this.dataTravel.GetAllTravelsWithDestinationIncluded()
+			return this.dataTravel.GetAllTravelsWithDestinationAndAgencyIncluded()
 									.Where(x => x.AvailablePlaces > 0)
 									.OrderBy(x => x.DepartureDate)
 									.Take(nb);
@@ -88,13 +88,13 @@ namespace BoVoyage.BUSINESS.Services
 
 		public IEnumerable<Travel> GetTopCountriesTravels(int nb)
 		{
-			return this.dataTravel.GetAllTravelsWithDestinationIncluded();
+			return this.dataTravel.GetAllTravelsWithDestinationAndAgencyIncluded();
 		}
 
 		public IEnumerable<Travel> GetTravelsInLessThan15Days()
 		{
 			var today = DateTime.Now;
-			return this.dataTravel.GetAllTravelsWithDestinationIncluded()
+			return this.dataTravel.GetAllTravelsWithDestinationAndAgencyIncluded()
 									//.Where(x => x.DepartureDate < today.AddDays(15))
 									.OrderBy(x => x.DepartureDate);
 		}
