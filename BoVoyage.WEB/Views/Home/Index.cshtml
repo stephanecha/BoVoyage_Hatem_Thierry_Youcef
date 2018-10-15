@@ -45,18 +45,28 @@
 
 					@if (Model.LessExpensiveTravels.First().Destination.DestinationPicture?.Count() > 0)
 					{
-						@Html.PictureTournament(Model.LessExpensiveTravels.First().Destination.DestinationPicture.First(), "img-circle")
+						@Html.PictureTournament(Model.LessExpensiveTravels.First().Destination.DestinationPicture.First(), "", style: "width:100%")
 					}
 					else
 					{
 
-						<img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+						<img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100%">
 
 					}
 
 					@*<img src="~/Content/Images/cinqueterre.jpg" alt="Cinque Terre" style="width:100%">*@
 					<span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.First().Destination.City</span>
 					<span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.First().PricePerPerson)</span>
+					<span class="w3-display-topright w3-padding">
+						@if (customer == null)
+						{
+							@Html.ActionLink("Réserver", "Create", "Reservations", new { @class = "btn btn-info disabled" })
+						}
+						else
+						{
+							@Html.ActionLink("Réserver", "Create", "Reservations", new { customer = customer.ID, travel = @Model.LessExpensiveTravels.First().ID }, new { @class = "btn btn-info" })
+						}
+					</span>
 				</div>
 			</div>
 
@@ -67,14 +77,14 @@
 					<div class="w3-half w3-margin-bottom">
 						<div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(1).ID">
 
-							@if (Model.LessExpensiveTravels.First().Destination.DestinationPicture?.Count() > 0)
+							@if (Model.LessExpensiveTravels.ElementAt(1).Destination.DestinationPicture?.Count() > 0)
 							{
-								@Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(1).Destination.DestinationPicture.First(), "img-circle")
+								@Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(1).Destination.DestinationPicture.First(), "", style: "width:100%")
 							}
 							else
 							{
 
-								<img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+								<img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.ElementAt(1).Destination.Country" style="width:100%">
 
 							}
 
@@ -87,14 +97,14 @@
 					<div class="w3-half w3-margin-bottom">
 						<div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(2).ID">
 
-							@if (Model.LessExpensiveTravels.First().Destination.DestinationPicture?.Count() > 0)
+							@if (Model.LessExpensiveTravels.ElementAt(2).Destination.DestinationPicture?.Count() > 0)
 							{
-								@Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(2).Destination.DestinationPicture.First(), "img-circle")
+								@Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(2).Destination.DestinationPicture.First(), "", style: "width:100%")
 							}
 							else
 							{
 
-								<img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+								<img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.ElementAt(2).Destination.Country" style="width:100%">
 
 							}
 
@@ -111,14 +121,14 @@
 
 						<div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(3).ID">
 
-							@if (Model.LessExpensiveTravels.First().Destination.DestinationPicture?.Count() > 0)
+							@if (Model.LessExpensiveTravels.ElementAt(3).Destination.DestinationPicture?.Count() > 0)
 							{
-								@Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(3).Destination.DestinationPicture.First(), "img-circle")
+								@Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(3).Destination.DestinationPicture.First(), "", style: "width:100%")
 							}
 							else
 							{
 
-								<img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+								<img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.ElementAt(3).Destination.Country" style="width:100%">
 
 							}
 
@@ -132,14 +142,14 @@
 
 						<div class="w3-display-container" id="travel-@Model.LessExpensiveTravels.ElementAt(4).ID">
 
-							@if (Model.LessExpensiveTravels.First().Destination.DestinationPicture?.Count() > 0)
+							@if (Model.LessExpensiveTravels.ElementAt(4).Destination.DestinationPicture?.Count() > 0)
 							{
-								@Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(4).Destination.DestinationPicture.First(), "img-circle")
+								@Html.PictureTournament(Model.LessExpensiveTravels.ElementAt(4).Destination.DestinationPicture.First(), "", style: "width:100%")
 							}
 							else
 							{
 
-								<img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.First().Destination.Country" style="width:100px">
+								<img src="~/Content/Images/flagSite.png" alt="@Model.LessExpensiveTravels.ElementAt(4).Destination.Country" style="width:100%">
 
 							}
 
@@ -171,12 +181,12 @@
 
 					@if (item.Destination.DestinationPicture?.Count() > 0)
 					{
-						@Html.PictureTournament(item.Destination.DestinationPicture.First(), "img-circle")
+						@Html.PictureTournament(item.Destination.DestinationPicture.First(), "img-circle", style: "width:100%")
 					}
 					else
 					{
 
-						<img src="~/Content/Images/flagSite.png" alt="@item.Destination.Country" style="width:100px">
+						<img src="~/Content/Images/flagSite.png" alt="@item.Destination.Country" style="width:100%">
 
 					}
 
