@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<BoVoyage.WEB.Models.DestinationViewModel>
+@using BoVoyage.WEB.Helpers;
 
 @{
     ViewBag.Title = "Nos Destinations";
@@ -7,58 +8,70 @@
 
 @*// rendre le tableau responsive*@
 @section ContentBox{
-<div class="center-block table-responsive">
+    <div class="center-block table-responsive">
 
-    <h2>Nos destinations du moment</h2>
-    <table class="table w3-hoverable">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Continent)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Country)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Area)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+        <h2>Nos destinations du moment</h2>
+        <table class="table w3-hoverable">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Continent)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Country)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Area)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-
-                    <img src="~/Content/Images/cinqueterre.jpg" alt="Cinque Terre" style="width:100px">
-                </td>
-                <td>
-                    @Html.ActionLink("Voir les voyages disponibles", "Details", new { id = item.ID })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Continent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                </th>
+                <th></th>
             </tr>
-        }
-    </table>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Continent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.Raw(item.Description)
+                    </td>
+                    <td>
+                        <div class="thumbnail">
+                            @if (item.Pictures?.Count() > 0)
+                            {
+                                @Html.PictureTournament(item.Pictures.First(), "img-circle")
+                            }
+                            else
+                            {
+
+                                <img src="~/Content/Images/flagSite.png" alt="@item.Country" style="width:100px">
+
+                            }
+                        </div>
+
+
+                    </td>
+                    <td>
+                        @Html.ActionLink("Voir les voyages disponibles", "Details", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </table>
     </div>
-    }
+}
