@@ -3,10 +3,10 @@
 	Message message = TempData["MESSAGE"] as Message;
 }
 
-@section ContentBox{
+
     
 @if (message != null)
 {
 	<p class="alert alert-@message.MessageType">@message.Text</p>
 }
-    }
+    
