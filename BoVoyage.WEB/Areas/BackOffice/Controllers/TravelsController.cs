@@ -1,11 +1,11 @@
-﻿using BoVoyage.BUSINESS.Services;
+﻿using BoVoyage.BUSINESS.Exceptions;
+using BoVoyage.BUSINESS.Services;
 using BoVoyage.DAL.Data;
 using BoVoyage.DAL.Entites;
 using BoVoyage.WEB.Areas.BackOffice.Controllers.Base;
 using BoVoyage.WEB.Filters;
 using BoVoyage.WEB.Models;
 using BoVoyage.WEB.Tools;
-using System;
 using System.Web.Mvc;
 
 namespace BoVoyage.WEB.Areas.BackOffice.Controllers
@@ -76,15 +76,15 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 				}
 				// TODO: Add insert logic here
 			}
-            catch(Exception E)
-            {
-                Display(E.Message, MessageType.ERROR);
-                SelectList agenciesValues = new SelectList(this.serviceTravelAgency.GetAllTravelAgencies(), "ID", "Name");
-                ViewBag.AgenciesValues = agenciesValues;
-                SelectList destinationsValues = new SelectList(this.serviceDestination.GetAllDestinations(), "ID", "FullName");
-                ViewBag.DestinationsValues = destinationsValues;
-                return View();
-            }
+			catch (BusinessException E)
+			{
+				Display(E.Message, MessageType.ERROR);
+				SelectList agenciesValues = new SelectList(this.serviceTravelAgency.GetAllTravelAgencies(), "ID", "Name");
+				ViewBag.AgenciesValues = agenciesValues;
+				SelectList destinationsValues = new SelectList(this.serviceDestination.GetAllDestinations(), "ID", "FullName");
+				ViewBag.DestinationsValues = destinationsValues;
+				return View();
+			}
 			catch
 			{
 				Display("Erreur !", MessageType.ERROR);
@@ -94,7 +94,7 @@ namespace BoVoyage.WEB.Areas.BackOffice.Controllers
 				ViewBag.DestinationsValues = destinationsValues;
 				return View();
 			}
-        }
+		}
 
 		// GET: BackOffice/Travels/Edit/5
 		public ActionResult Edit(int id)

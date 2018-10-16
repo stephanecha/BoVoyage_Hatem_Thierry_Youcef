@@ -1,4 +1,5 @@
-﻿using BoVoyage.DAL.Data.Interface;
+﻿using BoVoyage.BUSINESS.Exceptions;
+using BoVoyage.DAL.Data.Interface;
 using BoVoyage.DAL.Entites;
 using System;
 using System.Collections.Generic;
@@ -47,20 +48,18 @@ namespace BoVoyage.BUSINESS.Services
 
 		public void AddTravel(Travel travel)
 		{
-			//TODO: TESTS A FAIRE
 			if (travel.ReturnDate < travel.DepartureDate)
 			{
-				throw new Exception("Le retour doit avoir lieu après le départ");
+				throw new BusinessException("Le retour doit avoir lieu après le départ");
 			}
 			this.dataTravel.AddTravel(travel);
 		}
 
 		public void UpdateTravel(Travel travel)
 		{
-			//TODO: TESTS A FAIRE
 			if (travel.ReturnDate < travel.DepartureDate)
 			{
-				throw new Exception("Le retour doit avoir lieu après le départ");
+				throw new BusinessException("Le retour doit avoir lieu après le départ");
 			}
 			this.dataTravel.UpdateTravel(travel);
 		}

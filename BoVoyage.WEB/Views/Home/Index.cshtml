@@ -11,7 +11,7 @@
 	vous acceptez l’utilisation des cookies. <a href="#" target="_blank">En savoir plus</a>. <a class="cookieConsentOK">J'accepte</a>
 </div>
 
-@section ContentBox{
+@*@section ContentBox{
 
 	<h3>Voyagez à travers le monde avec BoVoyage</h3>
 	<div class="w3-row-padding" style="margin:0 -16px;">
@@ -27,7 +27,7 @@
 	<div>
 		<p><button class="w3-button w3-dark-grey">Rechercher une date</button></p>
 	</div>
-}
+}*@
 
 @section GoodOffers
 {
@@ -91,6 +91,16 @@
 							@*<img src="~/Content/Images/newyork2.jpg" alt="New York" style="width:100%">*@
 							<span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(1).Destination.City</span>
 							<span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(1).PricePerPerson)</span>
+							<span class="w3-display-topright w3-padding">
+								@if (customer == null)
+								{
+									@Html.ActionLink("Réserver", "Create", "Reservations", new { @class = "btn btn-info disabled" })
+								}
+								else
+								{
+									@Html.ActionLink("Réserver", "Create", "Reservations", new { customer = customer.ID, travel = @Model.LessExpensiveTravels.ElementAt(1).ID }, new { @class = "btn btn-info" })
+								}
+							</span>
 						</div>
 					</div>
 
@@ -111,6 +121,16 @@
 							@*<img src="~/Content/Images/sanfran.jpg" alt="Sanfran" style="width:100%">*@
 							<span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(2).Destination.City</span>
 							<span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(2).PricePerPerson)</span>
+							<span class="w3-display-topright w3-padding">
+								@if (customer == null)
+								{
+									@Html.ActionLink("Réserver", "Create", "Reservations", new { @class = "btn btn-info disabled" })
+								}
+								else
+								{
+									@Html.ActionLink("Réserver", "Create", "Reservations", new { customer = customer.ID, travel = @Model.LessExpensiveTravels.ElementAt(2).ID }, new { @class = "btn btn-info" })
+								}
+							</span>
 						</div>
 					</div>
 				</div>
@@ -135,6 +155,16 @@
 							@*<img src="~/Content/Images/pisa.jpg" alt="Pisa" style="width:100%">*@
 							<span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(3).Destination.City</span>
 							<span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(3).PricePerPerson)</span>
+							<span class="w3-display-topright w3-padding">
+								@if (customer == null)
+								{
+									@Html.ActionLink("Réserver", "Create", "Reservations", new { @class = "btn btn-info disabled" })
+								}
+								else
+								{
+									@Html.ActionLink("Réserver", "Create", "Reservations", new { customer = customer.ID, travel = @Model.LessExpensiveTravels.ElementAt(3).ID }, new { @class = "btn btn-info" })
+								}
+							</span>
 						</div>
 					</div>
 
@@ -156,6 +186,16 @@
 							@*<img src="~/Content/Images/paris.jpg" alt="Paris" style="width:100%">*@
 							<span class="w3-display-bottomleft w3-padding w3-black">@Model.LessExpensiveTravels.ElementAt(4).Destination.City</span>
 							<span class="w3-display-bottomright w3-padding w3-black">@string.Format("{0:C}", @Model.LessExpensiveTravels.ElementAt(4).PricePerPerson)</span>
+							<span class="w3-display-topright w3-padding">
+								@if (customer == null)
+								{
+									@Html.ActionLink("Réserver", "Create", "Reservations", new { @class = "btn btn-info disabled" })
+								}
+								else
+								{
+									@Html.ActionLink("Réserver", "Create", "Reservations", new { customer = customer.ID, travel = @Model.LessExpensiveTravels.ElementAt(4).ID }, new { @class = "btn btn-info" })
+								}
+							</span>
 						</div>
 					</div>
 				</div>
@@ -212,7 +252,7 @@
 	}
 }
 
-@section Newsletter {
+@*@section Newsletter {
 	<div class="w3-container">
 		<div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
 			<h2>Récupérer nos meilleures offre en avance ?</h2>
@@ -235,7 +275,7 @@
 			<p><button class="w3-button w3-black w3-padding-large" type="submit">ENVOI</button></p>
 		</form>
 	</div>
-}
+}*@
 
 @section Scripts {
 
